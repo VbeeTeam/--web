@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        弹性布局，也叫flex布局
+        布局的根本手段是能够将元素同一行显示
+        布局的方法有： 
+            1. 将盒子设置为inline-block
+            2. 将盒子浮动，父元素清除浮动(要同一行显示的元素都必须设置浮动属性)
+            3. 利用flex属性，在父元素中设置display:flex;就可以将元素同一行显示
+    -->
+    <style>
+        /* 
+            在父元素中设置display:flex;就可以将子元素同一行显示
+            1. 设置了display:flex;的元素称之为容器(content)
+            2. 容器(content)内的每一个元素称之为子项目(item)
+            在弹性布局中有许多的css属性，有一些属性是设置在content中，有一些属性是设置在item中
+            设置在content中的属性，作用于所有的子元素
+            设置在item中的属性，作用于单个的子元素
+        */
+        .father{
+            width:1200px;
+            height:600px;
+            border:1px solid;
+            margin: 0 auto;
+            display:flex; /* 本元素中是以弹性布局方式来设置的 */
+            /* flex-wrap:wrap;/* 设置flex容器内的子项是否换行 */
+            /* flex-direction: row;/* 设置flex容器的主轴方向 */
+            /* flex-grow:number; 设置flex容器中空白区域的分配方式，将空白区域分隔成所有子元素的flex-grow的值总和份数 */
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items:flex-start;
+        }
+        .father>div{
+            width:130px;
+            height:130px;
+            
+        }
+        .father>div:nth-of-type(2n-1){background:yellowgreen}
+        .father>div:nth-of-type(2n){background:orangered}
+        /* .father>div:nth-of-type(3n){height:80px;}
+        .father>div:nth-of-type(3n-1){height:150px;}
+        .father>div:nth-of-type(7){align-self: flex-end;} */
+        /* .father>div:nth-of-type(7){order:-1}
+        .father>div:nth-of-type(10){order:-2} */
+        /* .father>div:nth-of-type(1){flex-grow:1;} 
+        .father>div:nth-of-type(2){flex-grow:2;}  */
+        /* .father>div:nth-of-type(1){flex-shrink:2;}  */
+        .father>div:nth-of-type(1){flex-basis:600px;} 
+    </style>
+    <div class="father">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <!-- <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div> -->
+        <!-- <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div> -->
+    </div>
+</body>
+</html>

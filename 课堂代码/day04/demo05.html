@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* .father{}
+        .father div{
+            width: 100px;
+            height: 100px;
+            border:1px solid blue;
+            display:inline-block;
+            margin:0 20px;
+            
+        } */
+        .father{
+            border:1px solid;
+            /* height:42px; */
+            /*给塌陷的父元素设置overflow，可以解决父元素塌陷问题*/
+            /* overflow:hidden; */
+
+        }
+        .clearfix::after{
+            content:"";
+            display:block;
+            clear:both;
+            /*::after伪对象选择器是行内元素*/
+        }
+        .father div{
+            border:1px solid blue;
+            height:40px;
+            line-height: 40px;
+        }
+        .father .son1{
+            background-color: blue;
+            float:right;
+        }
+        .father .son2{
+            background-color: green;
+            float:right;
+        }
+        .father .son3{
+            background-color: pink;
+            float:right;
+        }
+        .other{
+            width:200px;
+            height: 200px;
+            background-color: cyan;
+        }
+        
+    </style>
+    <div class="father clearfix">
+        <div class="son1">盒子1</div>
+        <div class="son2">盒子2</div>
+        <div class="son3">盒子3</div>
+        
+    </div>
+    <div class="other">你猜这是啥？</div>
+ 
+</body>
+</html>

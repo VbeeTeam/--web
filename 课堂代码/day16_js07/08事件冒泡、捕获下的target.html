@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#grandpaDiv{
+				width:400px;
+				height:400px;
+				background-color:red;
+			}	
+			#fatherDiv{
+				width:300px;
+				height:300px;
+				background-color:yellow;
+			}	
+			#meDiv{
+				width:200px;
+				height:200px;
+				background-color:pink;
+			}	
+		</style>
+	</head>
+	<body>
+		<div id="grandpaDiv">
+			<div id="fatherDiv">
+				<div id="meDiv">
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+
+function $(id){
+	return document.getElementById(id);
+}
+
+//target:真正的事件源，不会因为冒泡或者捕获而改变
+//currentTarget:当前事件源，冒泡冒到（捕获捕到）哪个元素，就是哪个元素
+
+window.onload = function(){
+
+	$("grandpaDiv").addEventListener("click",function(event){
+		var evt = event || window.event;
+		console.log("爷爷被点了");
+		console.log(this);
+		console.log("currentTarget:",evt.currentTarget);
+		console.log("target:",evt.target);
+	},true);
+	
+	$("fatherDiv").addEventListener("click",function(event){
+		var evt = event || window.event;
+		console.log("爸爸被点了");
+		console.log(this);
+		console.log("currentTarget:",evt.currentTarget);
+		console.log("target:",evt.target);
+	},true);
+	
+	$("meDiv").addEventListener("click",function(event){
+		var evt = event || window.event;
+		console.log("我被点了");
+		console.log(this);
+		console.log("currentTarget:",evt.currentTarget);
+		console.log("target:",evt.target);
+	},true);
+
+}
+</script>

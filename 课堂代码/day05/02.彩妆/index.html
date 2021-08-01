@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body,h4,ul,li,p{padding:0;margin:0;}
+        ul,li,ol{list-style: none;}
+        a{color:#333;text-decoration: none;}
+        a:hover{color:hotpink}
+        .side{
+            width:350px;
+            margin:0 auto;
+            /* background-color: #eff; */
+        }
+        .side>h4{
+            background-color:#e9185a;
+            color:white;
+            padding:10px 15px;
+        }
+        .side>ul>li:last-of-type>a{
+            border-bottom: none;
+        }
+        .side>ul>li>a{
+            display:block;
+            min-height:28px;
+            line-height: 28px;
+            /* padding:5px; */
+            border-bottom: 1px dashed #666;
+        }
+        .side>ul>li>a>span{
+            background:#000;
+            color:white;
+            border-radius: 10px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            display: inline-block;
+            margin:0 10px 0 5px;
+        }
+        .side>ul>li>a:hover>span{
+            background: hotpink;
+        }
+        .side>ul>li>a>div{
+            line-height: 1;
+            padding:5px;
+            text-align: center;
+            display:none;
+        }
+        .side>ul>li>a:hover>div{
+            display:block;
+        }
+    </style>
+    <div class="side">
+        <h4>大家都不喜欢的彩妆</h4>
+        <ul>
+            <li>
+                <a href="#">
+                    <span>1</span> Za姬芮新能真皙美白隔离霜 35g 
+                    <div>
+                        <img src="./image/icon-1.jpg" alt="">
+                        <p>￥62.00 最近69122人购买</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>2</span> 美宝莲精纯矿物奇妙新颜乳霜BB霜 30ml 
+                    <div>
+                        <img src="./image/icon-2.jpg" alt="">
+                        <p>￥89.00 最近13610人购买</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>3</span> 菲奥娜水漾CC霜40g 
+                    <div>
+                        <img src="./image/icon-3.jpg" alt="">
+                        <p>￥59.90 最近13403人购买</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>4</span> DHC 蝶翠诗橄榄卸妆油 200ml 
+                    <div>
+                        <img src="./image/icon-4.jpg" alt="">
+                        <p>￥169.00 最近16757人购买</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

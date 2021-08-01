@@ -1,0 +1,172 @@
+.header{
+    width: 1226px;
+    height:30px ;
+    background-color: white;
+    margin: 0 auto;
+    line-height: 30px;
+    font-size: 20px;
+}
+.header .header-left{
+    width: 50px;
+    float: left;
+}
+.header .header-right{
+
+    float: right;
+}
+.header .header-right a:link{
+    text-decoration: none;
+    color: black;
+} 
+.header .header-right a:hover{
+    text-decoration: none;
+    color: rgb(38, 16, 238);
+} 
+.header .header-right a:visited{
+    text-decoration: none;
+    color: rgb(38, 16, 238);
+} 
+.header .header-right a:active{
+    text-decoration: none;
+    color: rgb(38, 16, 238);
+} 
+.shang{
+    width: 1226px;
+    height: 614px;
+    background-color: gray;
+    border: #000000 1px solid;
+    margin: 0 auto;
+}
+.shang .left{
+    width: 234px;
+    height: 614px;
+    float: left;
+}
+.shang .left img{
+    width: 100%;
+}
+.shang .right li{
+    width: 234px;
+    height: 300px;
+    background-color:white;
+    font-weight: bolder;
+    color: black;
+    /* border: 1px red solid; */
+    margin-left: 14px;
+        float: right;
+}
+.shang .right li:nth-of-type(5){
+    margin-top: 14px;
+}
+.shang .right li:nth-of-type(6){
+    margin-top: 14px;
+}
+.shang .right li:nth-of-type(7){
+    margin-top: 14px;
+}
+.shang .right li:nth-of-type(8){
+    margin-top: 14px;
+}
+.shang .right li img{
+    width: 100%;
+}
+.shang .right li p{
+    color: gray;
+    font-size: 10px;
+    padding: 1.5px;
+}
+.shang .right li .p1{
+    color: red;
+    font-size: 20px;
+}
+.shang .right li s{
+    color: gray;
+    font-size: 10px;
+}
+.zhong{
+    width: 1226px;
+    height: 120px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.zhong img{
+    width: 100%;
+}
+.xia{
+    width: 1226px;
+    height: 614px;
+    background-color: gray;
+    margin: 0 auto;
+}
+.xia ul li{
+    width: 234px;
+    height: 300px;
+    background-color: white;
+    float: left;
+    margin-right: 14px;
+}
+.xia ul li:nth-of-type(5n){
+    margin-right: 0;
+}
+.xia ul li:nth-of-type(6){
+    margin-top: 14px;
+}
+.xia ul li:nth-of-type(7){
+    margin-top: 14px;
+}
+.xia ul li:nth-of-type(8){
+    margin-top: 14px;
+}
+.xia ul li:nth-of-type(9){
+    margin-top: 14px;
+    margin-right: 14px;
+}
+.xia ul li:nth-of-type(10){
+    margin-top: 14px;
+    background-color: gray;
+}
+.xia ul li img{
+    width: 100%;
+}
+.xia li p{
+    color: gray;
+    font-size: 10px;
+    padding: 1.5px;
+}
+.xia li .p2{
+    color: red;
+    font-size: 20px;
+}
+.xia li s{
+    color: gray;
+    font-size: 10px;
+}
+.xia ul li ul li{
+    width: 234px;
+    height: 143px;
+    /* border: 1px black solid; */
+    background-color: white;
+    float: right;
+}
+.xia ul li ul li:nth-of-type(1){
+    margin-right: 0;
+}
+.xia ul li ul li:nth-of-type(2){
+    margin-top: 14px;
+    margin-right: 0;
+}
+.xia ul li ul li:nth-of-type(3){
+    margin-top: 14px;
+    margin-right: 0;
+}
+.xia ul li ul li:nth-of-type(4){
+    margin-top: 14px;
+}
+.xia .mijia ul li{
+}
+.xia .mijia ul li:nth-of-type(1){
+    background: url(../img/20.jpg) no-repeat right;
+}
+.xia .mijia ul li:nth-of-type(2){
+    background: url(../img/20.jpg) no-repeat right;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{padding:0;margin:0;}
+        .banner{
+            margin:0 auto;
+            border:1px solid red;
+            width: 426px;
+            height: 130px;
+            position:relative;
+        }
+        .banner ul{
+            position:absolute;
+            right:10px;
+            bottom:8px;
+        }
+        .banner ul li{
+            list-style: none;
+            float:left;
+            width:20px;
+            height: 20px;
+            line-height: 20px;
+            border:1px solid #333;
+            text-align: center;
+            margin:0 5px;
+            background:#eee;
+            cursor: pointer;
+        }
+        .banner ul li:hover{background: orange;}
+    </style>
+    <div class="banner">
+        <img src="./img/adver-01.jpg">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+</html>

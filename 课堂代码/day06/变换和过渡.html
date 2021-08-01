@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        变换的属性只有transform，但它的值比较多，可以分为四大类，每一类中都分为2d和3d
+        1. 平移
+        2. 旋转
+        3. 缩放
+        4. 斜切
+        过渡，表示从一个状态到另一个状态间的缓动过程
+        transition-property：允许过渡的css属性
+        transition-duration：过渡持续的时长
+        transition-timing-function：过渡函数
+        transition-delay：延迟几秒后执行
+    -->
+    <style>
+        .father{
+            width:640px;
+            height:360px;
+            margin:100px auto;
+            border:1px solid;
+            perspective:500px;
+            
+        }
+        .son{
+            width:640px;
+            height:360px;
+            border:1px solid orange;
+            transition:transform 2s;
+            /* transform-origin: 0 0; */
+
+        }
+        .father:hover .son{
+            /* transform:translate3D(300px,300px,-300px);/* 平移，配合父元素和启用透视，可以看到Z轴的移动效果 */
+            /* transform:rotate3D(100,100,100,-360deg)/* 旋转 */
+            /* transform:rotateX(360deg) */
+            /* transform:scale(.5) */
+            transform: skewX(45deg);
+        }
+
+    </style>
+    <div class="father">
+        <div class="son"><img src="../image/005.jpg" alt=""></div>
+    </div>
+    
+</body>
+</html>

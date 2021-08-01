@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">注册事件</button>
+</body>
+</html>
+<script>
+    //添加事件
+    function addEventListener(element, eventName, fun){
+        //判断浏览器是否支持addEventListener方法
+        if(element.addEventListener){
+            element.addEventListener(eventName, fun)
+        }else if(element.attachEvent){
+            element.attachEvent('on' + eventName, fun)
+        }else{
+            //onclick 用属性拼接
+            element['on' + eventName] = fun;
+        }
+    }
+    //删除事件
+    function removeEventListener(element, eventName, fun){
+        //判断浏览器是否支持removeEventListener方法
+        if(element.removeEventListener){
+            element.removeEventListener(eventName, fun)
+        }else if(element.attachEvent){
+            element.detachEvent('on' + eventName, fun)
+        }else{
+            //onclick 用属性拼接
+            element['on' + eventName] = null;
+        }
+    }
+    var btnDom = document.getElementById("btn");
+    addEventListener(btnDom, 'click', test);
+    function test(){
+        alert("hello world");
+        removeEventListener(btnDom, 'click', test);
+    }
+    
+</script>

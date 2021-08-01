@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../fontawesome-free-5.15.3-web/css/all.css">
+</head>
+<body>
+    <style>
+        img{width:100%;vertical-align: bottom;}
+        .father{
+            width:500px;
+            height:400px;
+            border:1px solid;
+            position: relative;
+        }
+        .father>div{
+            width:200px;
+            position:absolute;
+            z-index: 0;
+        }
+        
+        .father>div:nth-of-type(1){
+            top:50px;
+            left:50px;
+        }
+        .father>div:nth-of-type(2){
+            top:80px;
+            left:80px;
+        }
+        .father>div:nth-of-type(3){
+            top:100px;
+            left:90px;
+        }
+        .father>div:nth-of-type(4){
+            top:130px;
+            left:100px;
+        }
+        .father>div:nth-of-type(5){
+            top:160px;
+            left:150px;
+        }
+        .father>div:hover{
+            z-index: 1;
+            left:130px;
+            top:130px;
+        }
+
+        .father:hover+.div1{
+            background-color: blue;
+            /* display:none; */
+            visibility:hidden;
+        }
+        .div1{
+            width:200px;
+            height: 200px;
+            background-color: red;
+            outline-color: hotpink;
+            outline-style: dotted;
+            outline-width: 10px;
+            
+        }
+    </style>
+    <div class="father">
+        <div><img src="../image/001.jpg" alt=""></div>
+        <div><img src="../image/002.jpg" alt=""></div>
+        <div><img src="../image/003.jpg" alt=""></div>
+        <div><img src="../image/004.jpg" alt=""></div>
+        <div><img src="../image/005.jpg" alt=""></div>
+    </div>
+    <div class="div1">
+        <span class="iconfont icon-shouye" style="font-size:28px;"></span>
+    </div>
+    <div>
+        <i class="fas fa-user"></i> <!-- uses solid style -->
+        <i class="far fa-user"></i> <!-- uses regular style -->
+        <i class="fal fa-user"></i> <!-- uses light style -->
+        <!--brand icon-->
+        <i class="fab fa-github-square"></i> <!-- uses brands style -->
+    </div>
+    <p>1111111111111111111111111111111</p>
+    <input type="text"><button>1</button>
+    <textarea name="" style="resize:none;" id="" cols="30" rows="10"></textarea>
+
+</body>
+</html>

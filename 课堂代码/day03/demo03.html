@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <style>
+        /* 当点击相应的锚链接的时候，被选中的元素有不同的样式 */
+        :target{height:60px;}
+        p{
+            padding:0 ; 
+            margin:0;
+
+            height:0px;
+            overflow: hidden;
+            transition: all 1s;
+        }
+    </style>
+    <a href="#p1">p1</a>
+    <a href="#p2">p2</a>
+    <a href="#p3">p3</a>
+    <a href="#p4">p4</a>
+    <a href="#p5">p5</a>
+    <a href="#p6">p6</a>
+    <p id="p1">应对疫情防控，是关乎人类发展的大事，也是全球治理的紧迫课题。</p>
+    <p id="p2">据国家卫生健康委副主任、国务院联防联控机制科研攻关组疫苗研发专班负责人曾益新介绍，截至6月6日，我国已有21个新冠疫苗进入临床试验阶段，有7个生产企业的新冠病毒疫苗批准附条件上市或紧急使用。</p>
+    <p id="p3">此外，我国有8个疫苗在国外获批开展Ⅲ期临床试验，1个mRNA疫苗在国外获伦理批准，实现了境外临床试验灭活疫苗、重组蛋白疫苗、腺病毒载体疫苗、核酸疫苗技术路线的全面覆盖。</p>
+    <p id="p4">7月3日，钟南山院士在沪参加上海科技大学2021届毕业典礼，给大家带来我国疫苗研发的最新进展。</p>
+    <p id="p5">他表示，截至目前，我国正在研发的新冠疫苗总计达71个，已有9个生产企业的新冠病毒疫苗批准附条件上市或紧急使用，其中两个被列入世卫组织紧急使用清单。</p>
+    <p id="p6">如此成绩，令人赞叹！然而，钟南山紧接着却说：“中国研发疫苗看起来比较慢，非常困难！”</p> -->
+    <!-- <style>
+        :focus{color:pink;}
+    </style>
+    <input type="text" value="焦点">
+    <input type="text" value="焦点">
+    <input type="text" value="焦点">
+    <input type="text" value="焦点"> -->
+    <!-- <style>
+        ul:empty{border:1px solid red;}
+    </style>
+    <ul></ul> -->
+    <!-- 将css文件关联到HTML中 -->
+    <!-- <link rel="stylesheet" href="./demo03.css">
+    <div class="div1">洗刷刷</div>
+    <p class="p1">this is a good boy据国家卫生健康委副主任、国务院联防联控机制科研攻关组疫苗研发专班负责人曾益新介绍，截至6月6日，我国已有21个新冠疫苗进入临床试验阶段，有7个生产企业的新冠病毒疫苗批准附条件上市或紧急使用。</p>
+    <div class="p2">疫情防控，是关乎人类发展的大事</div>-->
+    <!-- 行内样式表 -->
+    <!-- <div style="color:green;font-size:22px;">疫情防控，是关乎人类发展的大事</div> -->
+    <!-- 关于样式表优先级：important最高，行内样式次之，内部样式和外部样式的优先级取决于谁写在后面 -->
+    <!-- important>id选择器>class选择器>标签选择器>通用选择器 -->
+    <!-- <link rel="stylesheet" href="./demo03.css"> -->
+    <style>
+        #id1{color:green;}
+        .div01{color:blue;}
+        div{color: red!important;}
+    </style>
+    <div id="id1" class="div01" style="color:pink;">疫情防控，人人有责</div>
+</body>
+</html>

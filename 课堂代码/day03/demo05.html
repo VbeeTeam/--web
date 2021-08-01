@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        a{
+            border:1px solid;
+            display:inline-block;
+            width:20px;
+            height:20px;
+        }
+        /*所有包含data-target属性的标签*/
+        /* a[data-target]{color:red;}
+        a[class]{color:pink;}
+        a[title]{color:green;} */
+        /* 包含data-target属性且属性值为bbb的标签 */
+        /* [data-target=bbb]{color:red;} */
+        /* 所有跳转到新页面的链接 */
+        /* a[href^=http]{color:red;} */
+        /* 所有的word文档 */
+        /* a[href$=pptx]{color:pink;} */
+        a[href*=jd]{color:red;}
+    </style>
+    <a data-target="aaa" href="http://www.baidu.com">1</a>
+    <a href="./钢铁是怎样炼成的.docx">2</a>
+    <a href="./十万个不为什么.xlsx">3</a>
+    <a class="d4" href="./今天你吃了吗.pptx">4</a>
+    <a href="http://www.jd.com">5</a>
+    <a title="电话" href="tel:18888889999">6</a>
+    <a href="mailto:19283712983712983@qq.com">7</a>
+    <a data-target="bbb" href="#">8</a>
+    <a data-target="aaa" href="#">9</a>
+    <a data-target="bbb" href="#">10</a>
+</body>
+</html>

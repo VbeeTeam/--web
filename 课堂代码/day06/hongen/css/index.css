@@ -1,0 +1,202 @@
+.nav_bg {
+    background: #026885;
+}
+.nav {
+    height: 60px;
+}
+.nav h1 {
+    width: 260px;
+    height: 60px;
+    background: url(../image/logo.png) no-repeat left center,
+        url(../image/slogan.png) no-repeat right 78%;
+    background-size: 100px, 150px;
+    text-indent: -9999px;
+    overflow: hidden;
+    float: left;
+}
+.nav ul {
+    float: right;
+}
+.nav ul li {
+    float: left;
+}
+.nav ul li a{
+    color:white;
+    display:block;
+    font-size:16px;
+    height:60px;
+    line-height: 60px;
+    padding:0 15px;
+}
+.nav ul li a:hover{
+    background:#eee;
+    color:#026885;
+ 
+}
+.micon-up{
+    display:inline-block;
+    vertical-align: middle;
+    margin:2px;
+    width:0;
+    height:0;
+    border-width: 5px;
+    border-style: solid solid none;
+    border-color: white transparent;
+}
+.nav ul li a:hover .micon-up{
+    border-style: none solid solid;
+    border-color: #026885 transparent;
+}
+.kindergarten_bg{
+    background:#eaeaea;
+}
+.kindergarten{
+    height:72px;
+    line-height: 72px;
+}
+.kindergarten h2{
+    float:left;
+}
+.kindergarten ul{
+    margin-left:400px;
+    float:left;
+}
+.kindergarten ul li{
+    float:left;
+}
+.kindergarten ul li a{
+    padding:5px 15px; 
+    margin:10px;
+    border-radius: 20px;
+}
+.kindergarten ul li a.active{
+    background: #fff;
+}
+.kindergarten ul li a:hover{
+    background: #fff;
+}
+.kindergarten .contact{
+    float:right;
+}
+.kindergarten .contact>div{
+    display:inline-block;
+    height:26px;
+    line-height: 26px;
+    font-size: 14px;
+}
+.kindergarten .contact div.QR_code{
+    width:26px;
+    text-align: center;
+    border-radius: 2px;
+    background:#FFF;
+    position:relative;
+}
+.kindergarten .contact div.QR_code .code_bg{
+    width:182px;
+    height:218px;
+    position:absolute;
+    left: -73px;
+    top: 20px;
+    box-sizing: border-box;
+    height:0px;
+    overflow: hidden;
+    transition:height 1s;
+}
+.kindergarten .contact div.QR_code .code{
+    padding:0 10px;
+    border:1px solid #ccc;
+    background:#fff;
+    border-radius: 5px;
+    position:relative;
+    top:12px;
+}
+.kindergarten .contact div.QR_code:hover .code_bg{
+    height:218px;
+}
+.kindergarten .contact div.QR_code .code h3{
+    padding: 5px 0;
+}
+.kindergarten .contact div.QR_code .code .triangle{
+    position:absolute;
+    left: 78px;
+    top: -8px;
+    width:15px;
+    height:15px;
+    border-left:1px solid #CCC;
+    border-top:1px solid #CCC;
+    background:#fff;
+    transform:rotate(45deg);
+}
+.kindergarten .contact div.audition{
+    padding:0 10px;
+    background:#5cb85c;
+    color:white;
+    border-radius: 2px;
+}
+.banner_bg{
+    background: url(../image/institution-bg.jpg) no-repeat center center;
+    background-size: cover;
+}
+.banner{
+    height:710px;
+}
+.banner .banner_logo{
+    padding:80px 0;
+    overflow: hidden;
+}
+.banner .banner_logo img{
+    float:left;
+    width:400px;
+}
+.banner .banner_logo p{
+    float:right;
+    width:700px;
+    padding:40px; 
+    border-radius: 20px;
+    background:#FFF;
+}
+.banner ul li{
+    width:263px;
+    height:382px;
+    background:#000;
+    float:left;
+    margin:0 18px;
+    overflow: hidden;
+    position:relative;
+}
+.banner ul li:hover div{
+    top:0;
+}
+.banner ul li div{
+    width:inherit;
+    height: inherit;
+    background:rgba(0,0,0,.8); 
+    position:absolute;
+    color:white;
+    top:320px;
+    padding:0 20px;
+    box-sizing: border-box;
+    transition: top 1s;
+}
+.banner ul li div h4{
+    margin:25px 0;
+}
+@media screen and (max-width:640px) {
+    .warp{width:640px;}
+    .nav{height:36px;}
+    .nav h1 {
+        width: 80px;
+        height: 36px;
+        background: url(../image/logo.png) no-repeat left center;
+        background-size: contain;
+        float: left;
+    }
+    .nav ul li a {
+        color: white;
+        display: block;
+        font-size: 14px;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 15px;
+    }
+}

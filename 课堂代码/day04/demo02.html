@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 背景只会出现在有宽高的元素中，如果元素没有宽，或没有高，则看不到 -->
+    <style>
+        .div1{
+            width:400px;
+            height:400px;
+            border:1px solid;
+            background-color:pink;
+            background-image: url(../image/logo.png);
+            background-repeat: no-repeat;
+            background-position:center;
+            background-attachment: fixed;
+        }
+        .div2{
+            height:4000px;
+            border:1px solid;
+            /* background: rgba(255,0,0,1) url(../image/005.jpg) no-repeat center center fixed;
+            background-size:contain;
+            opacity:.5; */
+            background:url(../image/003.jpg) no-repeat right top,
+                url(../image/002.jpg) no-repeat right 300px
+            ;
+            background-size: 50%,80%,100%;
+        }
+    </style>
+    <div class="div1"></div>
+    <div class="div2"></div>
+</body>
+</html>

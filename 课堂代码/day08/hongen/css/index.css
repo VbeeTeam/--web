@@ -1,0 +1,208 @@
+.nav_hongen_bg{
+    background: #026885;
+}
+.nav_hongen{
+    height:60px;
+    line-height: 60px;
+    display:flex;
+}
+.nav_hongen h1 a{
+    display:block;
+    width:120px;
+    background:  url(../image/logo.png) no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+}
+.nav_hongen div{
+    flex-grow: 1;
+}
+.nav_hongen img{
+    height:20px;
+    margin-top:30px;
+}
+.nav_hongen ul{
+    display:flex;
+}
+.nav_hongen ul li a{
+    display: block;
+    padding:0 10px;
+}
+.nav_hongen ul li a:hover{
+    background: #fff;
+    color:#026885;
+}
+/*********************************************/
+.nav_kindergarten_bg{
+    background:#eaeaea;
+}
+.nav_kindergarten{
+    height:60px;
+    line-height: 60px;
+    display:flex;
+}
+.nav_kindergarten h2{
+    flex-grow:1;
+}
+.nav_kindergarten h2 a{
+    color:black;
+}
+.nav_kindergarten ul{
+    display:flex;
+}
+.nav_kindergarten ul li a{
+    padding:5px 15px;
+    margin:0 10px;
+    border-radius: 15px;
+    background: #abcdef;;
+}
+.nav_kindergarten .QR_code{
+    display:flex;
+}
+.nav_kindergarten .QR_code .code .weixincode{
+    display:none;
+}
+/******************************************/
+.doc_bg{
+    background:url(../image/institution-bg.jpg) no-repeat center center;
+    background-size:cover; 
+}
+.doc{
+    height:710px;
+    display:flex;
+    flex-direction: column; 
+    justify-content: space-around;
+}
+.doc .institution{
+    display: flex;
+    justify-content: space-around;
+}
+.doc .institution img{
+    width:400px;
+}
+.doc .institution p{
+    width:700px;
+    height:100px;
+    padding:30px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background:#dedede;
+}
+.doc ul{
+    display: flex;
+    justify-content: space-around;
+}
+.doc ul li{
+    width:263px;
+    height:382px;
+    position: relative;
+    overflow: hidden;
+    
+}
+.doc ul li div{
+    width:263px;
+    height:382px;
+    background: rgba(0,0,0,.6);
+    color:white;
+    padding:20px;
+    position:absolute;
+    top:332px;
+    transition: top 2s;
+}
+.doc ul li:hover div{
+    top:0px;
+}
+.doc ul li div h5{
+    margin-bottom:20px;
+}
+/*********************************/
+.features_bg{
+    background: #f5f9fe;
+}
+.features{
+    padding:40px 0;
+}
+.features .features_title{
+    padding:20px 60px;
+}
+.features .features_title h4{
+    font-size: 36px;
+    color:#666;
+    text-align: center;
+    margin-bottom:20px;
+}
+.features .features_title p{
+    line-height: 1.5;
+}
+.features .features_point{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+.features .features_point li{
+    width:320px;
+    margin:20px 0;
+}
+.features .features_point li img{
+    width:120px;
+    margin-bottom: 20px;
+}
+.features .features_point li div h4{
+    margin: 10px 0;
+}
+/*******************************************/
+.grade .baby_class{
+    display:flex;
+    margin: 30px 0;
+    justify-content: space-between;
+}
+.grade .baby_class:nth-of-type(2){
+    flex-direction: row-reverse;
+}
+.grade .baby_class>*{
+    width:600px
+}
+.grade .baby_class .grade_text{
+    line-height: 1.5;
+    width:370px;
+    margin-left: 40px;;
+}
+.grade .baby_class .grade_text h4{
+    width:120px;
+    height:46px;
+    line-height: 46px;
+    text-align: center;
+    background: pink;
+    font-size: 28px;
+    color:#fff;
+    border-radius: 5px;
+    margin-top:30px;
+}
+.grade .baby_class .grade_text div{
+    width:370px;
+    margin:20px 0;
+}
+.grade .baby_class .grade_text div::before{
+    content: "";
+    display: block;
+    height: 40px;
+    border: 3px solid pink;
+    border-bottom:none;
+}
+.grade .baby_class .grade_text div::after{
+    content: "";
+    display: block;
+    height: 40px;
+    border: 3px solid pink;
+    border-top:none;
+}
+.grade .baby_class .grade_text p{
+    padding-left: 40px;
+}
+.grade .baby_class .grade_text .p1{
+    color:#333;
+    margin-bottom: 20px;
+}
+.grade .baby_class .grade_text .p2{
+    color:#999;
+}

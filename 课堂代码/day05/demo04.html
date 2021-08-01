@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .father{
+            border:1px solid;
+            width:400px;
+            height:200px;
+            position:relative;
+        }
+        .father div{
+            border:1px solid blue;
+            height:40px;
+            line-height: 40px;
+        }
+        .father .son1{
+            background-color: blue;
+            /* position:static; /* 静态定位，默认定位方式 */
+            /* 相对定位 
+            设置定位之后，需要设置偏移量才可以移动当前元素 
+            相对定位是相对于自己原来的位置进行偏移，元素没有脱离标准流 
+            设置相对定位的元素移动之后，原来的位置没有变化，不会影响下面的元素 */
+            /* position:relative; */
+            /* bottom:10px; */
+            /* left:10px; */
+            /* 绝对定位 
+                当元素设置为绝对定位，但不设置偏移量，
+                元素脱离标准流，下面的元素会直接顶上来，并且文字也会被遮盖，影响下面的元素位置
+                元素相对于浏览器边框进行偏移
+                父元素相对定位+子元素绝对定位，用来做一些微调
+                当设置绝对定位元素的父级元素中，有一个设置了定位属性，
+                则以这个最近设置了定位属性的元素边界进行偏移
+
+                PS：在使用绝对定位的是，遵循“子绝父相”
+            */
+            /* position:absolute;
+            bottom:0;
+            left:0; */
+            /* 
+            固定定位
+            1. 当元素设置为固定定位时，脱离标准流
+            2. 定位元素相对于浏览器边框进行偏移
+            3. 一般用来设置广告或锚链接
+            */
+        }
+        .father .son2{
+            background-color: green;
+        }
+        .father .son3{
+            background-color: pink;
+        }
+        pre{
+            height:5000px;
+        }
+        .ad{
+            width: 200px;
+            height: 400px;
+            border:1px solid red;
+            position:fixed;
+            top:0px;
+            left:-190px;
+        }
+        .ad:hover{
+            left:10px;
+        }
+    </style>
+    <div class="father clearfix">
+        <div class="son1">盒子1</div>
+        <div class="son2">盒子2</div>
+        <div class="son3">盒子3</div>
+        
+    </div>
+    <!-- <pre>
+        相对定位 
+            设置定位之后，需要设置偏移量才可以移动当前元素 
+            相对定位是相对于自己原来的位置进行偏移，元素没有脱离标准流 
+            设置相对定位的元素移动之后，原来的位置没有变化，不会影响下面的元素
+    </pre>
+    <div class="ad">
+
+    </div> -->
+</body>
+</html>

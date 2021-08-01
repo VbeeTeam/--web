@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        a{vertical-align: middle;}
+    </style>
+    <!-- 
+        居中方式
+        垂直对齐方式vertical-align
+            不能够使用在行内元素和块元素上，只能使用在行内块元素上，指的是行内块元素和位子的基线对齐方式
+            垂直居中方式，实际上是一种取巧的方式，使用的是行高等于高度，只能够在一行文字的时候才能使用
+        水平居中
+            text-align:center;能够使用在行内元素和行内块元素上，如要设置元素居中，需要在该元素的父元素上设置text-align:center;
+            margin:0 auto;只能够使用在块元素上，需要设置在居中元素本身，而且，宽度必须小于父元素的宽度。
+     -->
+     <style>
+         .father{
+             width:1200px;
+             height:400px;
+             margin:0 auto;
+             border:1px solid;
+             text-align:center;
+         }
+         .son{
+            width:800px;
+            height:300px;
+            border:1px solid blue;
+            display:inline-block;
+            
+         }
+         .guan{
+            display:inline-block;
+            width: 20px;
+            height: 20px;
+            background: url(../image/sprites.png) no-repeat -23px -96px;
+         }
+         .guan:hover{
+            background: url(../image/sprites.png) no-repeat -23px -122px;
+         }
+     </style>
+     <!-- <div class="father">
+         <div class="son">
+             尊贵的会员 <span class="guan"></span>
+         </div>
+     </div> -->
+     <!-- <style>
+         .nav{
+             width:600px;
+             height:40px;
+             line-height: 40px;
+             /* border:1px solid; */
+             margin:0 auto;
+             background:url(../image/bg2.jpg);
+            position: relative;             
+         }
+         .nav .bg_l{
+             width: 10px;
+             height: 40px;
+             background:url(../image/bg2_l.jpg);
+             position:absolute;
+             left:-9px;
+         }
+         .nav .bg_r{
+             width: 10px;
+             height: 40px;
+             background:url(../image/bg2_r.jpg);
+             position:absolute;
+             right:-9px;
+         }
+     </style>
+     <div class="nav">
+         <div class="bg_l"></div>
+         <div class="bg_r"></div>
+     </div> -->
+     <style>
+         .bgim1{
+             width: 200px;
+             height: 100px;
+             margin:10px auto;
+             background:#CCC;
+             border:9px solid ;
+             border-image-source: url(../image/bgimg1.png);
+             border-image-slice:9;
+             border-image-width: 9px;
+             border-image-outset: 5px;
+             border-image-repeat: repeat;
+         }
+         .bgim2{
+             margin:10px auto;
+             background:#CCC;
+             border-style: solid ;
+             border-width:44px  115px 28px 10px ;
+             border-image-source: url(../image/paopao.png);
+             border-image-slice: 44  115 28 10 fill;
+         }
+     </style>
+     <div class="bgim1"></div>
+     <span class="bgim2">你好</span>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">传统注册事件</button>
+    <button id="btn2">方法监听注册事件</button>
+    <button id="btn3">ie9 attachEvent</button>
+</body>
+</html>
+<script>
+    function addEventListener(element, eventName, fun){
+        //判断浏览器是否支持addEventListener方法
+        if(element.addEventListener){
+            element.addEventListener(eventName, fun)
+        }else if(element.attachEvent){
+            element.attachEvent('on' + eventName, fun)
+        }else{
+            //onclick 用属性拼接
+            element['on' + eventName] = fun;
+        }
+    }
+    var btnDom1 = document.getElementById("btn1");
+    var btnDom2 = document.getElementById("btn2");
+    var btnDom3 = document.getElementById("btn3");
+    function test1(){
+        alert("hello world");
+    }
+    function test2(){
+        alert("hello addEventListener");
+    }
+    function test3(){
+        alert("hello attachEvent");
+    }
+    addEventListener(btnDom1, 'click', test1);
+    addEventListener(btnDom2, 'click', test2);
+    addEventListener(btnDom3, 'click', test3);
+</script>

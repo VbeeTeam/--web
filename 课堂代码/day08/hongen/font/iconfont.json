@@ -1,0 +1,23 @@
+{
+  "id": "2053543",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "145488",
+      "name": "二维码",
+      "font_class": "erweima",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "8781075",
+      "name": "输入",
+      "font_class": "shuru",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    }
+  ]
+}

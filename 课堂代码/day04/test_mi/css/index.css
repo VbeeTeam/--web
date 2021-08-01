@@ -1,0 +1,48 @@
+.phone-list{
+    width:1226px;
+    margin:0 auto;
+    background-color: #777;
+}
+img{width:100%;}
+.phone-left{
+    width:234px;
+    height: 614px;
+    float:left;
+
+}
+.phone-right{
+    width:978px;
+    height: 614px;
+    float:right;
+}
+.phone-right li{
+    width:234px;
+    height:300px;
+    background-color: #fff;
+    margin-bottom: 14px;
+    margin-right: 14px;
+    float:left;
+}
+.phone-right li:nth-of-type(4n){margin-right: 0;}
+.phone-right li:nth-of-type(8){
+    background:#777;
+}
+.phone-right li:nth-of-type(8)>div{
+    width:234px;
+    height: 143px;
+    margin-bottom:14px;
+    padding:30px;
+    box-sizing:border-box;
+}
+.phone-right li:nth-of-type(8)>div:nth-of-type(1){
+    background:#fff url(../images/20.jpg) no-repeat right;
+}
+.phone-right li:nth-of-type(8)>div:nth-of-type(2){
+    background:#fff url(../images/25.png) no-repeat right;
+}
+.phone-right li:nth-of-type(8)>div>h4{
+    width: 80px;
+}
+.phone-right li:nth-of-type(8)>div>P{
+    width: 80px;
+}

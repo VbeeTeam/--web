@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    //全局作用域
+    var a = 1;
+
+    function test1(){
+        console.log(a)
+    }
+
+    function test2(){
+        console.log(a)
+    }
+
+    test1();
+    test2();
+
+    //局部作用域
+    function test3(){
+        var b = 2;
+        console.log(b)
+    }
+    test3();
+    // console.log(b);
+
+    //作用域链 js中可以在函数中定义函数，也就是说函数可以嵌套定义
+    //在函数的嵌套定义中，内层函数可以直接引用到外层函数的变量，但优先使用内层函数中定义的变量,
+    //采取就近原则的方式来查找变量最终的值
+    function father(){
+        var c = 3;
+        function son(){
+            c = 4;
+            console.log(c);
+        }
+        son();
+    }
+    father();
+</script>

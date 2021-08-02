@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //外层循环执行一次内层循环走一圈
+    // for(var i = 0; i < 5; i++){
+    //     console.log("i",i)
+    //     for(var y = 0; y < 8; y++){
+    //         console.log("y",y)
+    //     }
+    // }
+    //while 
+    //     执行思路：
+    // 1 先执行条件表达式，如果结果为 true，则执行循环体代码；如果为 false，则退出循环，执行后面代码
+    // 2 执行循环体代码
+    // 3 注意 一定要有操作表达式，否则会形成死循环，死循环一般用于写文件结构、树形结构
+    var i = 0;
+    while (i < 10) {
+        console.log(i);
+        i++;
+    }
+    //do while
+    //     执行思路
+    // 1 先执行一次循环体代码
+    // 2 再执行条件表达式，如果结果为 true，则继续执行循环体代码，如果为 false，则退出循环，继续执行后面代码
+    // 注意：先再执行循环体，再判断，do…while循环语句至少会执行一次循环体代码，一般用于默认执行一次方法
+    var i = 1;
+    do {
+        i++;
+        console.log('how are you?');
+    } while (i <= 0)
+
+    // while循环和for循环的区别
+    // for循环就是为了简化while循环的，for循环能做的while循环都能够做
+    // 一般来说
+    // for循环使用在循环次数已知的情况下。
+    // while循环使用在循环次数未知的情况下。
+
+    // while循环和do...while循环的区别
+    // while循环是先判断再执行。如果条件不成立，代码一次都不会执行
+    // do...先执行，再判断。不管条件是否成立。都会先执行一次.
+
+</script>

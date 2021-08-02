@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>盒子</div>
+</body>
+
+</html>
+<script>
+    // window.onresize 是调整窗口大小加载事件, 当触发时就调用的处理函数。
+    // 注册页面加载事件
+    window.addEventListener('load', function () {
+        var div = document.querySelector('div');
+        // 注册调整窗口大小事件    
+        window.addEventListener('resize', function () {
+            // window.innerWidth 获取窗口大小
+            console.log('变化了');
+            if (window.innerWidth <= 800) {
+                div.style.display = 'none';
+            } else {
+                div.style.display = 'block';
+            }
+        })
+    })
+</script>

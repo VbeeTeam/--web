@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <style>
+        h1{
+            text-align: center;
+            margin-top: 200px;
+        }
+        .time{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>距离<b id="endId">2021-8-2 22:05:00</b></h1>
+
+    <div class="time">
+        <span><span id="day">00</span>天</span>
+        <span><span id="hour">00</span>时</span>
+        <span><span id="minute">00</span>分</span>
+        <span><span id="second">00</span>秒</span>
+    </div>
+
+</body>
+</html>
+<script>
+  function $(id){
+    return document.getElementById(id);
+  }
+    //获取展示的元素
+    var spanDay = $("day");
+    var spanHour = $("hour");
+    var spanMinute = $("minute");
+    var spanSecond = $("second");
+    var endDom = $("endId");
+    //计算
+    // startDate:现在的时间 endDate：目标时间
+    var endDate = endDom.innerText;
+    endDate = new Date(endDate);
+    console.log(endDate);
+   
+    setInterval(function(){
+        var startDate = new Date();
+        console.log(startDate);
+       var result = getResult(startDate, endDate);
+       console.log(result);
+       spanDay.innerText = result.day;
+       spanHour.innerText = result.hour;
+       spanMinute.innerText = result.minute;
+       spanSecond.innerText = result.second;
+    }, 1000)
+
+    //获取两个日期的时间差
+    function getResult(startDate, endDate){
+        //两个日期的时间差
+        var interval = endDate - startDate;
+        
+        //求出相差的天数、小时、分钟、秒
+        var day, hour, minute, second;
+        //毫秒换算秒
+        interval = interval / 1000;
+        console.log(interval);
+        
+        day = parseInt(interval / 60 / 60 / 24).toString().padStart(2, '0');
+        hour = parseInt(interval / 60 / 60 % 24).toString().padStart(2, '0');
+        minute = parseInt(interval / 60 % 60).toString().padStart(2, '0');
+        second = parseInt(interval % 60).toString().padStart(2, '0');
+        return {
+            day: day,
+            hour: hour,
+            minute: minute,
+            second: second
+        }
+    }
+
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" id="btn" value="跳转">
+  <div></div>
+  <script>
+    var btn = document.getElementById('btn');
+    var div = document.querySelector('div');
+    btn.onclick = function () {
+        btn.addEventListener('click', function() {
+            // console.log(location.href);
+            location.href = 'http://www.baidu.com';
+        })
+        var timer = 5;
+        setInterval(function() {
+            if (timer == 0) {
+                location.href = 'http://www.baidu.com';
+            } else {
+                div.innerHTML = '您将在' + timer + '秒钟之后跳转到百度';
+                timer--;
+            }
+        }, 1000);
+    }
+  </script>
+</body>
+</html>

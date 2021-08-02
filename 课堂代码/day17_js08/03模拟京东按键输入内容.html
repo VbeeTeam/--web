@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   <input type="text" />
+</body>
+
+</html>
+<script>
+    // 需求：当我们按下S键光标就能自动定位到搜索框（文本框获得焦点）
+    // 分析：1.核心思路：检测用户是否按下了S键，如果按下了S键，就把光标定位到搜索框里
+    // 2.使用键盘事件对象的keyCode判断用户按下的是S键
+    // 3.搜索框获得焦点：使用onfocus方法
+
+    // 获取输入框
+    var search = document.querySelector('input');
+    // 给document注册keyup事件        
+    document.addEventListener('keyup', function (e) {
+        // 判断keyCode的值
+        if (e.keyCode === 83) {
+            // 触发输入框的获得焦点事件
+            search.focus();
+        }
+    })
+
+</script>

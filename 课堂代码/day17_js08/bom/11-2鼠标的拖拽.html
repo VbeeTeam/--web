@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				margin:0;
+				padding:0;
+			}
+			#box{
+				position:absolute;
+				left:0px;
+				top:0px;
+				width:400px;
+				height:300px;
+				border:1px solid yellow;
+			}
+			#titleDiv{
+				width:400px;
+				height:30px;
+				background-color:pink;
+			}
+			#contentDiv{
+				width:400px;
+				height:270px;
+				background-color:white;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">回放</button>
+
+		<div id="box">
+			<div id="titleDiv">
+			标题
+			</div>			
+			<div id="contentDiv">
+			内容
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+
+function $(id){
+	return document.getElementById(id);
+}
+
+var arr = [];
+
+window.onload = function(){
+	var offsetLeft;
+	var offsetTop;
+	$("titleDiv").onmousedown = function(event){
+
+		var evt = event || window.event;
+		offsetLeft =  evt.offsetX;//鼠标距离事件源
+		offsetTop =  evt.offsetY;//鼠标距离事件源
+		console.log(evt.offsetX)  //鼠标距离盒子左边的距离
+		//纪录移动位置
+		arr.push({ 
+             x:$("box").offsetLeft,
+             y:$("box").offsetTop    
+         })
+		document.onmousemove = function(event){
+			var evt = event || window.event;
+			console.log(evt.pageX) //距离页面左边的距离
+			$("box").style.left = (evt.pageX-offsetLeft)+"px";
+			$("box").style.top = (evt.pageY-offsetTop)+"px";
+			//存轨迹
+			var obj = {     
+                x:evt.pageX-offsetLeft,          
+                y:evt.pageY-offsetTop      
+            }                           
+            arr.push(obj);
+			//阻止浏览器默认行为
+			evt.preventDefault();
+		}
+	}
+	
+	document.onmouseup = function(){
+		document.onmousemove=null;
+	}
+
+	//点击回放
+    var timer = null;
+    $("btn").onclick = function(){        
+         var i = arr.length;      
+         timer = setInterval(function(){   
+            i --; 
+            $("box").style.left = arr[i].x + "px";   
+            $("box").style.top = arr[i].y + "px";          
+            if(i == 0){ 
+                clearInterval(timer);                    
+                arr.length = 0;      
+            }           
+         },50)     
+    }
+
+}
+
+
+</script>

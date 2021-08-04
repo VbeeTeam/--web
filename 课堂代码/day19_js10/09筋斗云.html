@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        div {
+            position: relative;
+            width: 800px;
+            height: 42px;
+            margin: 100px auto;
+            border-radius: 5px;
+            background: url("images/2.png") no-repeat right #fff;
+        }
+
+        ul {
+            list-style: none;
+            position: relative;
+        }
+
+        li {
+            float: left;
+            width: 83px;
+            height: 42px;
+            font: 400 16px/42px "simsun";
+            text-align: center;
+            cursor: pointer;
+        }
+
+        span {
+            position: absolute;
+            width: 83px;
+            height: 42px;
+            left: 0;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<script src="js/animate.js"></script>
+<body>
+    <div>
+        <span></span>
+        <ul>
+            <li>首页新闻</li>
+            <li>活动策划</li>
+            <li>师资力量</li>
+            <li>企业文化</li>
+            <li>招聘信息</li>
+            <li>公司简介</li>
+            <li>上海校区</li>
+            <li>广州校区</li>
+        </ul>
+        <script>
+            //鼠标移动到哪里，云彩移动到哪里
+            //鼠标离开，云彩回到原点
+            //鼠标离开，云彩回到之前点击的地方
+            var ulEle = document.getElementsByTagName("ul")[0];
+            var liArr = ulEle.children;
+            var spanEle = document.getElementsByTagName("span")[0];
+            var imgWidth = liArr[0].offsetWidth;
+            var key = 0;
+            for (var i = 0; i < liArr.length; i++) {
+                liArr[i].index = i;
+                liArr[i].onmouseover = function () {
+                    animate(spanEle, this.index * imgWidth);
+                }
+                liArr[i].onmouseout = function () {
+                    animate(spanEle, key * imgWidth);
+                }
+                liArr[i].onclick = function () {
+                    key = this.index;
+                    animate(spanEle, key * imgWidth);
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

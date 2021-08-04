@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #wrap{
+            width: 500px;
+            height: 260px;
+            position: relative;
+            margin: 100px auto;
+            cursor: pointer;
+        }
+        #pic li{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        #pic li img{
+            width: 500px;
+            height: 260px;
+        }
+        #num{
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+        }
+        #num li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: gray;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin-left: 20px;
+        }
+        #num .active{
+            background-color: aqua;
+        }
+        .btn{
+            position: absolute;
+            top: 45%;
+            width: 40px;
+            height: 40px;
+            display: none;
+        }
+        #leftId{
+            left: 0;
+        }
+        #rightId{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul id="pic">
+            <li><img src="images/1.png" alt=""></li>
+            <li><img src="images/2.png" alt=""></li>
+            <li><img src="images/3.png" alt=""></li>
+            <li><img src="images/4.png" alt=""></li>
+            <li><img src="images/5.png" alt=""></li>
+        </ul>
+        <ul id="num">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <img id="leftId" class="btn" src="images/left.png" alt="" />
+        <img id="rightId" class="btn" src="images/right.png" alt="" />
+    </div>
+</body>
+</html>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+    var wrapDom = $("wrap");
+    var picDom = $("pic");
+    var numDom = $("num");
+    var leftDom = $("leftId");
+    var rightDom = $("rightId");
+    // 取出每个li图片
+    var liPic = picDom.children;
+    var liNum = numDom.children;
+    var index = 0;
+    var myTimer = null;
+    //显示隐藏图片
+    function change(currentIndex){
+        for(var i = 0; i < liPic.length; i++){
+            liPic[i].style.display = "none";
+            liNum[i].className = "";
+        }
+        liPic[currentIndex].style.display = "block";
+        liNum[currentIndex].className = "active";
+        index = currentIndex;
+    }
+
+    //播放下一张图片
+    function run(){
+        myTimer = setInterval(function(){
+            index ++;
+            // console.log(index);
+            if(index >= liPic.length){
+                index = 0;
+            }
+            change(index);
+        }, 1000)
+    }
+    //鼠标进入
+    wrapDom.onmouseover = function(){
+        leftDom.style.display = "block";
+        rightDom.style.display = "block";
+        clearInterval(myTimer);
+    }
+    //鼠标离开
+    wrapDom.onmouseout = function(){
+        leftDom.style.display = "none";
+        rightDom.style.display = "none";
+        run();
+    }
+    //点击左按钮
+    leftDom.onclick = function(){
+        index --;
+        if(index < 0){
+            index = liPic.length - 1;
+        }
+        change(index);
+    }
+    //点击右按钮
+    rightDom.onclick = function(){
+        index ++;
+        if(index >= liPic.length){
+            index = 0;
+        }
+        change(index);
+    }
+    //鼠标滑过豆豆时显示对应图片
+    for(let i = 0; i < liNum.length; i++){
+        // liNum[i].index = i;
+        // this
+        liNum[i].onmouseover = function(){
+            // var ix = this.index;
+            // console.log(ix);
+            change(i);
+        }
+    }
+    change(index);
+    run();
+</script>

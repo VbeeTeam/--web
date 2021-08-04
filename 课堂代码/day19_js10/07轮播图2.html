@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #wrap {
+            width: 500px;
+            height: 260px;
+            position: relative;
+            margin: 100px auto;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        #pic {
+            width: 3000px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #pic li {
+            float: left;
+        }
+
+        #pic li img {
+            display: block;
+            width: 500px;
+            height: 260px;
+        }
+
+        #num {
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+        }
+
+        #num li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: gray;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin-left: 20px;
+        }
+
+        #num .active {
+            background-color: aqua;
+        }
+
+        .btn {
+            position: absolute;
+            top: 45%;
+            width: 40px;
+            height: 40px;
+            /* display: none; */
+        }
+
+        #leftId {
+            left: 0;
+        }
+
+        #rightId {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <ul id="pic">
+            <li><img src="images/1.png" alt=""></li>
+            <li><img src="images/2.png" alt=""></li>
+            <li><img src="images/3.png" alt=""></li>
+            <li><img src="images/4.png" alt=""></li>
+            <li><img src="images/5.png" alt=""></li>
+        </ul>
+        <ul id="num">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <img id="leftId" class="btn" src="images/left.png" alt="" />
+        <img id="rightId" class="btn" src="images/right.png" alt="" />
+    </div>
+</body>
+
+</html>
+<script src="js/animate.js"></script>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var wrapDom = $("wrap");
+    var picDom = $("pic");
+    var numDom = $("num");
+    var leftDom = $("leftId");
+    var rightDom = $("rightId");
+    var liPic = picDom.children;
+    var liNum = numDom.children;
+    var count = liPic.length;
+    console.log(count);//记录原始图片张数
+    var index = 0;
+    //切换图片
+    //获取图片宽度 
+    var imgWidth = wrapDom.offsetWidth;
+    console.log(imgWidth);
+    var myTimer = null;
+    //鼠标进入
+    wrapDom.onmouseover = function () {
+        leftDom.style.display = "block";
+        rightDom.style.display = "block";
+        clearInterval(myTimer);
+    }
+    //鼠标离开
+    wrapDom.onmouseout = function () {
+        leftDom.style.display = "none";
+        rightDom.style.display = "none";
+        myTimer = setInterval(function () {
+            // 切换到下一张图片
+            rightDom.click();
+        }, 2000);
+    }
+    //点击豆豆高亮
+    //鼠标滑过豆豆时显示对应图片
+    for (let i = 0; i < liNum.length; i++) {
+        liNum[i].index = i;
+        // this
+        liNum[i].onclick = function () {
+            index = this.index;
+            changeDou(index);
+            //调用动画
+            animate(picDom, -index * imgWidth);
+        }
+    }
+    // flag 节流阀
+    var flag = true;
+    //点击左按钮
+    leftDom.onclick = function () {
+        console.log(index);
+        // 如果当前是第一张图片，此时要偷偷的切换到最后一张图片的位置（克隆的第一张图片）
+        if (index == 0) {
+            index = count;
+            picDom.style.left = - index * imgWidth + 'px';
+        }
+        index--;
+        changeDou(index);
+        //调用动画
+        animate(picDom, -index * imgWidth);
+    }
+    //点击右按钮
+    rightDom.onclick = function () {
+        // 如果当前是最后一张图片（克隆的第一张图片），此时要偷偷的切换到第一张图片的位置，显示真正的第一张图片
+        console.log(count)
+        if (index === count) {
+            picDom.style.left = '0px';
+            index = 0;
+        }
+        index++;
+        //正常执行
+        if (index < count) {
+            changeDou(index);
+            animate(picDom, -index * imgWidth);
+        } else {
+            //如果是最后一张图片 以动画的方式，移动到克隆的第一张图片
+            animate(picDom, -index * imgWidth);
+            for (var y = 0; y < liNum.length; y++) {
+                liNum[y].className = "";
+            }
+            liNum[0].className = "active";
+        }
+    }
+    //改变豆豆
+    function changeDou(currentIndex) {
+        for (var y = 0; y < liNum.length; y++) {
+            liNum[y].className = "";
+        }
+        liNum[currentIndex].className = "active";
+        index = currentIndex;
+    }
+    // 无缝滚动
+    // 获取ul中的第一个li
+    var firstLi = picDom.children[0];
+    // 克隆li  cloneNode()  复制节点
+    // 参数  true  复制节点中的内容
+    //       false  只复制当前节点，不复制里面的内容
+    var cloneLi = firstLi.cloneNode(true);
+    picDom.appendChild(cloneLi);
+
+    // 5 自动切换图片
+    myTimer = setInterval(function () {
+        // 切换到下一张图片
+        rightDom.click();
+    }, 2000);
+</script>

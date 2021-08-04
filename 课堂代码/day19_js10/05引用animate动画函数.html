@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引用animate动画函数</title>
+    <style>
+        .sliderbar {
+            position: fixed;
+            left: -150px;
+            bottom: 100px;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            color: #fff;
+            background-color: purple;
+        }
+        b{
+            margin-left: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sliderbar">
+        <span>问题反馈</span>
+        <b>→</b>
+    </div>
+</body>
+
+</html>
+<script src="js/animate.js"></script>
+<script>
+
+    // 1. 获取元素
+    var sliderbar = document.querySelector('.sliderbar');
+    var con = document.querySelector('.con');
+    // 当我们鼠标经过 sliderbar 就会让 con这个盒子滑动到左侧
+    // 当我们鼠标离开 sliderbar 就会让 con这个盒子滑动到右侧
+    sliderbar.addEventListener('mouseenter', function () {
+        // animate(obj, target, callback);
+        animate(sliderbar, 0, function () {
+            // 当我们动画执行完毕，就把 ← 改为 →
+            sliderbar.children[1].innerHTML = '←';
+        });
+    })
+    sliderbar.addEventListener('mouseleave', function () {
+        // animate(obj, target, callback);
+        animate(sliderbar, -150, function () {
+            sliderbar.children[1].innerHTML = '→';
+        });
+    })
+
+</script>

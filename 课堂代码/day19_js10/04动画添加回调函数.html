@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+            left: 0;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <button>开始</button>
+    <span></span>
+    <div></div>
+</body>
+
+</html>
+<script>
+    // 回调函数原理：函数可以作为一个参数。将这个函数作为参数传到另一个函数里面，当那个函数执行完之后，再执
+    // 行传进去的这个函数，这个过程就叫做回调。
+    // 回调函数写的位置：定时器结束的位置。
+    function animate(obj, target, callback) {
+        // console.log(callback);
+        // 先清除以前的定时器，只保留当前的一个定时器执行
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            // 步长值写到定时器的里面
+            // 步长公式：(目标值 - 现在的位置) / 10
+            var step = (target - obj.offsetLeft) / 10;
+            console.log("step1:", step);
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            console.log("step2:", step);
+            if (obj.offsetLeft == target) {
+                // 停止动画 本质是停止定时器
+                clearInterval(obj.timer);
+                // 回调函数写到定时器结束里面
+                // if (callback) {
+                //     // 调用函数
+                //     callback();
+                // }
+                callback && callback();
+            }
+            // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 ‐ 现在的位置) / 10
+            obj.style.left = obj.offsetLeft + step + 'px';
+        }, 15);
+    }
+    var span = document.querySelector('span');
+    var div = document.querySelector("div");
+    var btn = document.querySelector('button');
+    btn.onclick = function () {
+        // 调用函数
+        animate(span, 500);
+        animate(div, 800, function () {
+            // alert('你好吗');
+            div.style.backgroundColor = 'red';
+        });
+    }
+    // 匀速动画 就是 盒子是当前的位置 +  固定的值 10
+   // 缓动动画就是  盒子当前的位置 + 变化的值(目标值 ‐ 现在的位置) / 10）
+</script>

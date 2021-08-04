@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        .box{
+            text-align: center;
+        }
+        .goTop{
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+            text-align: center;
+            line-height: 30px;
+            position: fixed;
+            right: 200px;
+            bottom: 100px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="images/content.png" alt="">
+    </div>
+    <div class="goTop">▲</div>
+</body>
+</html>
+<script>
+
+    var goTop = document.querySelector(".goTop");
+    
+    window.onscroll = function(){
+        var scorllTp = document.documentElement.scrollTop;
+        if(scorllTp >= 1000){
+            goTop.style.display = "block";
+        }else{
+            goTop.style.display = "none";
+        }
+    }
+    var myTimer = null;
+    goTop.onclick = function(){
+        // document.documentElement.scrollTop = 0;
+        var sTop = document.documentElement.scrollTop;
+        console.log(sTop);
+        setInterval(function(){
+            sTop -= 200;
+            document.documentElement.scrollTop = sTop;
+            if(sTop <= 0){
+                clearInterval(myTimer);
+            }
+        },50)
+    }
+
+</script>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小鸟的运动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #game {
+            width: 800px;
+            height: 600px;
+            margin: 100px auto;
+            background: url(img/sky.png);
+            /* background-position: 100px 100px; */
+            position: relative;
+            overflow: hidden;
+        }
+        #bird {
+            width: 34px;
+            height: 24px;
+            background: url(img/birds.png) center no-repeat;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <div id="bird"></div>
+    </div>
+</body>
+</html>
+<script src="js/common.js"></script>
+<script>
+    var gameDom = $("game");
+    var birdDom = $("bird");
+    var myTimer = null;
+    var myTimer2 = null;
+    var run = true;
+    /*
+        1.背景图动起来
+        2.小鸟飞起来,加速运动
+        3.管道创建并且移动
+    */
+    //初始化背景图x轴方向的值
+    var sky = {
+        x: 0
+    }
+    //初始化小鸟自身距离父元素的距离left、top、自身运动的步长Y轴方向的值
+    var bird = {
+        speedY: 0,
+        x: birdDom.offsetLeft,
+        y: birdDom.offsetTop
+    }
+    // console.log(bird.x);
+    myTimer = setInterval(function () {
+        if (run == true) {
+            //1.背景图动起来 x减少
+            // sky.x = sky.x - 5;
+            sky.x -= 5;
+            gameDom.style.backgroundPositionX = sky.x + "px";
+            //2.小鸟的上下运动
+            bird.speedY += 1; //加速运动的步长
+            bird.y += bird.speedY; //计算每一次运动的结果
+            // console.log(bird.y);
+            if (bird.y + birdDom.offsetHeight >= gameDom.offsetHeight) {
+                bird.y = gameDom.offsetHeight - birdDom.offsetHeight;
+                run = false;
+            } else if (bird.y <= 0) {
+                bird.y = 0;
+                run = false;
+            }
+            birdDom.style.top = bird.y + "px";
+        } else {
+            alert("game over");
+            clearInterval(myTimer);
+        }
+    }, 50)
+    //点击游戏背景
+    gameDom.onclick = function () {
+        bird.speedY = -10;
+    }
+    //创建管道
+    function createPipe(positionX) {
+        var pipe = {};
+        //初始化管道的位置
+        pipe.x = positionX;
+        //管道的高
+        pipe.topHeight = 200 + parseInt(Math.random() * 100);
+        // console.log(pipe.topHeight); 
+        pipe.bottomHeight = gameDom.offsetHeight - pipe.topHeight - 200;
+        //创建上方管道
+        var topPipe = document.createElement("div");
+        topPipe.style.width = "50px";
+        topPipe.style.height = pipe.topHeight + "px";
+        topPipe.style.background = "url(img/pipe2.png) no-repeat center bottom";
+        topPipe.style.position = "absolute";
+        topPipe.style.left = pipe.x + "px";
+        topPipe.style.top = "0px";
+        gameDom.appendChild(topPipe);
+        //创建下方管道
+        var bottomPipe = document.createElement("div");
+        bottomPipe.style.width = "50px";
+        bottomPipe.style.height = pipe.bottomHeight + "px";
+        bottomPipe.style.background = "url(img/pipe1.png) no-repeat center top";
+        bottomPipe.style.position = "absolute";
+        bottomPipe.style.left = pipe.x + "px";
+        bottomPipe.style.bottom = "0px";
+        gameDom.appendChild(bottomPipe);
+        //让管道动起来
+        myTimer2 = setInterval(function () {
+            if (run) {
+                pipe.x -= 2;
+                topPipe.style.left = pipe.x + "px";
+                bottomPipe.style.left = pipe.x + "px";
+                //边界判断
+                if (pipe.x <= 0) {
+                    pipe.x = gameDom.offsetWidth;
+                }
+                //游戏终止判断  //上方管道
+                console.log(bird.x)
+                console.log(birdDom.offsetWidth)
+                console.log(birdDom.offsetHeight)
+                var topCheck = bird.x + birdDom.offsetWidth > pipe.x && bird.x < pipe.x + 50 && bird.y < pipe.topHeight;
+                var bottomCheck = bird.x + birdDom.offsetWidth > pipe.x && bird.x < pipe.x + 50 && bird.y + birdDom.offsetHeight >= pipe.topHeight + 200;
+                if(topCheck || bottomCheck){
+                    run = false;
+                    clearInterval(myTimer2);
+                }
+            }
+        }, 50)
+
+    }
+    createPipe(200);
+    createPipe(400);
+    createPipe(600);
+    createPipe(800);
+</script>

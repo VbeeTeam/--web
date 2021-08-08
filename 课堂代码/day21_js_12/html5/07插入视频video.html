@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <!-- <video src="mp4.mp4" autoplay controls></video> -->
+    我们的视频支持 ogg mp4 webM 三种视频格式
+    <video controls autoplay="autoplay" id="video">
+        <source src="mp4.mp4" />
+        <source src="movie04.ogg" />
+        您的浏览器不支持视频播放
+    </video>
+
+</body>
+
+</html>
+<script>
+    
+    let video = document.getElementById("video");
+    let videoPlay = video.play();
+
+    videoPlay.then(() => {
+        console.log('可以自动播放');
+    }).catch((err) => {
+        console.log(err);
+        console.log("不允许自动播放");
+
+        //视频元素可以选择静音后再播放,提示用户打开声音
+        video.muted = true;
+        video.play();
+
+        //也可以在用户交互后调用.play()
+        // ...
+    });
+</script>

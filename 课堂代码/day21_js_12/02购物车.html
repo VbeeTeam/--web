@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css" />
+    <title>购物车</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>我的购物车</h1>
+        </div>
+    </div>
+    <!-- 购物车 -->
+    <!-- .i_acity {
+        border-color: #ff6700 !important;
+        background-color: #ff6700 !important;
+    }
+    .i_acity2 {
+        border-color: #ff6700 !important;
+        background-color: #ff6700 !important;
+    } -->
+    <div id="car" class="car">
+        <div class="head_row">
+            <div class="left check"> <i onclick="checkAll()">√</i></div>
+            <div class="left img"> 全选</div>
+            <div class="left name">商品名称</div>
+            <div class="left price">单价</div>
+            <div class="left number">数量</div>
+            <div class="left subtotal">小计</div>
+            <div class="left ctrl">操作</div>
+        </div>
+    </div>
+    <!-- 结算 -->
+    <div class="sum_area">
+        <div id="pay">去结算</div>
+        <div id="pay_amout">合计：<span id="price_num">0</span>元</div>
+    </div>
+    <!-- 商品列表 -->
+    <div id="box">
+        <h2 class="box_head"><span>商品列表</span></h2>
+        <ul id="ul">
+        </ul>
+    </div>
+
+</body>
+
+</html>
+<script>
+    //基础数据
+    var aData = [{
+            "imgUrl": "images/登山鞋.jpg",
+            "proName": "登山鞋",
+            "proPrice": "100",
+            "proComm": "1"
+        },
+        {
+            "imgUrl": "images/冬裙.jpg",
+            "proName": "冬裙",
+            "proPrice": "110",
+            "proComm": "9.7"
+        },
+        {
+            "imgUrl": "images/毛衣.jpg",
+            "proName": "毛衣",
+            "proPrice": "60",
+            "proComm": "1.3"
+        },
+        {
+            "imgUrl": "images/棉服.jpg",
+            "proName": "棉服",
+            "proPrice": "90",
+            "proComm": "1.1"
+        },
+        {
+            "imgUrl": "images/男包.jpg",
+            "proName": "男包",
+            "proPrice": "150",
+            "proComm": "0.3"
+        },
+        {
+            "imgUrl": "images/男毛衣.jpg",
+            "proName": "男毛衣",
+            "proPrice": "190",
+            "proComm": "3.3"
+        },
+        {
+            "imgUrl": "images/男棉服.jpg",
+            "proName": "男棉服",
+            "proPrice": "180",
+            "proComm": "1.2"
+        },
+        {
+            "imgUrl": "images/男靴.jpg",
+            "proName": "男靴",
+            "proPrice": "95",
+            "proComm": "0.6"
+        },
+        {
+            "imgUrl": "images/呢大衣.jpg",
+            "proName": "呢大衣",
+            "proPrice": "200",
+            "proComm": "0.3"
+        },
+        {
+            "imgUrl": "images/牛仔裤.jpg",
+            "proName": "牛仔裤",
+            "proPrice": "170",
+            "proComm": "7.2"
+        }
+    ];
+
+    //获取box
+    var boxDom = document.getElementById("box");
+    //获取购物车dom
+    var carDom = document.getElementById("car");
+    //获取商品列表
+    var ulDom = document.getElementById("ul");
+    //动态创建渲染商品列表
+    for (var i = 0; i < aData.length; i++) {
+        var li = document.createElement("li");
+        //根据下标拿数据
+        var data = aData[i];
+
+        li.innerHTML += '<div class="pro_img"><img src="' + data["imgUrl"] +
+            '" width="150" height="150"></div>';
+        li.innerHTML += '<h3 class="pro_name"><a href="#">' + data["proName"] + '</a></h3>';
+        li.innerHTML += '<p class="pro_price">' + data["proPrice"] + '元</p>';
+        li.innerHTML += '<p class="pro_rank">' + data["proComm"] + '万人好评</p>';
+        li.innerHTML += '<div class="add_btn">加入购物车</div>';
+        ulDom.appendChild(li);
+    }
+
+    //获取box下的所有添加购物车按钮
+    var addBtn = getClass(ulDom, "add_btn");
+    //商品数量
+    var number = 0;
+    //获取添加购物车按钮
+    function getClass(ulDom, tagname) {
+        var tag = ulDom.getElementsByTagName("*");
+        var arr = [];
+        for (var i = 0; i < tag.length; i++) {
+            if (tag[i].className == tagname) {
+                arr.push(tag[i]);
+            }
+        }
+        return arr;
+    }
+    //循环添加按钮
+    for (var i = 0; i < addBtn.length; i++) {
+        number++;
+        //自定义属性index
+        addBtn[i].index = i;
+        addBtn[i].onclick = function () {
+            //存储添加商品的盒子
+            var oDiv = document.createElement("div");
+            //根据下标取数据
+            var data = aData[this.index];
+            oDiv.className = "row";
+
+            oDiv.innerHTML +=
+                '<div class="check left"> <i class="i_check" id="i_check" onclick="i_check()" >√</i></div>';
+            oDiv.innerHTML += '<div class="img left"><img src="' + data["imgUrl"] +
+                '" width="80" height="80"></div>';
+            oDiv.innerHTML += '<div class="name left"><span>' + data["proName"] + '</span></div>';
+            oDiv.innerHTML += '<div class="price left"><span>' + data["proPrice"] + '元</span></div>';
+            oDiv.innerHTML +=
+                ' <div class="item_count_i"><div class="num_count"><div class="count_d">-</div><div class="c_num">1</div><div class="count_i">+</div></div> </div>'
+            oDiv.innerHTML += '<div class="subtotal left"><span>' + data["proPrice"] + '元</span></div>'
+            oDiv.innerHTML += '<div class="ctrl left"><a href="javascript:;">×</a></div>';
+            carDom.appendChild(oDiv);
+
+            //获取复选框
+            var check = oDiv.firstChild.getElementsByTagName("i")[0];
+            //点击复选框添加类名样式
+            check.onclick = function () {
+                if (check.className == "i_check i_acity") {
+                    check.classList.remove("i_acity");
+                } else {
+                    check.classList.add("i_acity");
+                }
+                getAmount();
+            }
+            //获取删除按钮
+            var delBtn = oDiv.lastChild.getElementsByTagName("a")[0];
+            delBtn.onclick = function () {
+                var result = confirm("确定删除吗?");
+                if (result) {
+                    carDom.removeChild(oDiv);
+                    number--;
+                    getAmount();
+                }
+            }
+            //获取+号按钮
+            var i_btn = document.getElementsByClassName("count_i");
+            for (var k = 0; k < i_btn.length; k++) {
+                i_btn[k].onclick = function () {
+                    bt = this;
+                    //获取小计节点 父节点的父节点的下个兄弟节点
+                    at = this.parentElement.parentElement.nextElementSibling;
+                    //获取单价节点 父节点的父节点的上个兄弟节点
+                    pt = this.parentElement.parentElement.previousElementSibling;
+                    //获取数量值
+                    node = bt.parentElement.children[1];
+                    console.log(node);
+                    num = node.innerText;
+                    num = parseInt(num);
+                    num++;
+                    node.innerText = num;
+                    //获取单价
+                    price = pt.innerText;
+                    //去掉字符串最后一个"元"
+                    price = price.substring(0, price.length - 1);
+                    //计算小计值
+                    at.innerText = price * num + "元";
+                    //计算总计值
+                    getAmount();
+                }
+            }
+            //获取-号按钮
+            var d_btn = document.getElementsByClassName("count_d");
+            for (k = 0; k < i_btn.length; k++) {
+                d_btn[k].onclick = function () {
+                    bt = this;
+                    //获取小计节点
+                    at = this.parentElement.parentElement.nextElementSibling;
+                    //获取单价节点
+                    pt = this.parentElement.parentElement.previousElementSibling;
+                    //获取c_num节点
+                    node = bt.parentElement.children[1];
+                    num = node.innerText;
+                    num = parseInt(num);
+                    if (num > 1) {
+                        num--;
+                    }
+                    node.innerText = num;
+                    //获取单价
+                    price = pt.innerText;
+                    //去掉字符串最后一个"元"
+                    price = price.substring(0, price.length - 1);
+                    //计算小计值     
+                    at.innerText = price * num + "元";
+                    //计算总计值
+                    getAmount();
+                }
+            }
+
+        }
+    }
+
+    // 用于判断全选按钮是否选中
+    var checkBoolean = false;
+    //点击全选按钮
+    function checkAll() {
+        //获取购物车所有复选框
+        var choose = document.getElementById("car").getElementsByTagName("i");
+        console.log(choose);
+        //有商品的时候进行全选
+        if (choose.length > 1) {
+            //i从1开始循环让列表的复选框进行选中
+            for (i = 1; i < choose.length; i++) {
+                if (!checkBoolean) {
+                    choose[0].classList.add("i_acity2")
+                    choose[i].classList.add("i_acity");
+                } else {
+                    choose[i].classList.remove("i_acity");
+                    choose[0].classList.remove("i_acity2")
+                }
+            }
+            checkBoolean = !checkBoolean;
+        }
+        getAmount();
+    }
+
+    //进行价格合计
+    function getAmount() {
+        //获取所有选中的复选框
+        var ns = document.getElementsByClassName("i_acity");
+        console.log(ns);
+        var sum = 0;
+        //获取合计节点
+        document.getElementById("price_num").innerText = sum;
+        for (y = 0; y < ns.length; y++) {
+            //拿到小计节点
+            var amount_info = ns[y].parentElement.parentElement.lastElementChild.previousElementSibling;
+            num = parseInt(amount_info.innerText);
+            sum += num;
+            document.getElementById("price_num").innerText = sum;
+        }
+    }
+</script>

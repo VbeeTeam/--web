@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function $(str) {
+            return document.querySelector(str);
+        }
+    </script>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table {
+            width: 100%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        #ty td {
+            line-height: 50px;
+        }
+
+        tr:nth-child(n+2) {
+            border-bottom: 1px solid #ccc;
+        }
+
+        #ty {
+            height: 50px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tds input {
+            text-align: center;
+            border-radius: 5px;
+            background-color: #eee;
+            width: 55px;
+            height: 24px;
+            outline: none;
+            border: #ccc 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="tabs" style="border-collapse: collapse;" id="tab">
+        <tr id="ty">
+            <td colspan="2">购物车</td>
+            <td>价格</td>
+            <td>数量</td>
+        </tr>
+        <tr>
+            <td height="30" colspan="8" id="tt"></td>
+        </tr>
+        <tr>
+            <td width="250">
+                <img width="200" src="images/1.jpg" alt="" />
+            </td>
+            <td width="300">
+                <p>成果管理珍藏版</p><span>&nbsp;&nbsp;皮的•德鲁克(son)</span>
+                <p>平装</p>
+                <p>通常需要1-2个月发货</p>
+                <p>此商品可享受免费送货</p>
+                <p><a onclick="javacript:;" class="dele" href="#">删除</a></p>
+            </td>
+            <td width="300">1</td>
+            <td class="tds"><input min="1" max="10" value="1" type="number" autofocus="" onfocus="" name="" class="" />
+            </td>
+        </tr>
+        <tr>
+            <td width="250">
+                <img width="200" src="images/1.jpg" alt="" />
+            </td>
+            <td width="300">
+                <p>成果管理珍藏版</p><span>&nbsp;&nbsp;皮的•德鲁克(son)</span>
+                <p>平装</p>
+                <p>通常需要1-2个月发货</p>
+                <p>此商品可享受免费送货</p>
+                <p><a onclick="javacript:;" class="dele" href="#">删除</a></p>
+            </td>
+            <td width="300">3</td>
+            <td class="tds"><input min="1" max="10" value="1" type="number" autofocus="" onfocus="" name="" class="" />
+            </td>
+        </tr>
+        <tr id="ty">
+            <td colspan="4" align="right">小计<span id="xj">-</span>件商品&nbsp;&nbsp;:$<b
+                    id="num"></b>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+
+    </table>
+
+</body>
+<script>
+    var table = document.getElementsByTagName('tbody')[0];
+    var dele = document.getElementsByClassName('dele');
+    var trs = document.getElementsByTagName('tr');
+    var tds = document.getElementsByClassName('tds');
+    var countTd = $(".tds").firstElementChild;
+    var zongJia = $(".tds").previousElementSibling;
+    var xiaoJi = $('#xj');
+    var SszongJia = $('#num');
+    var tt = $('#tt');
+    var ipts = document.getElementsByTagName('input');
+    window.onload = function () {
+        initData();
+    }
+    // 初始化数据
+    function initData() {
+        SzongJia();
+        update();
+        deleteTr();
+    }
+    // 计算所有商品总计
+    let zj = 0;
+    function SzongJia() {
+        zj = xiaoj().zj;
+        SszongJia.innerHTML = zj.toFixed(2);
+        xiaoJi.innerHTML = xiaoj().xiao;
+    }
+    //更新数据
+    function update() {
+        for (let i = 0; i < ipts.length; i++) {
+            ipts[i].oninput = function () {
+                SzongJia();
+            }
+        }
+    }
+    //合计商品数量、价格
+    function xiaoj() {
+        let td = document.getElementsByClassName('tds');
+        let xiao = 0;
+        let zjj = 0;
+        for (let i = 0; i < td.length; i++) {
+            zjj += parseInt(td[i].firstElementChild.value * td[i].previousElementSibling.innerHTML)
+            xiao += parseInt(td[i].firstElementChild.value);
+        }
+        zj = zjj;
+        return {
+            "zj": zj,
+            "xiao": xiao
+        };
+    }
+    //删除数据
+    function deleteTr() {
+        for (let i = 0; i < dele.length; i++) {
+            dele[i].onclick = function () {
+                var tepTr = dele[i].parentElement.parentElement.parentElement;
+                console.log(tepTr);
+                var sop = tepTr.firstElementChild.nextElementSibling.firstElementChild.innerHTML;
+                var bo = confirm('确认删除' + sop + '商品吗?');
+                if (bo) {
+                    tt.innerHTML = sop + "商品被删除!";
+                    var tepo = 1;
+                    timer = setInterval(function () {
+                        tepo -= 0.08;
+                        if (tepo <= 0) {
+                            clearInterval(timer);
+                            // console.log(table)
+                            table.removeChild(tepTr);
+                            // dele = document.getElementsByClassName('dele');
+                            // trs = document.getElementsByTagName('tr');
+                            // tds = document.getElementsByClassName('tds');  
+                            // ipts = document.getElementsByTagName('input'); 
+                            // console.log(trs.length-3);
+                            tt.innerHTML = '';
+                            initData();
+                        }
+                        tepTr.style.opacity = tepo;
+                        tepTr.style.borderBottom = 'none';
+                    }, 100)
+                }
+            }
+        }
+    }
+</script>
+
+</html>

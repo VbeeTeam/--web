@@ -1,0 +1,55 @@
+<!-- <script src="http://api.map.baidu.com/api?ak=mSpNfh7s7xK2Ik2QmtKIXsy4CqR3FwVq&v=2.0&services=false"></script> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hello, World</title>
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+
+        #allmap {
+            height: 100%
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="allmap"></div>
+</body>
+
+</html>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=mSpNfh7s7xK2Ik2QmtKIXsy4CqR3FwVq&services=false">
+</script>
+<!-- <script src="http://api.map.baidu.com/api?ak=mSpNfh7s7xK2Ik2QmtKIXsy4CqR3FwVq&v=3.0&services=false"></script>
+</script> -->
+<script>
+    window.onload = function () {
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point(116.331398, 39.897445);
+        map.centerAndZoom(point, 12);
+
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (r) {
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                var mk = new BMap.Marker(r.point);
+                map.addOverlay(mk);
+                map.panTo(r.point);
+                alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+            }
+            else {
+                alert('failed' + this.getStatus());
+            }
+        });
+    }
+</script>

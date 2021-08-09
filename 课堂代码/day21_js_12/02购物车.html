@@ -52,65 +52,85 @@
 <script>
     //基础数据
     var aData = [{
-            "imgUrl": "images/登山鞋.jpg",
-            "proName": "登山鞋",
-            "proPrice": "100",
-            "proComm": "1"
-        },
-        {
-            "imgUrl": "images/冬裙.jpg",
-            "proName": "冬裙",
-            "proPrice": "110",
-            "proComm": "9.7"
-        },
-        {
-            "imgUrl": "images/毛衣.jpg",
-            "proName": "毛衣",
-            "proPrice": "60",
-            "proComm": "1.3"
-        },
-        {
-            "imgUrl": "images/棉服.jpg",
-            "proName": "棉服",
-            "proPrice": "90",
-            "proComm": "1.1"
-        },
-        {
-            "imgUrl": "images/男包.jpg",
-            "proName": "男包",
-            "proPrice": "150",
-            "proComm": "0.3"
-        },
-        {
-            "imgUrl": "images/男毛衣.jpg",
-            "proName": "男毛衣",
-            "proPrice": "190",
-            "proComm": "3.3"
-        },
-        {
-            "imgUrl": "images/男棉服.jpg",
-            "proName": "男棉服",
-            "proPrice": "180",
-            "proComm": "1.2"
-        },
-        {
-            "imgUrl": "images/男靴.jpg",
-            "proName": "男靴",
-            "proPrice": "95",
-            "proComm": "0.6"
-        },
-        {
-            "imgUrl": "images/呢大衣.jpg",
-            "proName": "呢大衣",
-            "proPrice": "200",
-            "proComm": "0.3"
-        },
-        {
-            "imgUrl": "images/牛仔裤.jpg",
-            "proName": "牛仔裤",
-            "proPrice": "170",
-            "proComm": "7.2"
-        }
+        "id": 1,
+        "imgUrl": "images/登山鞋.jpg",
+        "proName": "登山鞋",
+        "proPrice": "100",
+        "proComm": "1",
+        num: 1
+    },
+    {
+        "id": 2,
+        "imgUrl": "images/冬裙.jpg",
+        "proName": "冬裙",
+        "proPrice": "110",
+        "proComm": "9.7",
+        num: 1
+    },
+    {
+        "id": 3,
+        "imgUrl": "images/毛衣.jpg",
+        "proName": "毛衣",
+        "proPrice": "60",
+        "proComm": "1.3",
+        num: 1
+    },
+    {
+        "id": 4,
+        "imgUrl": "images/棉服.jpg",
+        "proName": "棉服",
+        "proPrice": "90",
+        "proComm": "1.1",
+        num: 1
+    },
+    {
+        "id": 5,
+        "imgUrl": "images/男包.jpg",
+        "proName": "男包",
+        "proPrice": "150",
+        "proComm": "0.3",
+        num: 1
+    },
+    {
+        "id": 6,
+        "imgUrl": "images/男毛衣.jpg",
+        "proName": "男毛衣",
+        "proPrice": "190",
+        "proComm": "3.3",
+        num: 1
+    },
+    {
+        "id": 7,
+        "imgUrl": "images/男棉服.jpg",
+        "proName": "男棉服",
+        "proPrice": "180",
+        "proComm": "1.2",
+        num: 1
+    },
+    {
+        "id": 8,
+        "imgUrl": "images/男靴.jpg",
+        "proName": "男靴",
+        "proPrice": "95",
+        "proComm": "0.6",
+        num: 1
+    },
+    {
+        "id": 9,
+        "imgUrl": "images/呢大衣.jpg",
+        "proName": "呢大衣",
+        "proPrice": "200",
+        "proComm": "0.3",
+        num: 1
+    },
+    {
+        "id": 10,
+        "imgUrl": "images/牛仔裤.jpg",
+        "proName": "牛仔裤",
+        "proPrice": "170",
+        "proComm": "7.2",
+        num: 1
+    }
     ];
 
     //获取box
@@ -149,6 +169,7 @@
         }
         return arr;
     }
+   
     //循环添加按钮
     for (var i = 0; i < addBtn.length; i++) {
         number++;
@@ -161,14 +182,23 @@
             var data = aData[this.index];
             oDiv.className = "row";
 
+            var name = document.getElementsByClassName("proname");
+            var c_num = document.getElementsByClassName("c_num");
+            console.log(name)
+            for(var y = 0; y < name.length; y++){
+                if(name[y].innerText == data.proName){
+                    c_num[y].innerText = parseInt(c_num[y].innerText) + 1;
+                    return;
+                }
+            }
             oDiv.innerHTML +=
-                '<div class="check left"> <i class="i_check" id="i_check" onclick="i_check()" >√</i></div>';
+                '<div class="check left"> <i class="i_check" id="i_check">√</i></div>';
             oDiv.innerHTML += '<div class="img left"><img src="' + data["imgUrl"] +
                 '" width="80" height="80"></div>';
-            oDiv.innerHTML += '<div class="name left"><span>' + data["proName"] + '</span></div>';
+            oDiv.innerHTML += '<div class="name left"><span class="proname">' + data["proName"] + '</span></div>';
             oDiv.innerHTML += '<div class="price left"><span>' + data["proPrice"] + '元</span></div>';
             oDiv.innerHTML +=
-                ' <div class="item_count_i"><div class="num_count"><div class="count_d">-</div><div class="c_num">1</div><div class="count_i">+</div></div> </div>'
+                ' <div class="item_count_i"><div class="num_count"><div class="count_d">-</div><div class="c_num">' + data['num'] + '</div><div class="count_i">+</div></div> </div>'
             oDiv.innerHTML += '<div class="subtotal left"><span>' + data["proPrice"] + '元</span></div>'
             oDiv.innerHTML += '<div class="ctrl left"><a href="javascript:;">×</a></div>';
             carDom.appendChild(oDiv);

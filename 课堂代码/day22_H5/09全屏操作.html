@@ -25,7 +25,6 @@
         <button id="cancelFull">取消全屏</button>
         <button id="isFull">是否全屏</button>
     </div>
-
     <script>
         // 全屏显示可以是任意元素
         // H5 API 存在兼容性问题  ie9 +  
@@ -46,7 +45,6 @@
                 div.msRequestFullscreen(); //  ms 里面这样写msRequestFullscreen()     s是小写的  
             }
         }
-
         // 2 取消全屏  跟元素没有关系  跟 document
         document.querySelector("#cancelFull").onclick = function () {
             //  document.webkitCancelFullScreen();  // document 退出全屏

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<p id="demo">点击这个按钮，获得您的坐标：</p>
+	<button onclick="getLocation()">试一下</button>
+	<script>
+		var x = document.getElementById("demo");
+		function getLocation()   // 当我们点击了按钮就会触发这个函数
+		{
+			navigator.geolocation.getCurrentPosition(showPosition, showError);
+			// showPosition  如果调用成功  调用这个函数 显示 当前位置
+			// showError   如果调用失败  调用这个函数 
+		}
+		// 调用 成功的函数   返回当前位置的经纬度
+		function showPosition(position) {
+			x.innerHTML =
+				"Latitude: " + position.coords.latitude +    //  获得当前的纬度
+
+				"<br />Longitude: " + position.coords.longitude;	 // 获得当前的经度
+		}
+		// 调用 失败 的函数   返回当前位置的经纬度
+		function showError(error) {
+			console.log(error)
+		}
+	</script>
+</body>
+</html>

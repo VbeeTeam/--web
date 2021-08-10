@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    //1. 创建一个英雄对象
+    var hero = new Object(); //空对象
+    hero.blood = 100; //血量
+    hero.name = "刘备";
+    hero.weapon = "双股箭";
+
+    hero.attack = function(){
+        console.log(this.weapon + "攻击敌人");
+    }
+    //调用方法
+    hero.attack();
+
+    //2. 创建一个英雄对象
+    var hero = {};
+    var hero = {
+        blood: 100,
+        name: "刘备",
+        weapon: "双股箭",
+        attack: function(){
+            console.log(this.weapon + "攻击敌人");
+        }
+    }
+     //调用方法
+     hero.attack();
+
+    //3.创建多个对象 工厂函数
+    function createHero(name, blood, weapon){
+        var obj = new Object();
+        obj.name = name;
+        obj.blood = blood;
+        obj.weapon = weapon;
+        obj.attack = function(){
+            console.log(this.weapon + "攻击敌人");
+        }
+        return obj;
+    }
+    var hero1 = createHero("刘备", 100, "双股剑");
+    var hero2 = createHero("关于", 100, "青龙偃月刀");
+    hero1.attack();
+    hero2.attack();
+    //判断类型
+    console.log(typeof hero1);
+    var arr = [];
+    console.log(typeof arr);
+    console.log(arr instanceof Array);
+    console.log(hero2 instanceof Array);
+    //无法获取具体类型
+</script>

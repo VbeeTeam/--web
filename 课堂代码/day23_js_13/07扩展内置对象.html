@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var array = [5, 4, 1, 8];
+    Array.prototype.getSum = function () {
+      
+      var sum = 0;
+      for (var i = 0; i < this.length; i++) {
+        sum += this[i];
+        // 求数组中所有偶数的和
+        // if (this[i] % 2 === 0) {
+        //   sum += this[i];
+        // }
+      }
+      return sum;
+    }
+    // 数组或者String 中的prototype是不可以修改的，是可以添加的
+    // console.log(Array.prototype)
+    // Array.prototype = {
+    //   getSum: function () {
+    //      // 求数组中所有偶数的和
+    //     var sum = 0;
+    //     for (var i = 0; i < this.length; i++) {
+    //       if (this[i] % 2 === 0) {
+    //         sum += this[i];
+    //       }
+    //     }
+    //     return sum;
+    //   }
+    // }
+
+    console.log(array.getSum());
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+ 
+    //构造函数 第一个字母大写
+    function Hero(name, blood, weapon){
+        this.name = name;
+        this.blood = blood;
+        this.weapon = weapon;
+        this.attack = function(){
+            console.log(this.weapon + "攻击敌人")
+        }
+    }
+    var hero = new Hero("刘备", 100, "双股剑");
+    hero.attack();
+    // new Hero过程：
+    //1.会在内存中自动创建一个空对象
+    //2.设置构造构造函数的this，让this指向刚刚创建好的对象
+    //3.执行构造函数中的代码
+    //4.返回对象
+    //构造函数=》构造对象的函数
+    console.log(typeof hero);
+    //判断对象的具体类型 不建议使用这种方式
+    console.log(hero.constructor === Hero);
+    //判断对象的具体类型
+    console.log(hero instanceof Hero);
+</script>

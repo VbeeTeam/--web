@@ -9,16 +9,6 @@
 <body>
   <script>
     // 1 call 的应用
-    // Array.prototype.getSum = function () {
-    //   // this
-    // }
-    // var arr = [1, 2, 3];
-    // arr.getSum();
-    // arr.push()
-    // arr.splice();
-
-
-    // getElementsByTagName()
     // 伪数组
     var obj = {
       0: 100,
@@ -31,22 +21,10 @@
     // obj.length ++;
 
     // console.dir(obj);
-    
     Array.prototype.push.call(obj, 30);
     Array.prototype.splice.call(obj, 0, 3);
     console.dir(obj);
 
-
-    var obj = {
-      name: 'zs'
-    };
-
-    console.log(obj.toString());
-    
-    var arr = [5, 9];
-    console.log(arr.toString());
-
-    console.log(Object.prototype.toString.call(arr));
   </script>
 </body>
 </html>

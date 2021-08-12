@@ -47,13 +47,14 @@
             var maxY = this.map.offsetHeight / this.snake.width;
             if (headX < 0 || headX >= maxX) {
                 clearInterval(myTimer);
-                if(!alert("Game Over，是否重新开始游戏")){
+                
+                if(confirm("Game Over，是否重新开始游戏")){
                     window.location.reload();
                 }
             }
             if (headY < 0 || headY >= maxY) {
                 clearInterval(myTimer);
-                if(!alert("Game Over，是否重新开始游戏")){
+                if(confirm("Game Over，是否重新开始游戏")){
                     window.location.reload();
                 }
             }

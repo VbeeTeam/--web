@@ -23,6 +23,10 @@
     // obj.fn();
 
     // 3 作为构造函数调用   构造函数内部的this指向由该构造函数创建的对象
+    // function Person(){
+    //   console.log(this);
+    // }
+    // var p = new Person();
 
     // 4 作为事件的处理函数   触发该事件的对象
     // btn.onclick = function() {
@@ -34,35 +38,7 @@
     //   console.log(this);
     // }, 1000);
 
-      // 终结总结：函数内部的this，是由函数调用的时候来确定其指向的
-
-    // function fn() {
-    //   console.log(this);
-    // }
-
-    // // fn(); // this -> window
-
-    // var obj = {
-    //   name: 'zs',
-    //   fn: fn
-    // }
-
-    // obj.fn();
-
-
-
-    var obj = {
-      name: 'zs',
-      fn: function () {
-        console.log(this);
-      }
-    }
-
-    // var fn = obj.fn;
-
-    // fn();   // this -> window
-
-    obj.fn();
+  // 终结总结：函数内部的this，是由函数调用的时候来确定其指向的
   </script>
 </body>
 </html>

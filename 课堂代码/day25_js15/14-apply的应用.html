@@ -10,23 +10,21 @@
   <script>
     // 2 apply的应用
     // fn.apply(,[])
+    //取最大数
+    // console.log(Math.max(3, 5, 6));
 
-    // Math.max(3, 5, 6);
-
-    var arr = [5, 10, 1, 3, 6];
     // Math.max不能求数组中的最大值
-    // console.log(Math.max(arr));
+    var arr = [5, 10, 1, 3, 6];
+    // console.log(Math.max(arr)); //NAN
 
+    //不需要改变this，展开数组进行取值
     console.log(Math.max.apply(null, arr));
     console.log(Math.max.apply(Math, arr));
     
-
     // console.log(1, 2, 3);
     // console.log(arr);
-
+    // 展开数组
     console.log.apply(console, arr);
-
-
   </script>
 </body>
 </html>

@@ -14,30 +14,28 @@
 
     // 父类型
     function Person() {
-      this.name = 'zs';
+      this.name = '张三';
       this.age = 18;
       this.sex = '男';
     }
-
     // 子类型
     function Student() {
       this.score = 100;
     }
-
-    Student.prototype = new Person();
-    Student.prototype.constructor = Student;
-
-
-
-    var s1 = new Student();
-    console.log(s1.constructor);
-    console.dir(s1);
-
+   // 子类型
     function Teacher() {
       this.salary = 3000;
     }
-
-    // 原型继承： 无法设置构造函数的参数
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student;
+    Teacher.prototype = new Person();
+    Teacher.prototype.constructor = Teacher;
+    var s1 = new Student();
+    console.log(s1.constructor);
+    console.log(s1.name);
+    var s2 = new Teacher();
+    console.log(s2.age);
+    // 原型继承： 无法设置父类构造函数的参数属性
   </script>
 </body>
 </html>

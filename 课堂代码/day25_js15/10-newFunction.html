@@ -8,15 +8,11 @@
 </head>
 <body>
   <script>
-    // function f() {
-    // }
-    // f();
-    // 3 new Function()
+    // 3 new Function(字符串形式)
     // 函数也是对象
     // var fn = new Function('var name = "张三";console.log(name)');
     // fn();
     // console.dir(fn);
-
     var fn = new Function('a', 'b', 'console.log(a + b)');
     fn(1, 2);
   </script>

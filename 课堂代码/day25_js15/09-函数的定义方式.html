@@ -14,12 +14,14 @@
     // }
     // fn();
 
-    // 2 函数表达式
+    // 2 函数表达式 匿名函数
     // var fn = function () {
     //   console.log('test');
     // }
 
     // 函数声明和函数表达式的区别
+    // 普通函数会提升函数声明
+    // 匿名函数（函数表达式）不会提升函数声明
     // function fn() {
     //   console.log('test');
     // }
@@ -33,7 +35,9 @@
     
 
     // 根据条件声明函数
-    // 现代浏览器 不会提升if语句中的函数声明
+    // 普通函数在现代浏览器 不会提升if语句中的函数声明
+    // 在老的IE版本中，if语句中的函数声明也会提升
+    // fn();
     // if (true) {
     //   function fn() {
     //     console.log('fn - true');
@@ -43,12 +47,10 @@
     //     console.log('fn - false');
     //   }
     // }
-    // fn();
-
-    // 在老的IE版本中，if语句中的函数声明也会提升
     
+    //匿名函数（函数表达式），在现代浏览器，在老的IE版本中，if语句中的函数声明也会提升
     var fn;
-    if (false) {
+    if (true) {
       fn = function () {
         console.log('fn - true');
       }

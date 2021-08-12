@@ -11,7 +11,6 @@
     // function fn1() {
     //   var n = 10;
     //   console.log(n);
-
     //   fn2();
     // }
 
@@ -21,14 +20,12 @@
     // }
     // fn1();
 
-
     // 递归： 函数自己调用自己
-
     // 在递归的过程中会出错
     // Maximum call stack size exceeded
     // 内存溢出：超过了最大的堆栈大小
 
-    // 递归，一般都要写一个结束的条件
+    // 递归，一般都要写一个结束的条件，根据不同情况处理，写一个案例用递归来看下
     // function fn() {
     //   var n = 10;
     //   console.log(n);
@@ -37,22 +34,20 @@
     // }
     // fn();
 
-
-
-    //用递归来实现 1 + 2 + 3 + 4 + .... + n
+    //用递归来实现 1 + 2 + 3 + 4 + .... + n =》 1 ~ n之间的和
 
     // n = 3,    3 + getSum(3 - 1) -> 2 + 1
     // n = 2,    2 + getSum(2 - 1) -> 1
     // n = 1,    1
     function getSum(n) {
-      // 递归结束的条件
+      // 递归结束的条件 推算 n = 1
       if (n === 1) {
         return 1;
       }
       return n + getSum(n - 1);
     }
 
-    console.log(getSum(3));
+    console.log(getSum(2));
   </script>
 </body>
 </html>

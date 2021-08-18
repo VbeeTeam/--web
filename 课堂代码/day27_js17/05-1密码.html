@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#sourceImgBox01{
+				position: relative;
+				width: 300px;
+				height: 300px;
+				background-image: url(img/2.jpg);
+				background-size: cover;				
+			}
+			
+			#sourceImgBox02{
+				position: relative;
+				width: 200px;
+				height: 300px;
+				background-image: url(img/3.jpg);
+				background-size: cover;		
+			}
+						
+		</style>
+	</head>
+	<body>
+		请输入您的密码：<input id="textId" type="text" onblur="checkPass()" />
+		<span id="msgSpan"></span><br/>
+
+	</body>
+</html>
+
+<script type="text/javascript">
+function $(id){
+	return document.getElementById(id);
+}
+
+//demo23作业_密码格式要求（必须包含字母、数字、特殊字符，长度6个字符以上）
+function checkPass(){
+	//1、获得用户输入
+	var str = $("textId").value;
+	//2、逻辑
+	//1）、长度6个字符以上
+	if(str.length<6){
+		$("msgSpan").innerHTML = "密码长度应该在6位以上";
+		return;
+	}
+	
+	//2）、包含字母
+	var hasLetter = false;
+	var reg = /[a-z]/ig;
+	if(str.search(reg)>-1){
+		hasLetter = true;
+	}
+	
+	//3)、包含数字
+	var hasNum = false;
+	var reg = /\d/;
+	if(str.search(reg)>-1){
+		hasNum = true;
+	}
+	
+	//4)、特殊字符
+	var arr=["$","#","!","&","%"];
+	var hasSpec = false;
+	var reg = /[\$#!&%]/;
+	if(str.search(reg)>-1){
+		hasSpec = true;
+	}
+	
+	//3、输出
+	if(hasLetter && hasNum && hasSpec){
+		$("msgSpan").innerHTML = "√";
+	}else{
+		$("msgSpan").innerHTML = "×，密码中必须包含字母、数字、特殊字符";
+	}
+}
+
+</script>
+

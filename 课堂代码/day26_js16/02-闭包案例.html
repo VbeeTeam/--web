@@ -34,7 +34,7 @@
     for (var i = 0; i < list.length; i++) {
       var li = list[i];
 
-      (function (i) {
+      (function (i) { //接收(i)方法的i
         li.onclick = function () {
           // 2 点击li的时候输出当前li对应的索引
           console.log(i);

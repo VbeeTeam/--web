@@ -14,11 +14,19 @@
     姓名：<input type="text" id="txtName"><span></span><br>
 
     <script>
+      // oninput 事件 当文本改变
+      // txtQQ.oninput = function () {
+      //   console.log(this.value);
+      // }
+      // 当用户输入的时候验证文本框内的内容是否合法
+      // txtQQ.onkeyup = function () {
+      //   console.log(this.value);
+      // }
       // 1 验证QQ号
       var txtQQ = document.getElementById('txtQQ');
       // 当光标离开文本框的时候
       txtQQ.onblur = function () {
-        // 验证用户的输入是否是QQ号
+        // 验证用户的输入是否是QQ号 5-12位数字
         var reg = /^\d{5,12}$/;
         var span = this.nextElementSibling;
         // 检测用户输入的文本是否匹配指定的模式（正则表达式）

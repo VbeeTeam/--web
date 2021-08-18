@@ -8,24 +8,24 @@
 </head>
 <body>
   <script>
+    // replace()   替换
     // 1. 替换所有空白
     var str = "   123AD  asadf     asadfasf  adf ";
     // trim() 去除前后的空格
     // console.log( str.trim());
+
     // replace() 只能替换掉第一个查找到的内容
     // console.log(str.replace(' ', 'x'));
 
+    // \s匹配空格换行 
     // console.log(str.replace(/\s/g, ''));
 
-
+    // split分割数组 通过空字符串('')join拼接数组为字符串
     // console.log(str.split(' ').join(''));
  
     // 2. 把所有,和，替换为.
-    var str = "abc,efg,123，abc,123，a";
-
-    console.log(str.replace(/,|，/g, '.'));
-
-
+    // var str = "abc,efg,123，abc,123，a";
+    // console.log(str.replace(/,|，/g, '.'));
   </script>
 </body>
 </html>

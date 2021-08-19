@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+</head>
+<body>
+	<input id="btn" type="button" value="测试" />
+</body>	
+</html>
+<script type="text/javascript">
+function $(id){
+	return document.getElementById(id);
+}
+//继承：子类自动拥有父类的属性和方法
+class Person{
+	constructor(id,name,sex,age){
+		this.id = id;
+		this.name = name;
+		this.sex = sex;
+		this.age = age;
+	}
+	eat(str){
+	   alert(this.name+"在吃"+str);
+	}	
+}
+//定义医生类，继承人的类
+class Doctor extends Person{
+	constructor(id,name,sex,age){
+		super(id,name,sex,age);//调用父类的构造函数。
+		
+	}
+	lookPerson(){
+		alert(this.name+"在看病");
+	}
+}
+window.onload=function(){
+	$("btn").onclick = function(){
+		//2、实例化一个医生（定义一个医生变量）	
+		var d1 = new Doctor("007","张三","男",20);
+		d1.eat("泡面");
+		d1.lookPerson();
+	}	
+}
+
+</script>

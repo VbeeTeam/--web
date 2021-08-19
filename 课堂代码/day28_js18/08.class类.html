@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">创建医生类</button>
+</body>
+</html>
+<script>
+    //类：分类，类型。数据类型。程序员根据项目（业务）的不同，会定义无数的数据类型。
+//对象：类的具体体现，变量。
+
+//定义一个类型，ES6中使用class关键字
+//定义一个医生类型，相当于定义number，boolean，Array等等
+//声明的方式定义类
+class Doctor{
+	//构造函数：构造医生
+	constructor(id,name){
+		//属性：名词，有什么
+		this.id = id;
+		this.name = name;
+	}
+	//方法：也叫函数，是动词，能干什么
+	//函数
+	eat(str){
+	   alert(this.name+"在吃"+str);
+	}
+	
+	work(){
+		alert(this.name+"在看病");
+	}
+
+
+}
+
+window.onload=function(){
+	document.getElementById("btn").onclick = function(){
+		//2、实例化一个医生（定义一个医生变量）	
+		var d1 = new Doctor("007","张三");//调用的是构造函数constructor();
+		d1.eat("泡面");
+		d1.work();
+	}	
+}
+
+//表达式的方式定义类
+var p = class {
+	//构造函数
+	constructor(name){
+		this.name = name;
+	}	
+	eat(str){
+		console.log(this.name+"在吃"+str);
+	}
+};
+
+var p1 = new p("张三疯");
+p1.eat("饼干");
+
+</script>

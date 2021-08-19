@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //数组去重   Set：去重集合
+    // var arr=[12,23,12,34,23,45,56];
+	// var s = new Set(arr);
+    // console.log(s);
+    // for(let item of s){
+	// 	console.log(item);
+	// }
+    // 扩展运算符
+	// console.log([...s]);
+
+    //add();添加元素，返回值是set本身
+    var s = new Set();
+	s.add(10).add(20).add(35).add(56);
+	// s.delete(20);
+	// console.log(s);
+	console.log(s.has(10));
+	console.log(s.size);
+
+	s.clear();
+	console.log(s);
+	
+	
+
+</script>

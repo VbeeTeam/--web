@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // for...of 允许你遍历 Arrays（数组）, Strings（字符串）, Sets（集合）等可迭代的数据结构等。
+    const iterable = ['mini', 'mani', 'mo'];
+
+    for (const value of iterable) {
+        console.log(value);
+    }
+
+    var str = "hello";
+    for (const value of str) {
+        console.log(value);
+    }
+    // 不可以遍历对象
+    // var obj = {
+    //     name: "张三",
+    //     sex: "男"
+    // }
+    // for (const value of obj) {
+    //     console.log(value);
+    // }
+    // 要用 for of循环遍历对象
+    // 数组遍历方法
+    // 1.for循环 使用临时变量，将长度缓存起来，避免重复获取数组长度，当数组较大时优化效果才会比较明显。
+    // 2.forEach循环 遍历数组中的每一项，没有返回值，不支持IE
+    // arr.forEach((item, index, array) => {
+    //     //执行代码
+    // })
+    //参数：value数组中的当前项, index当前项的索引, array原始数组；
+    //数组中有几项，那么传递进去的匿名回调函数就需要执行几次；
+    // 3.map循环有返回值，可以return出来
+    // map的回调函数中支持return返回值；return的是啥，
+    // 相当于把数组中的这一项变为啥（并不影响原来的数组，只是相当于把原数组克隆一份，把克隆的这一份的数组中的对应项改变了）；
+    // var ary = [12,23,24,42,1]; 
+    // var res = ary.map(function (item,index,ary ) { 
+    //     return item*10; 
+    // }) 
+    // console.log(res);//-->[120,230,240,420,10];  原数组拷贝了一份，并进行了修改
+    // console.log(ary);//-->[12,23,24,42,1]；  原数组并未发生变化
+    // 4.filter遍历 不会改变原始数组,返回新数组
+    // var arr = [73, 84, 56, 22, 100]
+    // var newArr = arr.filter(item => item > 80)   //得到新数组 [84, 100]
+    // console.log(newArr, arr)
+    // 5.every遍历 是对数组中的每一项运行给定函数，如果该函数对每一项返回true,则返回true。
+    // var arr = [1, 2, 3, 4, 5, 6];
+    // var arr2 = arr.every(function (item, index) {
+    //     return item >= 1;
+    // });
+    // console.log(arr2); //true
+    // 6.some遍历 是对数组中每一项运行指定函数，如果该函数对任一项返回true，则返回true。
+    var arr = [ 1, 2, 3, 4, 5, 6 ]; 
+    var arr2 = arr.some( function( item, index, array ){ 
+       return item > 3; 
+    }); 
+    console.log(arr2); //true
+</script>

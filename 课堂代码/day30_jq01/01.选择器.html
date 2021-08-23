@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <p></p>
+    <p></p>
+    <div class="wrap"></div>
+
+    <form>
+        <label>Name:</label>
+        <input name="name" />
+        <fieldset>
+            <label>Pass:</label>
+            <input name="pass" />
+        </fieldset>
+    </form>
+
+</body>
+</html>
+<script src="./jquery-3.5.1.min.js"></script>
+<script>
+
+    console.log("id:", $("#box"));
+
+    console.log("tag:", $("p"));
+
+    console.log("class:", $(".wrap"));
+
+    console.log("所有：", $("*"));
+
+    //匹配子元素
+    console.log("子元素：", $("form input"));
+    //匹配第一个选择器的子元素
+    console.log("第一个子元素：", $("form > input"));
+    //后面的下去自己看
+
+</script>

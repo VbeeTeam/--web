@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+
+    <style>
+        .wrap{
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+        }
+        .hover{
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p>我是jq点击</p>
+
+    <div class="wrap"></div>
+
+</body>
+
+</html>
+<script src="./jquery-3.5.1.min.js"></script>
+<script>
+    $(function () {
+
+        // $("p").on("click", function () {
+        //     alert($(this).text());
+        //     // $("p").off();
+        // });
+
+        $("p").one("click", function () {
+            alert($(this).text());
+        });
+
+        $("div").hover(
+            function () {
+                $(this).addClass("hover");
+            },
+            function () {
+                $(this).removeClass("hover");
+            }
+        );
+
+    });
+</script>

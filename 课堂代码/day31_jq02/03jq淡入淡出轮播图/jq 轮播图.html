@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JQ轮播图</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #wrap {
+            width: 100%;
+            height: 420px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            margin-top: 0px;
+        }
+
+        .slider img {
+            width: 100%;
+        }
+
+        .num {
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+        }
+
+        .num li {
+            float: left;
+            width: 22px;
+            height: 22px;
+            color: #ff7300;
+            text-align: center;
+            line-height: 22px;
+            cursor: pointer;
+            border: 1px solid #ff7300;
+            background-color: white;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        .num li.active {
+            color: #fff;
+            background-color: #ff7300;
+        }
+
+        #left {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 30px;
+            top: 45%;
+        }
+
+        #right {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            right: 30px;
+            top: 45%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <ul class="slider">
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+        </ul>
+        <ul class="num">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <img src="images/left.png" id="left" alt="">
+        <img src="images/right.png" id="right" alt="">
+    </div>
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script>
+        $(function () {
+            var slider = $("#wrap .slider");
+            //获取图片
+            var imgCon = $("#wrap .slider li");
+            //除第一张其余的图片全部隐藏
+            imgCon.not(imgCon.eq(0)).hide();
+            //定义页码ul
+            var num = $("#wrap .num")
+            //获取li标签的长度
+            //find()方法返回备选元素的后代元素
+            var len = slider.find("li").length;
+
+            var index = 0;
+            //开始轮播
+            var mtTimer = null;
+
+             //显示索引对应的图片
+             function showPic(currtIndex) {
+                imgCon.eq(currtIndex).show().siblings("li").hide();
+                num.find("li").eq(currtIndex).addClass("active").siblings("li").removeClass("active");
+            }
+
+            function run() {
+                myTimer = setInterval(function () {
+                    index++;
+                    if (index == len) {
+                        index = 0
+                    }
+                    showPic(index);
+                }, 1000)
+            }
+            run();
+            //划过图片轮播
+            $("#wrap").hover(function () {
+                clearInterval(myTimer);
+            }, function () {
+                run();
+            })
+           
+            //原点点击事件
+            $(".num li").click(function () {
+                index = $(this).index()
+                showPic(index)
+            })
+            //点击左按钮
+            $("#left").click(function () {
+                console.log(index)
+                index--;
+                if (index < 0) {
+                    index = len - 1;
+                }
+                showPic(index);
+            })
+            //点击右按钮
+            $("#right").click(function () {
+                index++;
+                if (index >= len) {
+                    index = 0;
+                }
+                showPic(index);
+            })
+
+        })
+    </script>
+</body>
+
+</html>

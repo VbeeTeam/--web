@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+        .slider {
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            border: 1px solid #808080;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider .img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .slider .img li {
+            float: left;
+        }
+
+        .slider .img li img {
+            width: 250px;
+            height: 280px;
+            margin-right: 20px;
+        }
+        .slider .img li img:last-of-type {
+            margin-right: 0px;
+        }
+
+
+        .slider .num {
+            position: absolute;
+            width: 100%;
+            bottom: 10px;
+            left: 0px;
+            text-align: center;
+            font-size: 0px;
+        }
+
+        .slider .num li {
+            width: 10px;
+            height: 10px;
+            background-color: #888;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0px 3px;
+            cursor: pointer;
+        }
+
+        .slider .num li.active {
+            background-color: #ff6a00;
+        }
+
+        .slider .btn {
+            width: 30px;
+            height: 50px;
+            background-color: #808080;
+            opacity: 0.5;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 50px;
+            font-size: 40px;
+            color: #fff;
+            font-family: "宋体";
+            display: none;
+        }
+
+        .slider .btn_l {
+            left: 0px;
+        }
+
+        .slider .btn_r {
+            right: 0px;
+        }
+
+        .slider:hover .btn {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <ul class="img">
+            <li><img src="img/01.jpg" alt="" /><img src="img/02.jpg" alt="" /></li>
+            <li><img src="img/03.jpg" alt="" /><img src="img/04.jpg" alt="" /></li>
+            <li><img src="img/05.jpg" alt="" /><img src="img/06.jpg" alt="" /></li>
+            <li><img src="img/07.jpg" alt="" /><img src="img/08.jpg" alt="" /></li>
+        </ul>
+        <ul class="num">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="btn btn_l"><</div>
+        <div class="btn btn_r">></div>
+    </div>
+</body>
+
+</html>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //定义一个基础下标
+        var i = 0;
+
+        var clone = $(".slider .img li").first().clone();//克隆第一张图片
+        $(".slider .img").append(clone);//复制到列表最后
+        var size = $(".slider .img li").length;
+        var imgWidth = 520 * size;
+        $(".slider .img").css("width",imgWidth);
+
+        /*自动轮播*/
+        var t = setInterval(function () { i++; move();},2000);
+
+        /*移动事件*/
+        function move() {
+            //如果下标 = li的长度 去第一张
+            if (i == size) {
+                $(".slider .img").css({ left: 0 });
+                i = 1;
+            }
+            //如果下标 = -1 此时在第一张离开的时候去最后一张 
+            if (i == -1) {
+                $(".slider .img").css({ left: -(size - 1) * 520 });
+                i = size - 2;
+            }
+            $(".slider .img").stop().animate({ left: -i * 520 }, 520);
+            //给圆点加类名
+            if (i == size - 1) { //在克隆的li默认给第一个加类名
+                $(".slider .num li").eq(0).addClass("active").siblings().removeClass("active");
+            } else {
+                $(".slider .num li").eq(i).addClass("active").siblings().removeClass("active");
+            }
+        }
+
+        /*鼠标悬停事件*/
+        $(".slider").hover(function () {
+            clearInterval(t);//鼠标悬停时清除定时器
+        }, function () {
+            t = setInterval(function () { i++; move(); }, 2000); //鼠标移出时清除定时器
+        });
+
+        /*鼠标滑入原点事件*/
+        $(".slider .num li").hover(function () {
+            var index = $(this).index();//获取当前索引值
+            i = index;
+            $(".slider .img").stop().animate({ left: -index * 520 }, 500);
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+
+        /*向左按钮*/
+        $(".slider .btn_l").click(function () {
+            i++;
+            move();
+        })
+        
+        /*向右按钮*/
+        $(".slider .btn_r").click(function () {
+            i--;
+            move();
+        })
+    });
+
+
+</script>

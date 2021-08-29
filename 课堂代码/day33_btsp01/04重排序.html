@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>重排序</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* .container{
+            width: 1000px;
+            height: 100px;
+            background-color: red;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- 重排序 -->
+    <!-- 使用 .order-* class 选择符，可以对 DIV 空间进行 可视化排序,系统提供了.order-1 到.order-12 12 个级别的顺序 -->
+    <!-- 混合使用不写 order-*默认第一个-->
+    <!-- 还可以使用.order-first，快速更改一个顺序到最前面 -->
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col">
+                111
+            </div>
+            <div class="col order-12">
+                222
+            </div>
+            <div class="col order-1">
+                222
+            </div>
+            <div class="col order-first">
+                333
+            </div>
+        </div>
+    </div> -->
+    <!-- 列偏移 -->
+    <!-- 可以使用两种方式进行列偏应：
+    1、使用响应式的.offset-*栅格偏移方法。
+    2、使用边界处理实用程序，它内置了诸如.ml-*、.p-*、.pt-*等实用排工具 -->
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-4" style="background:#007bff;">
+                111
+            </div>
+            <div class="col-4 offset-4" style="background:#28a745;">
+                222
+            </div>
+        </div>
+    </div> -->
+    <!-- 2. Margin 移动布局 -->
+    <!-- 你可以使用.ml-auto 与.mr-auto 来强制隔离两边的距离，实现类水平隔离的效果 -->
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-4" style="background:#007bff;">
+                111
+            </div>
+            <div class="col-4 ml-auto" style="background:#28a745;">
+                222
+            </div>
+        </div>
+    </div> -->
+
+    <!-- 列嵌套 -->
+    <!-- 使用内置的栅格系统将内容再次嵌套，可以通过添加一个新的 .row 元素和一系列 -->
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                111
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4">
+                        222
+                    </div>
+                    <div class="col-md-8">
+                        333
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- 禁用响应式 -->
+    <!-- <div class="container"></div> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                111
+            </div>
+            <div class="col-8">
+                222
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

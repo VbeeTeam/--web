@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- 响应式图片&缩略图处理 -->
+    <!-- 给图片添加.img-fluid 样式，或定义 max-width: 100%、height:auto;样式，
+    即可赋得响应式特性，图片大小会随着父元素大小同步缩放。
+    您可以使用.img-thumbnail 属性来使图片自动被加上一个带圆角且 1px 边界的外框缩略图
+    样式（你也可以使用系统提供的边隙间距方法，如.p-1 再加上边框颜色定义达成）。 -->
+    <!-- <div class="row">
+        <div class="col-lg-4">
+            <img src="img/lg.jpg" alt="" class="img-fluid">
+        </div>
+        <div class="col-lg-4">
+            <img src="img/sm.jpg" alt="" class="w-100 img-fluid">
+        </div>
+        <div class="col-lg-4">
+            <img src="img/lg.jpg" alt="" class="img-thumbnail">
+        </div>
+    </div> -->
+
+    <!-- 图像对齐处理 -->
+    <!-- 对于.block 属性的块状图片，我们也可以使用 浮动定义规范 或 文字对齐规范，来实现对
+    图像的对齐、浮动控制，带.block 块属性的图片，可以自动获得 .mx-auto 的位置对齐属性。 -->
+    <!-- <div class="clearfix" style="border: 1px solid #F00;">
+        <img src="img/sm.jpg" alt="" class="rounded float-left">
+        <img src="img/sm2.jpg" alt="" class="rounded float-right">
+    </div>
+    <div style="border: 1px solid #F00;">
+        <img src="img/sm.jpg" alt="" class="rounded d-block mx-auto">
+    </div> -->
+
+    <!-- Html 5 标准之 Picture 元素
+    HTML5 标准提供了一个全新的<picture> 元素，它可以为 <img>指定多个<source> 定义，
+    请确保在<img> 标签里使用使用.img-* CSS 样式进行定义绑定，而不是仅仅认为引用了
+    <img> 就达成了。 -->
+    <!-- <picture>
+        <source srcset="img/lg.jpg" media="(min-width: 992px)">
+        <source srcset="img/md.jpg" media="(min-width: 576px)">
+        <img src="img/sm.jpg" alt="">
+    </picture> -->
+
+    <!-- 图文框 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <figure class="figure">
+                    <img src="img/lg.jpg" class="figure-img img-fluid rounded" alt="">
+                    <figcaption class="figure-caption text-center">A caption for the above
+                        image.</figcaption>
+                </figure>
+            </div>
+            <div class="col-lg-4">
+                <figure class="figure">
+                    <img src="img/md.jpg" class="figure-img img-fluid rounded" alt="">
+                    <figcaption class="figure-caption text-center">A caption for the above
+                        image.</figcaption>
+                </figure>
+            </div>
+            <div class="col-lg-4">
+                <figure class="figure d-block">
+                    <img src="img/sm.jpg" class="figure-img w-100 img-fluid
+        rounded" alt="">
+                    <figcaption class="figure-caption text-right">A caption for the above
+                        image.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

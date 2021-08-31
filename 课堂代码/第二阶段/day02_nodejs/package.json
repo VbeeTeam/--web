@@ -1,0 +1,18 @@
+{
+  "name": "day02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "包的入口文件.js",
+  "scripts": {
+    "test": "node 包的入口文件.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2"
+  },
+  "devDependencies": {
+    "es-checker": "^1.4.2"
+  }
+}

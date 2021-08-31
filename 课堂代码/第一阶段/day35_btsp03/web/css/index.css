@@ -1,0 +1,40 @@
+.banner{
+    height: 500px;
+}
+footer{
+    background-color: #eee;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    font-size: 14px;
+}
+.footer div{
+    text-align: center;
+    color: #ccc;
+}
+.footer .f_active{
+    color: aqua;
+}
+.footer i{
+    font-size: 2rem;
+}
+.footer span{
+    font-size: 1rem;
+}
+.footer{
+    display: none !important;
+}
+@media (max-width: 800px) {
+    .banner{
+        height: 350px;
+    }
+}
+@media (max-width: 600px) {
+    .banner{
+        height: 260px;
+    }
+}
+@media (max-width: 500px){
+    .footer{
+        display: flex !important;
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "zhangsan" : {
+        "chinese": "100",
+        "math": "140",
+        "english": "149",
+        "summary": "289"
+    },
+    "lisi" : {
+        "chinese": "110",
+        "math": "130",
+        "english": "139",
+        "summary": "229"
+    },
+    "wangwu" : {
+        "chinese": "110",
+        "math": "150",
+        "english": "169",
+        "summary": "219"
+    }
+}

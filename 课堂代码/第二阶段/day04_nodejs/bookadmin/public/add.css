@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrap{
+    width: 500px;
+    height: 320px;
+    background-color: chartreuse;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+h3{
+    line-height: 50px;
+    text-align: center;
+}
+form{
+    text-align: center;
+    font-size: 18px;
+}
+form input{
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}

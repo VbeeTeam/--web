@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.login{
+    width: 400px;
+    height: 250px;
+    background-color: gray;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+.title{
+    font-size: 20px;
+    font-weight: bold;
+    color:aquamarine;
+    text-align: center;
+    line-height: 40px;
+}
+form{
+    margin-top: 30px;
+    text-align: center;
+}
+form label{
+    display: inline-block;
+    width: 100px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+form input{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}

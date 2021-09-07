@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="/static/css/index.css" />
+</head>
+<body>
+   <header>
+       <h3>图书管理系统</h3>
+    </header>
+   <section>
+       <form action="http://localhost:3001/searchBook" method="POST">
+            <label>请输入图书名称：</label>
+            <input type="text" placeholder="请输入图书名称" name="name" value="{{keyword}}"/>
+            <input type="submit" value="搜索" style="margin: 0 15px;"/>
+            <a href="/toAdd">添加图书</a>
+       </form>
+       <table border="1" cellpadding="0" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>作者</th>
+                    <th>分类</th>
+                    <th>描述</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each list}}
+                    <tr>
+                        <td>{{$value.id}}</td>
+                        <td>{{$value.name}}</td>
+                        <td>{{$value.author}}</td>
+                        <td>{{$value.category}}</td>
+                        <td>{{$value.description}}</td>
+                        <td style="width: 300px;"><a href="/toEdit?id={{$value.id}}">修改</a><a href="javascript:del('确定删除该图书吗？', {{$value.id}})">删除</a></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+       </table>
+   </section>
+</body>
+</html>
+<script>
+    function del(mess, id){
+       if(confirm(mess)){
+           location.href = `http://localhost:3001/deleteBook?id=${id}`;
+       }
+    }
+</script>

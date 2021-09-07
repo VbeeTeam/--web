@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.login{
+    padding: 40px;
+    background-color: aqua;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    text-align: center;
+}
+.login h3{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+.login label{
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    margin-right: 20px;
+}
+.login input{
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background-color: #fff;
+}
+.login form input:last-of-type{
+    padding: 10px 20px !important;
+    background-color: coral;
+}

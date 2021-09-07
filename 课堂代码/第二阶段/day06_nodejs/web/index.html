@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <header>
+        <h3>图书管理系统</h3>
+    </header>
+    <section>
+        <form>
+            <label>请输入图书名称：</label>
+            <input id="searchValue" type="text" placeholder="请输入图书名称" name="name" value="" />
+            <input id="searchBtn" type="button" value="搜索" style="margin: 0 15px;" />
+            <a href="add.html">添加图书</a>
+        </form>
+        <table border="1" cellpadding="0" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>作者</th>
+                    <th>分类</th>
+                    <th>描述</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- {{each list}}
+                <tr>
+                    <td>{{$value.id}}</td>
+                    <td>{{$value.name}}</td>
+                    <td>{{$value.author}}</td>
+                    <td>{{$value.category}}</td>
+                    <td>{{$value.description}}</td>
+                    <td style="width: 300px;"><a href="/toEdit?id={{$value.id}}">修改</a><a
+                            href="javascript:del('确定删除该图书吗？', {{$value.id}})">删除</a></td>
+                </tr>
+                {{/each}} -->
+            </tbody>
+        </table>
+
+    </section>
+</body>
+
+</html>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script>
+    var listData = [];
+    // 前后端请求跨域
+    // 1 Access to XMLHttpRequest at 'http://localhost:3000/list' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+    $(function () {
+        //ajax请求渲染列表
+        onload();
+        //ajaxpost请求搜索
+        $("#searchBtn").click(() => {
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/list/search",
+                dataType: 'json',
+                data: "name=" + $("#searchValue").val(),
+                success: (data) => {
+                    console.log("listsearch:", data);
+                    $("tbody").children("tr").remove("tr");
+                    listData = data.data;
+                    listData.forEach((item) => {
+                        $(`<tr><td>${item.id}</td><td>${item.name}</td><td>${item.author}</td><td>${item.category}</td><td>${item.description}</td><td style="width: 300px;"><a href="edit.html?id=${item.id}">修改</a><a href="#" class="del">删除</a></td></tr>`).appendTo($("tbody"));
+                    })
+                },
+                error: () => {
+                    console.log("数据请求失败")
+                }
+            });
+        })
+        //删除
+        $("tbody").on("click", ".del", function () {
+            if (confirm("确定删除吗？")) {
+                //    console.log($(this).parent().parent().index());
+                let index = $(this).parent().parent().index();
+                console.log(listData[index].id);
+                $.ajax({
+                    type: "DELETE",
+                    url: "http://localhost:3000/delete",
+                    dataType: 'json',
+                    data: "id=" + listData[index].id,
+                    success: (data) => {
+                        console.log("del:", data);
+                        $("tbody").children("tr").remove("tr");
+                        onload();
+                    },
+                    error: () => {
+                        console.log("数据请求失败")
+                    }
+                });
+            }
+        })
+        function onload() {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/list",
+                dataType: 'json',
+                success: (data) => {
+                    console.log("list:", data);
+                    listData = data.data;
+                    listData.forEach((item) => {
+                        $(`<tr><td>${item.id}</td><td>${item.name}</td><td>${item.author}</td><td>${item.category}</td><td>${item.description}</td><td style="width: 300px;"><a href="edit.html?id=${item.id}">修改</a><a class="del" href="#">删除</a></td></tr>`).appendTo($("tbody"));
+                    })
+                },
+                error: () => {
+                    console.log("数据请求失败")
+                }
+            });
+        }
+    })
+
+
+</script>

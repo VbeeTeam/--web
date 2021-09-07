@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.content{
+    padding: 30px 50px;
+    background-color: lightgreen;
+    position: fixed;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+.content h3{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.content form{
+    text-align: center;
+}
+.content label{
+    margin-right: 20px;
+}
+.content input{
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+}
+.content input:last-of-type{
+    padding: 10px 15px;
+    background-color: orange;
+}

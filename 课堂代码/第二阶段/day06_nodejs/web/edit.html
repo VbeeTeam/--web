@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改图书</title>
+    <link rel="stylesheet" href="css/changebook.css" />
+</head>
+
+<body>
+    <div class="content">
+        <h3>修改图书</h3>
+        <form>
+            <input type="hidden" name="id" />
+            <label>图书名称</label><input type="text" name="name" /><br /><br />
+            <label>图书作者</label><input type="text" name="author" /><br /><br />
+            <label>图书分类</label><input type="text" name="category" /><br /><br />
+            <label>图书描述</label><input type="text" name="description" /><br /><br />
+            <input id="formId" type="button" value="修改图书" />
+        </form>
+    </div>
+</body>
+
+</html>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script>
+    $(function () {
+        console.log(location.href)
+        var url = location.href;
+        var arr = url.split("?");
+        console.log(arr[1]);
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/list/byId",
+            dataType: 'json',
+            data: arr[1],
+            success: (data) => {
+                console.log("edit:", data);
+                if (data.code == 200) {
+                    var book = data.data;
+                    $("input[name='id']").val(book.id);
+                    $("input[name='name']").val(book.name);
+                    $("input[name='author']").val(book.author);
+                    $("input[name='category']").val(book.category);
+                    $("input[name='description']").val(book.description);
+                }
+            },
+            error: () => {
+                console.log("数据请求失败")
+            }
+        });
+        $("#formId").click(function () {
+            var formArr = $("form").serializeArray();
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/editBook",
+                dataType: 'json',
+                data: {
+                    id: formArr[0].value,
+                    name: formArr[1].value,
+                    author: formArr[2].value,
+                    category: formArr[3].value,
+                    description: formArr[4].value
+                },
+                success: (data) => {
+                    console.log("edit:", data);
+                    if (data.code == 200) {
+                        window.location.href = "index.html";
+                    }
+                },
+                error: () => {
+                    console.log("数据请求失败")
+                }
+            });
+        })
+    })
+</script>

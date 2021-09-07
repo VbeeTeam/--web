@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加图书</title>
+    <link rel="stylesheet" href="css/changebook.css" />
+</head>
+
+<body>
+    <div class="content">
+        <h3>添加图书</h3>
+        <form>
+            <label>图书名称</label><input type="text" name="name" /><br /><br />
+            <label>图书作者</label><input type="text" name="author" /><br /><br />
+            <label>图书分类</label><input type="text" name="category" /><br /><br />
+            <label>图书描述</label><input type="text" name="description" /><br /><br />
+            <input id="addBtn" type="button" value="添加图书" />
+        </form>
+    </div>
+</body>
+
+</html>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script>
+    $("#addBtn").click(() => {
+        console.log($("form").serializeArray());
+        var formArr = $("form").serializeArray();
+        if (formArr[0].value != "" && formArr[1].value != "" && formArr[2].value != "") {
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/addBook",
+                dataType: 'json',
+                data: {
+                    name: formArr[0].value,
+                    author: formArr[1].value,
+                    category: formArr[2].value,
+                    description: formArr[3].value
+                },
+                success: (data) => {
+                    console.log("add:", data);
+                    if (data.code == 200) {
+                        window.location.href = "index.html";
+                    }
+                },
+                error: () => {
+                    console.log("数据请求失败")
+                }
+            });
+        }else{
+            alert("请填写完整的图书进行添加!");
+        }
+    })
+</script>

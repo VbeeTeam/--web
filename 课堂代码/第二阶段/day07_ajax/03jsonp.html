@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>初识Ajax开发</title>
+</head>
+
+<body>
+    <form>
+        用户名：
+        <input type="text" name="username" id="username"><span id="info"></span>
+        <br> 密码：
+        <input type="text" name="password" id="password">
+        <input type="button" value="登录" id="btn">
+    </form>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    window.onload = function () {
+        //回调函数
+        function showData(result) {
+            var data = JSON.stringify(result); //json对象转成字符串
+            
+        }
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            var uname = document.getElementById('username').value;
+            var pw = document.getElementById('password').value;
+            // 步骤一：创建script标签；
+            var script = document.createElement("script");
+            // 步骤二：获取请求url，将请求的参数拼接到url，
+            // var url = "http://localhost:3000/test?id=1&name=2";
+            // 步骤三：在url中添加回调函数
+            var url = "http://localhost:3000/test?id="+ uname +"&name=" + pw;
+            // 步骤四：将url写入到script的src属性，并且将script添加到页面
+            script.setAttribute('src', url);
+            //将创建的新节点添加到BOM树上
+            document.getElementsByTagName("body")[0].appendChild(script);  
+             
+        }
+    }
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>初识Ajax开发</title>
+</head>
+
+<body>
+    <form>
+        用户名：
+        <input type="text" name="username" id="username"><span id="info"></span>
+        <br> 密码：
+        <input type="text" name="password" id="password">
+        <input type="button" value="登录" id="btn">
+    </form>
+</body>
+
+</html>
+<script type="text/javascript">
+    window.onload = function () {
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            var uname = document.getElementById('username').value;
+            var pw = document.getElementById('password').value;
+
+            // 使用Ajax发送请求需要如下几步：
+            // 1、创建XMLHttpRequest对象
+            var xhr = new XMLHttpRequest();
+            // 2、准备发送
+            // 参数一：请求方式（get获取数据；post提交数据）
+            // 参数二：请求地址
+            // 参数三：同步或者异步标志位，默认是true表示异步，false表示同步
+            xhr.open('get', 'http://localhost:3000/test?username=' + uname + '&password=' + pw, true);
+            // 3、执行发送动作
+            xhr.send(null);
+            // 4、指定回调函数
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    // 0  xhr对象初始化
+                    // 1  执行发送动作
+                    // 2  服务器端数据已经完全返回
+                    // 3  数据正在解析
+                    // 4  数据解析完成，可以使用了
+                    if (xhr.status == 200) {
+                        // 200 数据相应正常
+                        // 404 没有找到资源
+                        // 500 服务器端错误
+                        var data = xhr.responseText;
+                        console.log(data);
+                    }
+                }
+            }
+        }
+    }
+</script>

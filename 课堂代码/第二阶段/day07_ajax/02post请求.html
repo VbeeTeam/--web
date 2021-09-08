@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>初识Ajax开发</title>
+</head>
+
+<body>
+    <form>
+        用户名：
+        <input type="text" name="username" id="username"><span id="info"></span>
+        <br> 密码：
+        <input type="text" name="password" id="password">
+        <input type="button" value="登录" id="btn">
+    </form>
+</body>
+
+</html>
+<script type="text/javascript">
+    window.onload = function () {
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            var uname = document.getElementById('username').value;
+            var pw = document.getElementById('password').value;
+
+            // 使用Ajax发送请求需要如下几步：
+            // 1、创建XMLHttpRequest对象
+            var xhr = new XMLHttpRequest();
+            // 2、准备发送
+            xhr.open('post', 'http://localhost:3000/test/pos', true);
+            // post表单设置请求头
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            // 3、执行发送动作
+            xhr.send('username=' + uname + '&password=' + pw);
+            // 4、指定回调函数
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        var data = xhr.responseText;
+                        console.log(data);
+                    }
+                }
+            }
+        }
+    }
+</script>

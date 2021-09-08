@@ -465,9 +465,32 @@ Query OK, 1 rows affected, 1 warnings (0.01 sec)
 ## 读取数据表：
 
 ```js
+查询所有
 select * from runoob_tbl;   返回数据表 runoob_tbl 的所有记录:
 
+条件查询
+and 并且 or或者
 SELECT * from runoob_tbl WHERE author='张三';  返回数据表 runoob_tbl 的作者为张三记录:
+SELECT * from runoob_tbl WHERE author='张三' and sex='T'; 多条件  
+SELECT * from runoob_tbl WHERE author='张三' or sex='T'; 或者
+
+总记录数
+SELECT COUNT(*) FROM student_info;
+
+分页查询
+select * from student_info limit start,num； start：起始位置 num条数;
+
+模糊查询
+SELECT * FROM student_info WHERE name LIKE '%三%'; 
+select * from student_info where name like '%张%' and sex like '%T%';
+
+排序查询
+-- order by  排序 默认为升序
+-- asc  升序
+-- desc 降序
+select *from student_info order by age asc;
+select *from student_info order by age desc;
+
 ```
 
 # MySQL UPDATE 更新

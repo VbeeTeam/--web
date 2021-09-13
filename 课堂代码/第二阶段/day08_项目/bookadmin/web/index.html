@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <h3 class="text-center text-white bg-secondary py-3 m-0">图书管理系统</h3>
+    </header>
+    <section>
+        <form class="form-inline bg-dark d-flex justify-content-center py-3">
+            <div class="form-group mx-sm-3">
+                <label class="text-white mx-3">请输入图书名称搜索</label>
+                <input type="text" class="form-control" id="nameId" placeholder="请输入图书名称">
+            </div>
+            <input class="btn bg-primary text-white" type="button" id="btnId" value="搜索" />
+        </form>
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">序号</th>
+                    <th scope="col">名称</th>
+                    <th scope="col">图片</th>
+                    <th scope="col">作者</th>
+                    <th scope="col">分类</th>
+                    <th scope="col">描述</th>
+                    <th scope="col">操作</th>
+                </tr>
+            </thead>
+            <tbody id="tbId"></tbody>
+        </table>
+    </section>
+</body>
+
+</html>
+<script src="js/jquery3.6.0_min.js"></script>
+<script>
+    // 页面加载完成使用ajax请求图书列表接口渲染图书列表
+    $(function () {
+        // 渲染列表
+        getList();
+        // 搜索图书
+        $("#btnId").click(function () {
+            getList();
+        })
+    })
+    // 公共ajax获取列表方法
+    function getList() {
+        $.ajax({
+            type: 'GET',
+            data: {
+                name: $("#nameId").val()
+            },
+            url: "http://localhost:3000/list",
+            success: function (res) {
+                console.log(res);
+                if (res.code == 200) {
+                    // 追加元素之前删除之前渲染的渲染
+                    $("#tbId tr").remove();
+                    var arr = res.data;
+                    $.each(arr, function (index, item) {
+                        $(`<tr><th scope="row">${item.id}</th><td>${item.name}</td><td>${item.author}</td><td>${item.categroy}</td>
+                            <td>${item.description}</td><td><a href="#">修改</a> | <a href="#">删除</a></td></tr>`).appendTo($("#tbId"));
+                    })
+                }
+            },
+            error: function (err) {
+                console.log("服务器错误")
+            }
+        })
+    }
+
+</script>

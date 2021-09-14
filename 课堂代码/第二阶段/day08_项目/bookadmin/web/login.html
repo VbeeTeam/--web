@@ -27,22 +27,126 @@
         <h3 class="text-center py-2">登录</h3>
         <div class="form-group">
             <label>用户名</label>
-            <input type="email" class="form-control">
-            <small id="emailHelp" class="form-text text-danger">请输入正确的用户名</small>
+            <input type="text" class="form-control" id="userId" name="username" />
+            <small id="toastId1" class="form-text text-danger" style="display: none;">请输入用户名</small>
         </div>
         <div class="form-group">
             <label>密码</label>
-            <input type="password" class="form-control">
-            <small id="emailHelp" class="form-text text-danger">请输入正确的密码</small>
+            <input type="password" class="form-control" id="passId" name="password" />
+            <small id="toastId2" class="form-text text-danger" style="display: none;">请输入的密码在6-18位且必须包含数字、字母、特殊字符</small>
         </div>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input">
             <label class="form-check-label">保存密码</label>
-            <a href="#">去注册</a>
+            <a href="register.html">去注册</a>
         </div>
-        <button type="submit" class="btn btn-primary">登录</button>
+        <input type="button" class="btn btn-secondary bg-primary" id="btnId" value="登录" />
     </form>
 </body>
 
 </html>
 <script src="js/jquery3.6.0_min.js"></script>
+<script>
+
+    $(function(){
+
+        // 页面加载完成之后取出保存的用户名及密码 复选框是否选中
+        var getObj = JSON.parse(localStorage.getItem("bookUser"));
+        console.log(getObj);
+        if(getObj){
+            $("#userId").val(getObj.username);
+            $("#passId").val(getObj.password);
+            $("input[type='checkbox']").prop("checked", getObj.checkboxBoolean);
+        }
+        // 点击登录判断
+        $("#btnId").click(function(){
+            console.log($("#userId").val())
+            console.log($("#passId").val())
+            if($("#userId").val() == "" && $("#passId").val() == ""){
+                $("#toastId1").show();
+                $("#toastId2").show();
+            }else if($("#userId").val() == ""){
+                $("#toastId1").show();
+            }else if($("#passId").val() == ""){
+                $("#toastId2").show();
+            }else{
+                $("#toastId1").hide();
+                checkPassWord();
+            }
+        })
+    })
+
+    // 密码格式：必须包含数字、字母、特殊字符、长度在6-18个字符
+    function checkPassWord(){
+       console.log($("#passId").val()); 
+        // 1.获取用户输入的内容
+        var str = $("#passId").val()
+        // 2.逻辑 
+        // 2.1长度在6-18个字符之间
+        console.log(str.length);
+        // 2.2包含数字
+        var reg = /\d/;
+        var hasNum = false; //通过布尔值判断
+        if(reg.test(str)){
+            hasNum = true;
+        }
+        // 2.3包含字母
+        var reg = /[a-z]/gi;
+        var hasLetter = false;
+        if(reg.test(str)){
+            hasLetter = true;
+        }
+        // 2.4特殊字符
+        var arr = ["$","@","#","&","%","|"];
+        var reg = /[\$@#&%\|]/;
+        var hasSpec = false;
+        if(reg.test(str)){
+            hasSpec = true;
+        }
+        console.log(hasNum,hasLetter,hasSpec)
+        // 3.输出结果
+        if(hasNum && hasLetter && hasSpec && str.length >= 6 && str.length <= 18){
+            $("#toastId2").hide();
+            // 密码符合规则，进行登录
+            console.log($("form").serialize());
+            login();
+        }else{
+            $("#toastId2").show();
+        }
+    }
+    // 封装登录方法 发送ajax请求
+    function login(){
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:3000/login",
+            data: $("form").serialize(),
+            success: function(res){
+                console.log(res)
+                if(res.code == 200){
+                    // 保存密码
+                    // console.log($("input[type='checkbox']").prop("checked"));
+                    if($("input[type='checkbox']").prop("checked")){
+                        var obj = {
+                            username: $("#userId").val(),
+                            password: $("#passId").val(),
+                            checkboxBoolean: true
+                        }
+                        var strObj = JSON.stringify(obj);
+                        localStorage.setItem("bookUser", strObj);
+                    }else{
+                        localStorage.removeItem("bookUser");
+                    }
+                    location.href = "index.html";
+                }else if(res.code == 201){
+                    $("#toastId2").show();
+                    $("#toastId2").text(res.message);
+                }
+            },
+            error: function(error){
+                console.log(err);
+            }
+        })
+    }
+
+
+</script>

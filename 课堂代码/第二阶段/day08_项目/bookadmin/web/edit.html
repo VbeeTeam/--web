@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>修改图书</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
     <style>
-        form{
+        form {
             width: 500px;
             position: fixed;
             left: 50%;
@@ -24,23 +25,137 @@
         <h3 class="text-center py-2">修改图书</h3>
         <div class="form-group">
             <label>图书名称</label>
-            <input type="text"  class="form-control" placeholder="请输入图书名称">
+            <input type="text" class="form-control" placeholder="请输入图书名称" id="nameId" />
+        </div>
+        <div class="form-group">
+            <label>图片</label>
+            <input type="file" name="imgUrl" onchange="changeFile()" id="fileId" />
+            <img width="80" height="80" src="" alt="" id="imgId" />
         </div>
         <div class="form-group">
             <label>图书作者</label>
-            <input type="text" class="form-control" placeholder="请输入图书作者">
+            <input type="text" class="form-control" placeholder="请输入图书作者" id="authorId" />
         </div>
         <div class="form-group">
             <label>图书分类</label>
-            <input type="text"  class="form-control" placeholder="请输入图书分类">
+            <input type="text" class="form-control" placeholder="请输入图书分类" id="categroyId" />
         </div>
         <div class="form-group">
             <label>图书备注</label>
-            <input type="text" class="form-control" placeholder="请输入备注">
+            <input type="text" class="form-control" placeholder="请输入备注" id="descriptionId" />
         </div>
-        <button type="submit" class="btn btn-secondary">修改</button>
+        <input type="button" value="修改" class="btn btn-secondary bg-primary" id="btnId" />
     </form>
+    <div class="container">
+        <div class="text-center toastClass text-white" id="toastId">
+            修改成功！
+        </div>
+    </div>
+    <div class="mask"></div>
+    <div class="spinner-border loading text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
 </body>
 
 </html>
 <script src="js/jquery3.6.0_min.js"></script>
+<script>
+
+    console.log(location.search);
+    let params = location.search;
+    // substring(startIndex, endIndex) 截取字符串
+    let str = params.substring(1);
+    console.log(str);
+    // 将字符串分割成数组  split("=")
+    var arr = str.split("=");
+    console.log(arr);
+    var id = arr[1];
+    // 修改图片
+    let src = "";
+    function changeFile() {
+        console.log("选择了文件")
+        // console.log($("#fileId").files);
+        console.log(document.getElementById("fileId").files);
+        let file = document.getElementById("fileId").files;
+        // 创建读取文件对象
+        let reader = new FileReader();
+        reader.readAsDataURL(file[0]);
+        // 读取数据
+        reader.onload = function () {
+            // console.log(this.result);
+            $("#imgId").show();
+            document.getElementById("imgId").src = this.result;
+            src = this.result;
+            console.log(src)
+        }
+    }
+    $(function () {
+        // 初始化页面渲染详情数据
+        $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:3000/detail",
+            data: {
+                id: id
+            },
+            success: function (res) {
+                console.log(res);
+                var data = res.data;
+                if (res.code == 200) {
+                    $("#nameId").val(data.name);
+                    $("#authorId").val(data.author);
+                    $("#categroyId").val(data.categroy);
+                    $("#descriptionId").val(data.description);
+                    $("#imgId").attr({ src: data.imgUrl });
+                    src = data.imgUrl;
+                }
+            },
+            error: function (err) {
+                console.log("服务器错误");
+            }
+        })
+
+        // 点击修改按钮发送ajax请求
+        $("#btnId").click(function () {
+            // console.log($("#nameId").val())
+            // 加载中弹窗
+            $(".mask").show();
+            $(".loading").show();
+            $.ajax({
+                type: "PUT",
+                url: "http://localhost:3000/update",
+                data: {
+                    name: $("#nameId").val(),
+                    imgUrl: src,
+                    author: $("#authorId").val(),
+                    categroy: $("#categroyId").val(),
+                    description: $("#descriptionId").val(),
+                    id: id
+                },
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 200) {
+                        // 隐藏加载中
+                        $(".mask").hide();
+                        $(".loading").hide();
+                        // 提示框显示
+                        $("#toastId").animate({
+                            top: "100px"
+                        }, 1000, function () {
+                            setTimeout(() => {
+                                // 跳转页面
+                                location.href = "index.html";
+                            }, 1000)
+                        })
+
+                    }
+                },
+                error: function (err) {
+                    console.log("服务器错误")
+                }
+            })
+        })
+
+    })
+
+
+</script>

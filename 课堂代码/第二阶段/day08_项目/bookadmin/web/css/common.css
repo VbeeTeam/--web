@@ -1,0 +1,34 @@
+.toastClass {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    width: 50%;
+    transform: translateX(-50%);
+    padding: 10px 0;
+    background-color: aquamarine;
+}
+
+#messId {
+    display: none;
+}
+
+.mask{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    display: none;
+}
+
+.loading{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -16px;
+    margin-top: -16px;
+    z-index: 2;
+    display: none;
+}

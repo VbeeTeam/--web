@@ -8,6 +8,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var listRouter = require('./routes/list');
 var addRouter = require('./routes/add');
+var delRouter = require('./routes/del');
+var detailRouter = require('./routes/detail');
+var updateRouter = require('./routes/update');
+var loginRouter = require('./routes/login');
+var registerRouter = require('./routes/register');
 
 var app = express();
 
@@ -25,18 +30,24 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
-app.use(express.json({limit: '50mb'}));
+app.use(express.json({limit: "50mb"}));
 app.use(express.urlencoded({
-  limit: '50mb',
+  limit: "50mb",
   extended: false
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 将路由挂载到express上
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/list', listRouter);
 app.use('/add', addRouter);
+app.use('/del', delRouter);
+app.use('/detail', detailRouter);
+app.use('/update', updateRouter);
+app.use('/login', loginRouter);
+app.use('/register', registerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

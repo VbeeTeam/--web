@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+</body>
+</html>
+<script>
+    // var:声明变量的提升
+    // 1.声明的变量可以重复声明
+    // 2.声明的变量可以预解析
+    // 3.声明的变量在块级作用域中，外部可以访问
+    // console.log(num1);
+    var num1 = 123;
+    var num1 = 111;
+    {
+        var numVar = "var声明的";
+        let numLet = "let声明的";
+    }
+    // console.log(numVar);
+    // console.log(numLet);
+    // let：声明变量
+    // 1.声明的变量不可以重复声明
+    // 2.声明的变量不可以预解析
+    // 3.声明的变量在块级作用域中，外部不可以访问,可以将变量保存在块级作用域中
+    // console.log(num2);
+    let num2 = 456;
+    // let num2 = 666;
+
+    var btnDom = document.querySelectorAll("button");
+    for(var i=0;i<btnDom.length;i++){
+        btnDom[i].index = i;
+        btnDom[i].onclick = function(){
+            console.log(this.index);
+        }
+    }
+    
+    
+</script>

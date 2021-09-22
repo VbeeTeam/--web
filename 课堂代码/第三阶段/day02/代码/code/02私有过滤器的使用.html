@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <p>全局过滤：{{ msg | format(msg) }}</p> -->
+        <p>私有过滤:----{{ msg | formatStr(msg) }}</p>
+    </div>
+    <div id="app2">
+        <p>{{ info | formatInfo(info) }}</p>
+        <p>{{ msg2 | format(msg2) }}</p>
+        <!-- 私有过滤器只能在当前实例控制的视图下进行使用，否则报错 -->
+        <!-- <p>使用#app的私有过滤:-----{{ msg2 | formatStr(msg2) }}</p> -->
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    //需求："我是一个好人" =》"我是一个人"
+    // <!-- 全局过滤器在任何vue实例中都可以使用 -->
+    //vue过滤(全局过滤器)
+    // Vue.filter("过滤器的名称（函数名）",function(){})
+    Vue.filter("format", (msg) => {
+        return msg.replace(/好/g, "");
+    })
+    Vue.filter("formatInfo", (info) => {
+        return info.replace(/哈哈/g, "");
+    })
+    //第一个实例
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "我是一个好人好",   
+        },
+        methods: {
+        },
+        //私有过滤器属性
+        filters: {
+            formatStr(msg){
+                return msg.replace(/好/g, "");
+            }
+        }
+    })
+    //第二个实例
+    var vm2 = new Vue({
+        el: "#app2",
+        data: {
+            info: "我是第二个Vue实例哈哈",
+            msg2: "我是一个好人好"
+        }
+    })
+</script>

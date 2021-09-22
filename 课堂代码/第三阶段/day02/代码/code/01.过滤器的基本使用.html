@@ -15,17 +15,21 @@
   </div>
 
   <script>
+    // 过滤器的定义语法
+    // Vue.filter('过滤器的名称', function(){})
+    // 过滤器中的 function ，第一个参数，已经被规定死了，永远都是 过滤器 管道符前面 传递过来的数据
+    /* Vue.filter('过滤器的名称', function (data) {
+      return data + '123'
+    }) */
+
     // 定义一个 Vue 全局的过滤器，名字叫做  msgFormat
     Vue.filter('msgFormat', function (msg, arg, arg2) {
       // 字符串的  replace 方法，第一个参数，除了可写一个 字符串之外，还可以定义一个正则
       return msg.replace(/单纯/g, arg + arg2)
     })
-
     Vue.filter('test', function (msg) {
       return msg + '========'
     })
-
-
     // 创建 Vue 实例，得到 ViewModel
     var vm = new Vue({
       el: '#app',

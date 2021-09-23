@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件2</title>
+</head>
+<body>
+    <div id="app">
+
+        <mycom2></mycom2>
+            
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    //注意：无论是那种方式创建出来的组件，组件的template模板内容必须有且只有一个根元素
+    Vue.component('mycom2', {
+        template: "<div><h3>这是直接使用Vue.component创建出来的组件</h3><span>我是span</span></div>"
+    })
+
+    var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {}
+    })
+
+</script>

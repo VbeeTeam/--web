@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computed</title>
+</head>
+<body>
+    <div id="app">
+        <h3>字符串时时拼接显示</h3>
+        <input type="text" v-model="first" /> +
+        <input type="text" v-model="two" /> =
+        <input type="text" v-model="result" />
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            first: "",
+            two: ""
+        },
+        methods:{},
+        computed: {
+            //在computed中，可以定义属性，这些属性叫做【计算属性】
+            //计算属性的本质就是一个方法，并不会把计算属性当作方法调用
+            //计算属性的求值结果，会被缓存起来，方便下次计算直接调用，如果要计算的属性里的值没有发生任何变化，即使引用这个属性，也不会重新计算
+            'result': function(){
+               return this.first + this.two;
+            }
+        }
+    })
+
+</script>

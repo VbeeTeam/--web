@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件2</title>
+</head>
+<body>
+    <div id="app">
+
+        <mycom1></mycom1>
+        
+    </div>
+
+    <div id="app2">
+        <login></login>
+    </div>
+
+    <template id="tmp1">
+        <div>
+            <h1>这是通过template模板元素在外部定义的组件结构</h1>
+            <h3>结构很清晰，好用！</h3>
+            <span>{{ msg }}</span>
+        </div>
+    </template>
+
+    <template id="login">
+        <div>
+            <h1>这是login私有组件</h1>
+            <h3>结构很清晰，好用！</h3>
+        </div>
+    </template>
+
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    //全局组件
+    Vue.component('mycom1', {
+        template: "#tmp1",
+        //组件可以有自己的data数据
+        //组件中的data和实例中的data不一样，实例中的data写法可以是一个对象，组件中data是一个函数方法，还需要一个返回对象，但是数据使用方法都一样
+        data() {
+            return {
+                msg: "我是组件的数据"
+            }
+        }
+    })
+
+    var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {}
+    })
+
+    var vm2 = new Vue({
+        el: "#app2",
+        data: {},
+        methods: {},
+        components: {
+            //私有组件
+            login: {
+                template: "#login"
+            }
+        }
+    })
+
+</script>

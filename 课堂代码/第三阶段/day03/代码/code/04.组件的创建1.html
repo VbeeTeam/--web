@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件创建1</title>
+</head>
+<body>
+    <div id="app">
+
+        <!-- <my-com1></my-com1> -->
+
+        <mycom1></mycom1>
+
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+
+    //1.创建全局组件
+    var com1 = Vue.extend({
+        //template属性,指定了我们要展示的HTML解构
+        template: "<h3>这是使用Vue.extend创建的组件</h3>"
+    })
+    //1.2调用组件
+    //Vue.component(自定义调用组件的名称, 创建出来的模板对象)
+    //自定义调用组件的名称为驼峰命名法，调用组件时两个单词之间要用 "-"连接，并且改为小写字母
+    // Vue.component("myCom1", com1)
+
+    //合并
+    Vue.component("mycom1", Vue.extend({
+        //template属性,指定了我们要展示的HTML解构
+        template: "<h3>这是使用Vue.extend创建的组件2</h3>"
+    }))
+
+
+
+    var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods:{}
+    })
+
+</script>

@@ -322,14 +322,17 @@ Vue.elementDirective('red-color', {
 + 生命周期钩子 = 生命周期函数 = 生命周期事件
 + 主要的生命周期函数分类：
  - 创建期间的生命周期函数：
+
   	+ beforeCreate：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性
   	+ created：实例已经在内存中创建OK，此时 data 和 methods 已经创建OK，此时还没有开始 编译模板
   	+ beforeMount：此时已经完成了模板的编译，但是还没有挂载到页面中
   	+ mounted：此时，已经将编译好的模板，挂载到了页面指定的容器中显示
  - 运行期间的生命周期函数：
+
  	+ beforeUpdate：状态更新之前执行此函数， 此时 data 中的状态值是最新的，但是界面上显示的 数据还是旧的，因为此时还没有开始重新渲染DOM节点
  	+ updated：实例更新完毕之后调用此函数，此时 data 中的状态值 和 界面上显示的数据，都已经完成了更新，界面已经被重新渲染好了！
  - 销毁期间的生命周期函数：
+
  	+ beforeDestroy：实例销毁之前调用。在这一步，实例仍然完全可用。
  	+ destroyed：Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
 
@@ -346,6 +349,7 @@ Vue.elementDirective('red-color', {
  + 由于浏览器的安全性限制，不允许AJAX访问 协议不同、域名不同、端口号不同的 数据接口，浏览器认为这种访问不安全；
  + 可以通过动态创建script标签的形式，把script标签的src属性，指向数据接口的地址，因为script标签不存在跨域限制，这种数据获取方式，称作JSONP（注意：根据JSONP的实现原理，知晓，JSONP只支持Get请求）；
  + 具体实现过程：
+
  	- 先在客户端定义一个回调方法，预定义对数据的操作；
  	- 再把这个回调方法的名称，通过URL传参的形式，提交到服务器的数据接口；
  	- 服务器数据接口组织好要发送给客户端的数据，再拿着客户端传递过来的回调方法名称，拼接出一个调用这个方法的字符串，发送给客户端去解析执行；
@@ -482,21 +486,6 @@ var vm = new Vue({
       opacity: 0;
       transform: translateX(100px);
     }
-```
-
-### [使用第三方 CSS 动画库](https://cn.vuejs.org/v2/guide/transitions.html#自定义过渡类名)
-1. 导入动画类库：
-```
-<link rel="stylesheet" type="text/css" href="./lib/animate.css">
-```
-2. 定义 transition 及属性：
-```
-<transition
-	enter-active-class="fadeInRight"
-    leave-active-class="fadeOutRight"
-    :duration="{ enter: 500, leave: 800 }">
-  	<div class="animated" v-show="isshow">动画哦</div>
-</transition>
 ```
 
 ### 使用动画钩子函数

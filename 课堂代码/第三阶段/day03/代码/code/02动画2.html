@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        /**
+        * enter -- 动画进入之前的时间段,元素起始的状态
+        * leave-to -- 动画离开之后，终止的状态
+        */
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(150px);
+        }
+
+        /**
+        *  fade -- 被控制的transition的name名
+        *  enter-active -- 动画入场的时间段
+        *  leave-active -- 动画离场的时间段
+        */
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.5s ease;
+        }
+
+        .my-enter,
+        .my-leave-to{
+            opacity: 0;
+            transform: translatey(80px);
+        }
+
+        .my-enter-active,
+        .my-leave-active {
+            transition: all 0.5s ease;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="show = !show">
+            Toggle-X
+        </button>
+        <!-- name="fade" name名可以自定义如果没有name名可以使用V-控制类名 -->
+        <transition>
+            <p v-if="show">hello</p>
+        </transition>
+
+        <br />
+
+        <button v-on:click="show2 = !show2">
+            Toggle2-Y
+        </button>
+        <!-- name="fade" name名可以自定义如果没有name名可以使用V-控制类名 -->
+        <transition name="my">
+            <p v-if="show2">hello</p>
+        </transition>
+
+    </div>
+</body>
+
+</html>
+<script src="./vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            show: false,
+            show2: true
+        },
+        methods: {}
+    })
+</script>

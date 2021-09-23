@@ -244,9 +244,6 @@ Vue.component('account', {
   </script>
 ```
 
-## 评论列表案例
-目标：主要练习父子组件之间传值
-
 ## 使用 `this.$refs` 来获取元素和组件
 ```
   <div id="app">
@@ -415,76 +412,7 @@ var register = Vue.extend({
   </script>
 ```
 
-## 命名视图实现经典布局
-1. 标签代码结构：
-```
-<div id="app">
-    <router-view></router-view>
-    <div class="content">
-      <router-view name="a"></router-view>
-      <router-view name="b"></router-view>
-    </div>
-  </div>
-```
-2. JS代码：
-```
-<script>
-    var header = Vue.component('header', {
-      template: '<div class="header">header</div>'
-    });
 
-    var sidebar = Vue.component('sidebar', {
-      template: '<div class="sidebar">sidebar</div>'
-    });
-
-    var mainbox = Vue.component('mainbox', {
-      template: '<div class="mainbox">mainbox</div>'
-    });
-
-    // 创建路由对象
-    var router = new VueRouter({
-      routes: [
-        {
-          path: '/', components: {
-            default: header,
-            a: sidebar,
-            b: mainbox
-          }
-        }
-      ]
-    });
-
-    // 创建 Vue 实例，得到 ViewModel
-    var vm = new Vue({
-      el: '#app',
-      data: {},
-      methods: {},
-      router
-    });
-  </script>
-```
-3. CSS 样式：
-```
-  <style>
-    .header {
-      border: 1px solid red;
-    }
-
-    .content{
-      display: flex;
-    }
-    .sidebar {
-      flex: 2;
-      border: 1px solid green;
-      height: 500px;
-    }
-    .mainbox{
-      flex: 8;
-      border: 1px solid blue;
-      height: 500px;
-    }
-  </style>
-```
 
 ## `watch`属性的使用
 考虑一个问题：想要实现 `名` 和 `姓` 两个文本框的内容改变，则全名的文本框中的值也跟着改变；（用以前的知识如何实现？？？）
@@ -630,13 +558,6 @@ var register = Vue.extend({
 1. `computed`属性的结果会被缓存，除非依赖的响应式属性变化才会重新计算。主要当作属性来使用；
 2. `methods`方法表示一个具体的操作，主要书写业务逻辑；
 3. `watch`一个对象，键是需要观察的表达式，值是对应回调函数。主要用来监听某些特定数据的变化，从而进行某些具体的业务逻辑操作；可以看作是`computed`和`methods`的结合体；
-
-## `nrm`的安装使用
-作用：提供了一些最常用的NPM包镜像地址，能够让我们快速的切换安装包时候的服务器地址；
-什么是镜像：原来包刚一开始是只存在于国外的NPM服务器，但是由于网络原因，经常访问不到，这时候，我们可以在国内，创建一个和官网完全一样的NPM服务器，只不过，数据都是从人家那里拿过来的，除此之外，使用方式完全一样；
-1. 运行`npm i nrm -g`全局安装`nrm`包；
-2. 使用`nrm ls`查看当前所有可用的镜像源地址以及当前所使用的镜像源地址；
-3. 使用`nrm use npm`或`nrm use taobao`切换不同的镜像源地址；
 
 ## 相关文件
 1. [URL中的hash（井号）](http://www.cnblogs.com/joyho/articles/4430148.html)

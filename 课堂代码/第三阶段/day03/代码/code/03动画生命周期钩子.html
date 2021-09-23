@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color:  yellow;
+            position: absolute;
+            left: 130px;
+            top: 520px;
+        }
+    </style>
+</head>
+
+<body>
+   <div id="app">
+        <input type="button" value="按钮" @click="flag = !flag" />
+        <transition
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter"
+        >
+            <div class="content" v-show="flag"></div>
+        </transition>
+
+        <div id="box">购物车</div>
+   </div>
+</body>
+
+</html>
+<script src="./vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            flag: false
+        },
+        methods: {
+            //el:表示要执行动画的那个dom元素，可以认为他是通过ById(id)拿到
+            //动画入场之前，也就是动画还未开始
+            //可以在这个生命周期设置球球的起始位置
+            beforeEnter(el) {
+                el.style.transform = "translate(0, 0)"
+            },
+            //动画正在执行
+            enter(el, done) {
+                //可以认为强制获取刷新动画
+                el.offsetWidth
+
+                el.style.transform = "translate(150px, 500px)"
+                el.style.transition = "all 1s ease"
+                //done可以说是afterEnter函数的引用
+                done()
+            },
+            //动画完成
+            afterEnter(){
+                this.flag = !this.flag
+            }
+        }
+    })
+
+
+</script>

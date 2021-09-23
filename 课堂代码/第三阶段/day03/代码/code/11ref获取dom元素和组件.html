@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ref</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="ref获取组件" @click="getComponent" />
+        <h3 ref="myh3">哈哈，今天天气好！</h3>
+        <login ref="mylogin"></login>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    var login = {
+        template: '<h1>登录组件</h1>',
+        data() {
+            return {
+                msg: "child data"
+            }
+        },
+        methods: {
+            show() {
+                console.log("我是子组件的方法")
+            }
+        }
+    }
+    var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+            getComponent() {
+                //结论：ref是获取组件的方法，通过this.$refs.组件名来获取组件及相关属性方法及数据、文本
+                console.log("mylogin:", this.$refs.mylogin)
+                this.$refs.mylogin.show()
+                console.log("myloginData:",this.$refs.mylogin.msg)
+                console.log("myh3:", this.$refs.myh3.innerText)
+                console.log("myloginText:",this.$refs.mylogin.$el.innerText)
+            }
+        },
+        components: {
+            login
+        }
+    })
+
+</script>

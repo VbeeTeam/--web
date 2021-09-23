@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路由的基本使用</title>
+    <style>
+        .active {
+            color: tomato;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/father">父组件</router-link>
+
+
+        <!-- 组件容器，用于匹配显示的组件 -->
+        <transition mode="out-in">
+            <router-view></router-view>
+        </transition>
+    </div>
+    <template id="box">
+        <div>
+            <h1>这是父组件</h1>
+            <!-- 跳转组件页面 -->
+            <router-link to="/father/login">登录</router-link>
+            <router-link to="/father/register">注册</router-link>
+
+            <!-- 组件容器，用于匹配显示的组件 -->
+            <transition mode="out-in">
+                <router-view></router-view>
+            </transition>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="./vue.js"></script>
+<script src="./vue-router.js"></script>
+<script>
+    //创建一个父组件
+    var father = {
+        template: "#box"
+    }
+
+    // 创建页面级组件
+    // 登录组件(子组件)
+    var login = {
+        template: "<h3>这是登录页面</h3>"
+
+    }
+
+    // 注册组件（子组件）
+    var register = {
+        template: "<h3>这是注册页面</h3>"
+
+    }
+
+    //创建一个路由对象
+    var router = new VueRouter({
+        routes: [ //配置路由规则的数组 //redirect路由重定向 可以指定根路径的页面
+            {
+                path: "/father",
+                component: father,
+                children: [{
+                        path: "login",
+                        component: login
+                    },
+                    {
+                        path: "register",
+                        component: register
+                    }
+                ]
+            }
+
+        ],
+        linkActiveClass: "active" //点击组件链接时的样式类名
+    })
+
+    var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+
+        },
+        router
+    })
+</script>

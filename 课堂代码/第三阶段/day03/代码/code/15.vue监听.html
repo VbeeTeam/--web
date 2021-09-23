@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="app">
+        <h3>字符串时时拼接显示</h3>
+        <input type="text" v-model="first" @keyup="getresult" /> +
+        <input type="text" v-model="two" @keyup="getresult"/> =
+        <input type="text" v-model="result" />
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            first: "",
+            two: "",
+            result: ""
+        },
+        methods: {
+            getresult() {
+                this.result = this.first + this.two;
+            },
+           
+        }
+    })
+</script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路由的基本使用</title>
+    <style>
+        .active {
+            color: tomato;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .v-enter, 
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(150px);
+        }
+
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.5s ease;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 跳转html页面 -->
+        <!-- <a href="a.html">a</a>
+        <a href="b.html">b</a> -->
+        <!-- 跳转组件页面 -->
+        <router-link to="/login">登录</router-link>
+        <router-link to="/register">注册</router-link>
+
+        <!-- 组件容器，用于匹配显示的组件 -->
+        <transition mode="out-in">
+            <router-view></router-view>
+        </transition>
+        
+    </div>
+</body>
+
+</html>
+<script src="./vue.js"></script>
+<script src="./vue-router.js"></script>
+<script>
+    // 创建页面级组件
+    // 登录组件
+    var login = {
+        template: "<h3>这是登录页面</h3>",
+         
+        //组件销毁之前
+        beforeDestroy() {
+            console.log("beforeDestroy", 1)
+        },
+        //组件销毁之后 用于清除组件清空定时器，删除dom监听
+        destroyed() {
+            console.log("destroyed", 2)
+        }
+    }
+
+    // 注册组件
+    var register = {
+        template: "<h3>这是注册页面</h3>"
+    }
+
+    //创建一个路由对象
+    var router = new VueRouter({
+        routes: [ //配置路由规则的数组 //redirect路由重定向 可以指定根路径的页面
+            {
+                path: "/",
+                redirect: "/register"
+            },
+            {
+                path: "/login",
+                component: login
+            },
+            {
+                path: "/register",
+                component: register
+            }
+        ],
+        linkActiveClass: "active" //点击组件链接时的样式类名
+    })
+
+    var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {},
+        // router: router
+        router
+    })
+</script>

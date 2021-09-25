@@ -13,6 +13,7 @@ module.exports = {
         // 打包之后输出的文件名
         filename: "build.js"
     },
+    target: ['web', 'es5'],
     //  插件配置打包html
     // html-webpack-plugin
     // defer 属性规定是否对脚本执行进行延迟，直到页面加载为止。

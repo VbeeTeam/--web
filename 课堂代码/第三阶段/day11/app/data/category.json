@@ -1,0 +1,469 @@
+{
+    "resultCode":200,
+    "message":"SUCCESS",
+    "data":[
+        {
+            "goodsId":15,
+            "sellingPrice":1,
+            "goodsName":"家电 数码 手机",
+            "secondLevelCategoryVOS":[
+                {
+                    "goodsId":17,
+                    "parentId":15,
+                    "sellingPrice":2,
+                    "goodsName":"家电",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":20,
+                            "sellingPrice":3,
+                            "goodsName":"生活电器",
+                            "goodsCoverImg": "https://image3.suning.cn/uimg/cms/img/158814610028564786.png"
+                        },
+                        {
+                            "goodsId":110,
+                            "sellingPrice":3,
+                            "goodsName":"家用电器",
+                            "goodsCoverImg": "https://image1.suning.cn/uimg/cms/img/158563960546644155.png"
+                        },
+                        {
+                            "goodsId":21,
+                            "sellingPrice":3,
+                            "goodsName":"厨房电器",
+                            "goodsCoverImg": "https://image4.suning.cn/uimg/cms/img/155834533402087655.jpg"
+                        },
+                        {
+                            "goodsId":22,
+                            "sellingPrice":3,
+                            "goodsName":"扫地机器人",
+                            "goodsCoverImg": "https://uimgproxy.suning.cn/uimg1/pcpv/pcpv/iwogh/2021/04/25/18/iwoghBannerPicture/rTF0aEGH7E1619347503338.png_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":23,
+                            "sellingPrice":3,
+                            "goodsName":"吸尘器",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/ol0ayH2uP-dHAFQ8hLKefw.jpg_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":24,
+                            "sellingPrice":3,
+                            "goodsName":"取暖器",
+                            "goodsCoverImg": "https://uimgproxy.suning.cn/uimg1/pcpv/pcpv/2021/04/17/16/iwoghBannerPicture/YSMTWr8o931618648278421.png_160w_160h_4e"
+                        },
+                        {
+                            "goodsId":25,
+                            "sellingPrice":3,
+                            "goodsName":"豆浆机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/cnDzpSsFMCZeUVpMRCBrGw.jpg_160w_160h_4e"
+                        },
+                        {
+                            "goodsId":26,
+                            "sellingPrice":3,
+                            "goodsName":"暖风机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/atmosphere/gO8gS4Gb1eldXaUB8J9Uug.png_160w_160h_4e"
+                        },
+                        {
+                            "goodsId":27,
+                            "sellingPrice":3,
+                            "goodsName":"加湿器",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/R0BgKugRfVmoYWdTmbt-NQ.jpg_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":28,
+                            "sellingPrice":3,
+                            "goodsName":"蓝牙音箱",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/szdOyIs7Hmk100Ourwk6Ig.jpg_374w_374h_4e_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":29,
+                            "sellingPrice":3,
+                            "goodsName":"烤箱",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/atmosphere/9uscGdkCvSkbQ4HIf-JOwg.png_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":30,
+                            "sellingPrice":3,
+                            "goodsName":"卷发器",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/atmosphere/39H2rt_4GHaY67lnzx2I5g.png_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":31,
+                            "sellingPrice":3,
+                            "goodsName":"空气净化器",
+                            "goodsCoverImg": "https://uimgproxy.suning.cn/uimg1/pcpv/pcpv/iwogh/2021/04/18/16/iwoghBannerPicture/dWWXIJUTT51618734424930.png_120w_120h_4e"
+                        }
+                    ]
+                },
+                {
+                    "goodsId":18,
+                    "parentId":15,
+                    "sellingPrice":2,
+                    "goodsName":"数码",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":32,
+                            "sellingPrice":3,
+                            "goodsName":"游戏主机",
+                            "goodsCoverImg": "https://uimgproxy.suning.cn/uimg1/pcpv/pcpv/2021/04/17/16/iwoghBannerPicture/i4HFXrUkp21618648975980.png_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":43,
+                            "sellingPrice":3,
+                            "goodsName":"二手手机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/g374lqNn5i7TYYUqTlCUYw.png_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":33,
+                            "sellingPrice":3,
+                            "goodsName":"数码精选",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/SD406tSN0blJYSmTDZGIhg.jpg_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":34,
+                            "sellingPrice":3,
+                            "goodsName":"平板电脑",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/NtG2xOAeRyHEXupF4EocgA.jpg_374w_374h_4e_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":35,
+                            "sellingPrice":3,
+                            "goodsName":"苹果 Apple",
+                            "goodsCoverImg": "https://uimgproxy.suning.cn/uimg1/pcpv/pcpv/iwogh/2021/04/26/20/iwoghBannerPicture/dbIYGMENgU1619438522977.png_160w_160h_4e"
+                        },
+                        {
+                            "goodsId":36,
+                            "sellingPrice":3,
+                            "goodsName":"电脑主机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/zn3ko2y1BJn3e3-RZig0qg.jpg_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":37,
+                            "sellingPrice":3,
+                            "goodsName":"数码相机",
+                            "goodsCoverImg": "https://imgservice3.suning.cn/uimg1/b2c/image/foWdKC98NeVy8vmYsSi64g.jpg_400w_400h_4e"
+                        },
+                        {
+                            "goodsId":38,
+                            "sellingPrice":3,
+                            "goodsName":"电玩动漫",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/6fSHLit2pu8ozGq1hCYqOA.jpg_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":39,
+                            "sellingPrice":3,
+                            "goodsName":"单反相机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/huexNlyPOoRyLfqjGv87iA.jpg_374w_374h_4e_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":40,
+                            "sellingPrice":3,
+                            "goodsName":"键盘鼠标",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/0AhUEaWNtLf5g9JkbVSF7g.jpg_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":41,
+                            "sellingPrice":3,
+                            "goodsName":"无人机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/k6azAPVC5Vn1Xb0ZTuWEgg.jpg_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":42,
+                            "sellingPrice":3,
+                            "goodsName":"二手电脑",
+                            "goodsCoverImg": "https://oss.suning.com/adpp/creative_kit/material/picture/20210422-00108c50cfd147839be3d51ceff51fc02c6c31bb682f42b1.jpg?format=200w_200h_2e_120w_120h_4e"
+                        }
+                    ]
+                },
+                {
+                    "goodsId":19,
+                    "parentId":15,
+                    "sellingPrice":2,
+                    "goodsName":"手机",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":45,
+                            "sellingPrice":3,
+                            "goodsName":"荣耀手机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/atmosphere/mEPnoEtxdZ3fMpYdu6kw7A.png_160w_160h_4e"
+                        },
+                        {
+                            "goodsId":46,
+                            "sellingPrice":3,
+                            "goodsName":"华为手机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/atmosphere/x8awLRpylMIJf88TIRsgZg.png_160w_160h_4e"
+                        },
+                        {
+                            "goodsId":49,
+                            "sellingPrice":3,
+                            "goodsName":"华为 P30",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/ChRww-SuaeHAf-9TUQllAA.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":44,
+                            "sellingPrice":3,
+                            "goodsName":"iPhone 11",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/79Kfmh5qDOGkYjDxVbMOmQ.jpg_160w_160h_4e"
+                        },
+                        {
+                            "goodsId":47,
+                            "sellingPrice":3,
+                            "goodsName":"苹果 iPhone",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/CuGIJNRYLtmq5IjiiE-l3g.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":48,
+                            "sellingPrice":3,
+                            "goodsName":"华为 Mate 20",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/ijFOvq2rak3XpLgJL7_BQg.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":51,
+                            "sellingPrice":3,
+                            "goodsName":"小米手机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/LWSAD-q3gtdyS7smOmgvlg.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":53,
+                            "sellingPrice":3,
+                            "goodsName":"OPPO",
+                            "goodsCoverImg": "https://uimgproxy.suning.cn/uimg1/pcpv/pcpv/2021/04/17/16/iwoghBannerPicture/0dMhFLMjAf1618648444336.png_200w_200h_4e_374w_374h_4e_160w_160h_4e"
+                        },
+                        {
+                            "goodsId":54,
+                            "sellingPrice":3,
+                            "goodsName":"一加",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/WcI5vXIzYTgYPBLV7kH7Lw.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":55,
+                            "sellingPrice":3,
+                            "goodsName":"小米 MIX",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/1cnsxzIOTT8Tyz8FgK02lg.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":56,
+                            "sellingPrice":3,
+                            "goodsName":"Reno",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/TH8XlCvirHnZaLXSk-wU8w.png_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":57,
+                            "sellingPrice":3,
+                            "goodsName":"vivo",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/Mrn77_Sf-_8IzYCL7QfXRw.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":58,
+                            "sellingPrice":3,
+                            "goodsName":"手机以旧换新",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/wxlaGXC6gJcj1tMDErCBNw.jpg_160w_160h_4e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "goodsId":16,
+            "sellingPrice":1,
+            "goodsName":"女装 男装 穿搭",
+            "secondLevelCategoryVOS":[
+                {
+                    "goodsId":67,
+                    "parentId":16,
+                    "sellingPrice":2,
+                    "goodsName":"女装",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":76,
+                            "sellingPrice":3,
+                            "goodsName":"外套",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/IjDNn33zrJXQQUrluE5t0Q.jpg_160w_160h_4e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "goodsId":61,
+            "sellingPrice":1,
+            "goodsName":"家具 家饰 家纺",
+            "secondLevelCategoryVOS":[
+                {
+                    "goodsId":70,
+                    "parentId":61,
+                    "sellingPrice":2,
+                    "goodsName":"家具",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":77,
+                            "sellingPrice":3,
+                            "goodsName":"沙发",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/cYGEIUhRvMZfStMqoUGZ0g.jpg_60w_60h_4e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "goodsId":59,
+            "sellingPrice":1,
+            "goodsName":"运动 户外 乐器",
+            "secondLevelCategoryVOS":[
+                {
+                    "goodsId":73,
+                    "parentId":59,
+                    "sellingPrice":2,
+                    "goodsName":"运动",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":78,
+                            "sellingPrice":3,
+                            "goodsName":"跑鞋",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/6hk-GqMBosBa-DpNRymQ7g.jpg_60w_60h_4e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "goodsId":60,
+            "sellingPrice":1,
+            "goodsName":"游戏 动漫 影视",
+            "secondLevelCategoryVOS":[
+                {
+                    "goodsId":79,
+                    "parentId":60,
+                    "sellingPrice":2,
+                    "goodsName":"游戏",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":82,
+                            "sellingPrice":3,
+                            "goodsName":"游戏机",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/As4MyX4AKx7nrboFn-qO3w.jpg_160w_160h_4e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "goodsId":62,
+            "sellingPrice":1,
+            "goodsName":"美妆 清洁 宠物",
+            "secondLevelCategoryVOS":[
+                {
+                    "goodsId":83,
+                    "parentId":62,
+                    "sellingPrice":2,
+                    "goodsName":"美妆",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":86,
+                            "sellingPrice":3,
+                            "goodsName":"口红",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/riK5TqW7Ww6MEpbAgm7xKA.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":104,
+                            "sellingPrice":3,
+                            "goodsName":"睫毛膏",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/6uljug6BAvHp3Y8pJ6ZWCQ.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":103,
+                            "sellingPrice":3,
+                            "goodsName":"腮红",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/SX0zYudBfrPmC6wSVGpTBA.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":102,
+                            "sellingPrice":3,
+                            "goodsName":"粉底",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/MX3uXZ8RxdhOg41q-25f7A.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":101,
+                            "sellingPrice":3,
+                            "goodsName":"隔离霜",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/rizhissczEAezHkGZQeY_Q.jpg_120w_120h_4e"
+                        },
+                        {
+                            "goodsId":100,
+                            "sellingPrice":3,
+                            "goodsName":"美白",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/96lpGigWK6zr2mPNoLTuKw.jpg_60w_60h_4e"
+                        },
+                        {
+                            "goodsId":99,
+                            "sellingPrice":3,
+                            "goodsName":"气垫",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/JxWw29mxxdNP4COSuHxvaQ.jpg_60w_60h_4e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "goodsId":63,
+            "sellingPrice":1,
+            "goodsName":"工具 装修 建材",
+            "secondLevelCategoryVOS":[
+                {
+                    "goodsId":87,
+                    "parentId":63,
+                    "sellingPrice":2,
+                    "goodsName":"工具",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":90,
+                            "sellingPrice":3,
+                            "goodsName":"转换器",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/RqGD6mQI7cFLjvmet3I2xA.jpg_60w_60h_4e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "goodsId":66,
+            "sellingPrice":1,
+            "goodsName":"鞋靴 箱包 配件",
+            "secondLevelCategoryVOS":[
+                {
+                    "goodsId":95,
+                    "parentId":66,
+                    "sellingPrice":2,
+                    "goodsName":"鞋靴",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":98,
+                            "sellingPrice":3,
+                            "goodsName":"休闲鞋",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/T3yavtO497HRj4rxobEFNg.jpg_60w_60h_4e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "goodsId":65,
+            "sellingPrice":1,
+            "goodsName":"玩具 孕产 用品",
+            "secondLevelCategoryVOS":[
+                {
+                    "goodsId":115,
+                    "parentId":65,
+                    "sellingPrice":2,
+                    "goodsName":"玩具",
+                    "thirdLevelCategoryVOS":[
+                        {
+                            "goodsId":116,
+                            "sellingPrice":3,
+                            "goodsName":"机器人",
+                            "goodsCoverImg": "https://imgservice.suning.cn/uimg1/b2c/image/d-X_T9Ozi50_3n0vFUIneQ.jpg_60w_60h_4e"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

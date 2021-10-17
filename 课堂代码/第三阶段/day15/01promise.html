@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btnId">点击</button>
+</body>
+
+</html>
+<script>
+
+    // 点击按钮进行随机取数 1-100
+    // 1-30为中奖 否则不中奖
+
+    var btn = document.getElementById("btnId")
+
+    btn.onclick = function () {
+        var num = parseInt(Math.random() * 100);
+        console.log(num)
+        // 异步
+        // setTimeout(() => {
+        //     if (num < 30) {
+        //         alert("恭喜您，中奖了")
+        //     } else {
+        //         alert("再接再力")
+        //     }
+        // }, 1000)
+        // resolve 解析成功
+        // reject 拒绝失败
+        var p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (num < 30) {
+                    // alert("恭喜您，中奖了")
+                    resolve(num)
+                } else {
+                    // alert("再接再力")
+                    reject(num)
+                }
+            }, 1000)
+        })
+        // 通过then进行回调调用
+        // p.then((n)=>{
+        //     alert("恭喜您，中奖了" + n)
+        // }, (err)=>{
+        //     alert("再接再力" + err)
+        // })
+        // 简略写法
+        p.then((n) => {
+            alert("恭喜您，中奖了" + n)
+        }).then(() => {
+            alert("哈哈")
+        }).then(() => {
+            alert("呵呵")
+        }).catch((err) => {
+            alert("再接再力" + err)
+        })
+
+    }
+
+
+</script>

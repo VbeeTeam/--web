@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>07_component_state</title>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/javascript" src="js/react.development.js"></script>
+<script type="text/javascript" src="js/react-dom.development.js"></script>
+<script type="text/javascript" src="js/babel.min.js"></script>
+
+<script type="text/babel">
+  /*
+  需求: 自定义组件, 功能说明如下
+    1. 显示h2标题, 初始文本为: 你爱我
+    2. 点击标题更新为: 我爱你，蜜雪冰城甜蜜蜜
+  */
+  class Like extends React.Component {
+    constructor (props) {  //固定参数
+      super(props)  //继承父类构造函数
+      // 初始化状态
+      this.state = {
+        isLikeMe: true
+      }
+      // 将新增方法中的绑定this为组件对象
+      this.change = this.change.bind(this)
+    }
+    
+    //新增的方法：内部的this不是组件对象，而是undefined
+    change () {
+      // 更新状态: this.setState()
+    //  this.state.isLikeMe = !this.state.isLikeMe // 不能更新更新某个状态
+      this.setState({
+        isLikeMe: !this.state.isLikeMe
+      })
+    }
+    //重写组件类的方法
+    render () {
+      console.log(this)
+      const text = this.state.isLikeMe ? '你爱我' : '我爱你，蜜雪冰城甜蜜蜜'
+      return <h2 onClick={this.change}>{text}</h2>
+    }
+  }
+  ReactDOM.render(<Like />, document.getElementById('example'))
+</script>
+</body>
+</html>
+

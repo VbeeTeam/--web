@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React初体验</title>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
+
+<script src="js/react.development.js"></script>
+<script src="js/react-dom.development.js"></script>
+<!-- 语法转换器 -->
+<script src="js/babel.min.js"></script>
+
+<!-- 加载我们的 React 组件。-->
+<script type="text/babel">
+    // 由于，React官方，发现，如果直接让用户手写 JS 代码创建元素，用户会疯掉的，然后，用户就开始寻找新的前端框架了，于是，
+    // React 官方，就提出了一套 JSX 语法规范，能够让我们在 JS 文件中，书写类似于 HTML 那样的代码，快速定义虚拟DOM结构；
+    // 如果要直接使用 JSX 语法，需要先安装相关的 语法转换工具
+
+     //1.创建虚拟dom
+    var myTitle = "标题";
+
+    var myDiv = <div>
+        我是jsx语法创建的div
+        <h1>我是标题</h1>
+        <div title={myTitle}>我是div</div>
+    </div>
+    //2.渲染虚拟dom
+    ReactDOM.render(myDiv, document.getElementById("box"));
+
+</script>

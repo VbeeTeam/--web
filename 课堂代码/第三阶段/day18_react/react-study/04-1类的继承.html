@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 人=》父类
+    // 学生=》子类
+    // 医生=》子类
+    // 父类
+    class Person{
+        constructor(name, age, sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        eat(){
+            console.log(this.name + "在吃饭")
+        }
+    }
+    // 子类 学生继承人的类 extends =>继承父类的方法及属性
+    class Student extends Person{
+        constructor(name, age, sex, score){
+            super(name, age, sex); //调用父类构造函数
+            // 私有属性
+            this.score = score;
+        }
+        // 原型上的私有方法
+        study(){
+            console.log(this.name + "喜欢看书");
+        }
+    }
+    var s = new Student("张三", 20, "男", 100);
+    s.eat();
+    s.study();
+    console.log(s);
+    // 子类 医生继承父类人
+    class Doctor extends Person{
+        constructor(name, age, sex, skill){
+            super(name, age, sex);
+            //私有属性
+            this.skill = skill;
+        }
+        work(){
+            console.log(this.name + this.skill);
+        }
+    }
+    var d = new Doctor("喜来乐", 50, "男", "会号脉");
+    d.eat();
+    d.work();
+    console.log(d);
+    // 跟原型继承、构造函数继承、组合继承对比之下，
+    // ES6类与继承更加的具有说服力，在使用层次上ES6的继承与子类设置父类属性方法上比ES5的更加方便
+</script>

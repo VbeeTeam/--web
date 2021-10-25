@@ -27,4 +27,6 @@ export const addCountSync = (data, time) => {
     }
 }
 
+export const changeNum = (data) => ({type: 'change', data})
+
 

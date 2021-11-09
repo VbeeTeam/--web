@@ -1,0 +1,51 @@
+<!--pages/study/study.wxml-->
+<!-- 绝对路径 -->
+<!-- image默认宽高320*240 -->
+<!-- <view>
+    <image mode="scaleToFill" src="/images/md.jpg"></image>
+</view>
+<view>
+    <image mode="aspectFit" src="/images/md.jpg"></image>
+</view>
+<view>
+    <image mode="aspectFill" src="/images/md.jpg"></image>
+</view>
+<view>
+    <image class="imageFix" mode="widthFix" src="/images/md.jpg"></image>
+</view>
+<view>
+    <image mode="left" src="/images/md.jpg"></image>
+</view> -->
+<!-- <image src="../../images/about.png"></image> -->
+<icon type="success" size="30" color="#ccc" />
+<icon type="success_no_circle" size="30" />
+<icon type="download" size="30" />
+<swiper indicator-dots indicator-color="#ccc" previous-margin="20px" next-margin="20px" indicator-active-color="red" autoplay interval="2000" circular vertical>
+    <swiper-item>
+        <image mode="widthFix" src="//m.360buyimg.com/mobilecms/s700x280_jfs/t1/207331/7/8270/56794/61860438Ec80e7aa4/90c2a930dc2cf403.jpg!cr_1053x420_4_0!q70.jpg.dpg" />
+    </swiper-item>
+    <swiper-item>
+        <image mode="widthFix" src="//m.360buyimg.com/mobilecms/s700x280_jfs/t1/181068/13/16622/771845/6102a71aE15dbe36e/c7f4953bb30e1efe.png!cr_1053x420_4_0!q70.jpg.dpg" />
+    </swiper-item>
+    <swiper-item>
+        <image mode="widthFix" src="//m.360buyimg.com/mobilecms/s700x280_jfs/t1/170942/38/23409/67916/6179326cE7918cad1/31cf4ebed9539838.jpg!cr_1053x420_4_0!q70.jpg.dpg" />
+    </swiper-item>
+</swiper>
+<radio-group bindchange="radioChange">
+    <radio value="1">男</radio>
+    <radio value="2">女</radio>
+    <radio value="3">第三性别</radio>
+</radio-group>
+<checkbox-group bindchange="checkboxChange">
+    <checkbox value="j">饺子</checkbox>
+    <checkbox value="y">羊肉泡馍</checkbox>
+    <checkbox value="d">大盘鸡</checkbox>
+</checkbox-group>
+<button type="primary">按钮</button>
+<button type="warn" size="mini">按钮</button>
+<button type="primary" open-type="share">share转发</button>
+<button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getphonenumber">获取用户手机号</button>
+<button type="primary" open-type="getUserInfo" bindgetuserinfo="getuserinfo">获取用户信息</button>
+<button type="primary" open-type="openSetting">openSetting</button>
+<button type="primary" open-type="feedback">feedback</button>
+<button type="primary" open-type="contact">contact打开客服</button>

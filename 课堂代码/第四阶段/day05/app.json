@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/about/about",
+    "pages/my/my",
+    "pages/study/study",
+    "pages/router/router",
+    "pages/week/week",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#cccccc",
+    "navigationBarTitleText": "小菜鸟",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#012021"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/indexSelect.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "关于",
+        "iconPath": "images/about.png",
+        "selectedIconPath": "images/selectAbout.png"
+      },
+      {
+        "pagePath": "pages/router/router",
+        "text": "路由",
+        "iconPath": "images/about.png",
+        "selectedIconPath": "images/selectAbout.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/selectMy.png"
+      }
+    ],
+    "color": "#cdcdcd",
+    "selectedColor": "#1296db"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

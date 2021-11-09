@@ -1,0 +1,15 @@
+<!--pages/my/my.wxml-->
+<!-- 微信小程序中input组件默认是没有样式的 -->
+<!-- 事件传参要使用自定义属性来操作，不能直接写在方法里 -->
+<input type="text" bindinput="inputEvent" data-num="1" />
+<view>{{ msg }}</view>
+<input type="number" bindconfirm="inputConfirm"/>
+<view bindtap="clickEvent">点击我</view>
+
+<rich-text nodes="{{htmlContent}}"></rich-text>
+<rich-text nodes="{{htmlArray}}"></rich-text>
+
+<view class="box"></view>
+<view class="wrap" hover-class="activeView"></view>
+
+<text user-select space="nbsp" decode="{{false}}">我是      文本</text>

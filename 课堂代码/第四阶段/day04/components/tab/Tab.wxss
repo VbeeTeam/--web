@@ -1,0 +1,11 @@
+/* components/tab/Tab.wxss */
+.tab{
+   display: flex;
+   justify-content: space-around;
+}
+.active{
+    color: red;
+    font-weight: bold;
+    border-bottom: 2px solid red;
+    padding-bottom: 5px;
+}

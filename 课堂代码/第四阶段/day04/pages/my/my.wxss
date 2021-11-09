@@ -1,0 +1,23 @@
+/* pages/my/my.wxss */
+/* 导入外部样式，只支持相对路径 */
+@import "../../common.wxss";
+input{
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+/* 开发过程中设计稿的宽度一般是750px，rpx =》 1px = 1rpx
+    如果是375px的设计稿 rpx => 1px = 0.5rpx
+*/
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+.wrap{
+    width: 200rpx;
+    height: 200rpx;
+    background-color: aqua;
+}
+.activeView{
+    background: blue;
+}

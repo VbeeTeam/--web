@@ -1,0 +1,38 @@
+<!--pages/about/about.wxml-->
+<!-- 1.text标签相当于web布局里的span，它是一个行内元素 -->
+<!-- 2.view标签相当于web布局里的div，它是一个块状元素 -->
+<text>text标签1</text>
+<text>text标签2</text>
+<view>我是一个view</view>
+<view>我是一个view</view>
+<!-- 渲染data里的数据到模板 -->
+<view>{{ msg }}</view>
+<view>{{ num + 5 }}</view>
+<view>{{ boo ? "easy" : "noEasy" }}</view>
+<!-- 自定义属性 -->
+<view data-num="id-{{ num }}">自定义属性</view>
+<!-- 复选框 -->
+<checkbox checked="{{boo}}">复选框</checkbox>
+<!-- wx:if 判断语句显示隐藏 -->
+<view wx:if="{{num > 50}}">我是一个大大的view</view>
+<view wx:elif="{{ num > 30 }}">我是一个中等的view</view>
+<view wx:else>我是一个小view</view>
+<!-- hidden=false显示 =true隐藏 -->
+<view hidden="{{boo}}">我是性能较好的显示隐藏666</view>
+<view hidden="{{!boo}}">我是性能较好的显示隐藏000</view>
+<!-- wx:for="{{数组}}" -->
+<view wx:for="{{eatList}}" wx:key="id">
+   {{index}} -- {{item.name}}
+</view>
+<view>===================================</view>
+<view wx:for="{{eatList}}" wx:for-item="it" wx:for-index="ix" wx:key="id">
+   外层数组：{{ix}} -- {{it.name}}
+   <view wx:for="{{it.arr}}" wx:for-item="it2" wx:for-index="ix2" wx:key="ix2">
+   {{ix2}} == {{it2}}
+   </view>
+</view>
+<!-- block标签是一个占位标签，不会在文档中形成dom元素 -->
+<block>
+    <view>666大拇指</view>
+    <view>999皮炎平</view>
+</block>

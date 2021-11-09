@@ -1,0 +1,21 @@
+<!--pages/router/router.wxml-->
+<view>页面跳转</view>
+<!-- redirect:关闭页面记录堆栈，关闭当前页面记录 -->
+<navigator url="/pages/study/study" open-type="redirect">redirect跳转到study</navigator>
+<!-- 只有用特定的方法才可以跳转到tab配置页：switchTab -->
+<!-- 在tab配置页上进行互相跳转是不能返回的，因为小程序内部将tab配置页都作为了第一层页面记录，默认是互相返回的 -->
+<navigator url="../index/index" open-type="switchTab">跳转到首页</navigator>
+<!-- reLaunch：关闭页面堆栈，关闭所有页面记录 -->
+<navigator url="/pages/study/study" open-type="reLaunch">reLaunch跳转到study</navigator>
+<!-- 不关闭记录 -->
+<navigator url="/pages/study/study">跳转study</navigator>
+<view>==============</view>
+<button type="primary" bindtap="toAbout">跳转tab</button>
+<button type="primary" bindtap="toStudy">跳转study</button>
+<button type="primary" bindtap="toMy">跳转我的</button>
+<button type="primary" bindtap="toStudy2">跳转学习</button>
+<view>=============</view>
+<!-- 子组件接收父组件的参数，通过bind（子组件映射的事件名称）= "自定义接收方法" -->
+<Tab list="{{tabList}}" bindtoFather="fromTab">
+   <block>{{ tabList[tabIndex] }}</block>
+</Tab>

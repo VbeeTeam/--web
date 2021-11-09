@@ -1,0 +1,10 @@
+<!--components/tab/Tab.wxml-->
+<view class="tab">
+    <block wx:for="{{list}}" wx:key="index">
+        <text class="{{ index == clickIndex ? 'active' : '' }}" bindtap="clickTab" data-index="{{index}}">{{ item }}</text>
+    </block>
+</view>
+<view class="content">
+    <!-- slot插槽占位符 -->
+     <slot></slot>
+</view>

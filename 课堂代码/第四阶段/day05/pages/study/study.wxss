@@ -1,0 +1,17 @@
+/* pages/study/study.wxss */
+view{
+    width: 100%;
+    height: 500rpx;
+    border: 1px solid black;
+}
+/* image{
+    width: 100%;
+    height: 500rpx;
+    border: 1px solid black;
+} */
+.imageFix{
+    width: 250px;
+}
+swiper image{
+    width: 100%;
+}

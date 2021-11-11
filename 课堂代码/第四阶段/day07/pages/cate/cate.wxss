@@ -1,0 +1,60 @@
+/* pages/cate/cate.wxss */
+.cate{
+  display: flex;
+}
+.cate_left{
+  width: 170rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.cate_left view{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+.cate_left view{
+  font-size: 25rpx;
+  color: #2d2d2d;
+}
+.active{
+  background-color: #eeeeee;
+  color: #de8f80;
+  border-left: 12rpx solid #de8f80;
+}
+.cate_right{
+  width: 580rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.banner{
+  width: 528rpx;
+  height: 186rpx;
+  margin: 30rpx 25rpx;
+}
+.product_list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.product_list image{
+  width: 130rpx;
+  height: 130rpx;
+  display: block;
+}
+.product_list view{
+  width: 130rpx;
+  margin-left: 50rpx;
+  margin-bottom: 50rpx;
+  text-align: center;
+}
+.product_list view text{
+  font-size: 20rpx;
+  color: #727272;
+}
+.loading{
+  text-align: center;
+  padding: 30rpx 0;
+  color: #ccc;
+  font-size: 35rpx;
+}

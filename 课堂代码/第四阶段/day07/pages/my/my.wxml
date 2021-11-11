@@ -1,0 +1,4 @@
+<!--pages/my/my.wxml-->
+<text>pages/my/my.wxml</text>
+<button bindtap="bindGetuserinfo">获取用户信息</button>
+<button bindtap="clickBtn">点击</button>

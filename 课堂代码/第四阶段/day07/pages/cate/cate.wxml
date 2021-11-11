@@ -1,0 +1,21 @@
+<!--pages/cate/cate.wxml-->
+<view class="cate">
+  <view class="cate_left">
+    <block wx:for="{{cateTab}}" wx:key="index">
+      <view class="{{index == clickIndex ? 'active' : ''}}" bindtap="clickTab" data-index="{{index}}">{{ item }}</view>
+    </block>
+  </view>
+  <view class="cate_right">
+    <image class="banner" src="{{product_list[0].product_img}}" />
+    <view class="product_list">
+      <block wx:for="{{product_list}}" wx:key="product_id">
+        <view>
+          <image src="{{item.product_img}}" />
+          <text>{{ item.product_name }}</text>
+        </view>
+      </block>
+    </view>
+    <view class="loading" hidden="{{loadingBoolean}}">加载中...</view>
+    <view class="loading" hidden="{{noHavaBoolean}}">没有更多了</view>
+  </view>
+</view>

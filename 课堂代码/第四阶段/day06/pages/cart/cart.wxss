@@ -101,3 +101,19 @@
   justify-content: center;
   align-items: center;
 }
+checkbox .wx-checkbox-input {
+  border-radius: 50%;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+  border: 1rpx solid #000000;
+  background: #000000;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  font-weight: bold;
+  font-size:30rpx; /* 对勾大小 30rpx */
+  color:#fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}

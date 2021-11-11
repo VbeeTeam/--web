@@ -1,0 +1,49 @@
+<!--pages/cart/cart.wxml-->
+<view class="content">
+  <view class="content_top">
+    <text>共2件商品</text>
+    <text>更改配送方式 > </text>
+  </view>
+  <view class="cart_list">
+    <block wx:for="{{cart_list}}" wx:key="cart_id">
+      <view class="list_box">
+        <view class="list">
+          <checkbox-group bindchange="checkChange" data-index="{{index}}">
+            <checkbox checked="{{item.checked}}" value="{{item.cart_id}}"></checkbox>
+          </checkbox-group>
+          <image src="{{item.cart_img}}" />
+          <view class="list_right">
+            <view class="list_title">
+              {{ item.title }}
+            </view>
+            <view class="list_style">
+              {{ item.style }}
+            </view>
+            <view class="list_price">
+              <text class="price">￥{{ item.price }}</text>
+              <view class="step">
+                <text bindtap="reduce" data-index="{{index}}">-</text>
+                <text>{{ item.num}}</text>
+                <text bindtap="add" data-index="{{index}}">+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="list_bot">
+          快速配送
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="cart_total">
+    <checkbox-group bindchange="allCheckChange">
+      <checkbox checked="{{allBoolean}}">全选</checkbox>
+    </checkbox-group>
+    <view class="total">
+      <text>合计：</text>
+      <text>￥{{totalMoney}}</text>
+    </view>
+    <view class="btn" bindtap="toMoney">立即结算</view>
+  </view>
+</view>

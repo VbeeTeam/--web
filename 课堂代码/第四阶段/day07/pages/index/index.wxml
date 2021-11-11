@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="search" bindtap="toSearch">
+  <image src="/images/search.jpg" />
+</view>
+<view class="nav">
+  <view bindtap="toSao">
+    <image src="/images/saoyisao.jpg" />
+    <text>扫码购</text>
+  </view>
+  <view>
+    <button open-type="contact">
+      <image src="/images/info.jpg" />
+      <text>客服</text>
+    </button>
+  </view>
+  <view>
+    <image src="/images/score.jpg" />
+    <text>积分兑换</text>
+  </view>
+  <view>
+    <button open-type="share">
+      <image src="/images/share.jpg" />
+      <text>分享</text>
+    </button>
+  </view>
+</view>
+<view class="banner">
+  <image mode="widthFix" src="/images/banner.jpg" />
+</view>
+<view class="money">
+  <image src="/images/1.jpg" />
+  <image src="/images/2.jpg" />
+  <image src="/images/3.jpg" />
+</view>
+<view class="img">
+  <image mode="widthFix" src="/images/4.jpg" />
+</view>

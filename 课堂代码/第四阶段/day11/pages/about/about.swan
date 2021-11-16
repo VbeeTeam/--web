@@ -1,0 +1,14 @@
+<view class="container">
+    <!--to do-->
+    hello!
+    <button open-type="share">分享</button>
+    <button open-type="getUserInfo" bindgetuserinfo="getUser">获取用户信息</button>
+    <button open-type="getPhoneNumber" bindgetphonenumber ="getPhone">获取用户手机号</button>
+    <button open-type="openSetting">打开设置</button>
+    <button open-type="login" bindlogin="toLogin">登录</button>
+    <button open-type="contact" bindcontact="toContact">客服</button>
+    <button open-type="chooseAddress" bindchooseaddress ="toAddress">地址</button>
+    <button open-type="chooseInvoiceTitle" bindchooseinvoicetitle  ="toTitle">发票</button>
+    <button open-type="subscribe">订阅</button>
+    <view hidden="{{true}}">ok</view>
+</view>

@@ -1,0 +1,33 @@
+{
+    "pages": [
+        "pages/about/about",
+        "pages/index/index"
+
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#cccccc",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "智能小程序",
+        "backgroundColorTop": "#ccc"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath":"/images/smartapp.png",
+                "selectedIconPath":"/images/smartapp.png"
+        },
+            {
+                "pagePath": "pages/about/about",
+                "text": "详情",
+                "iconPath":"/images/smartapp.png",
+                "selectedIconPath":"/images/smartapp.png"
+            }
+        ],
+        "backgroundColor" : "#ffffff",
+        "borderStyle": "white",
+        "color": "#000",
+        "selectedColor": "#6495ED"
+    }
+}

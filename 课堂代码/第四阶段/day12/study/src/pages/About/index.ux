@@ -1,0 +1,236 @@
+<import name="my-com" src="../../components/mycom.ux"></import>
+<template>
+  <div class="wrapper">
+    <text class="title">{{ title }}</text>
+    <text>sampleName: {{ name }}</text>
+    <my-com model:sample-name="{{name}}"></my-com>
+    <text id="box">我是text</text>
+    <a href="http://www.bai.com">百度</a>
+    <text id="box">我是text</text>
+    <text id="box2">我是text</text>
+    <text id="box3">我是text</text>
+    <!-- 方式1：默认$item代表数组中的元素, $idx代表数组中的索引 -->
+    <div class="tutorial-row" for="{{list}}" tid="uniqueId">
+      <text>{{ $idx }}.{{ $item.name }}</text>
+    </div>
+    <!-- 方式2：自定义元素变量名称 -->
+    <div class="tutorial-row" for="value in list" tid="uniqueId">
+      <text>{{ $idx }}.{{ value.name }}</text>
+    </div>
+    <!-- 方式3：自定义元素、索引的变量名称 -->
+    <div
+      class="tutorial-row"
+      for="(personIndex, personItem) in list"
+      tid="uniqueId"
+    >
+      <text>{{ personIndex }}.{{ personItem.name }}</text>
+    </div>
+    <text if="{{display}}">Hello-1</text>
+    <text elif="{{display}}">Hello-2</text>
+    <text else>Hello-3</text>
+    <text show="{{visible}}">Hello</text>
+    <a href="/pages/Demo?key=Hello, world!">Demo页</a>
+    <a href="/">跳转到首页</a>
+    <a href="tel:10086">调起电话</a>
+    <a href="sms:10086">调起短信</a>
+    <a href="mailto:example@xx.com">调起邮件</a>
+    <input
+      class="btn"
+      type="button"
+      value="跳转到接收参数页面"
+      onclick="routePagePush"
+    />
+    <input
+      class="btn"
+      type="button"
+      value="跳转到接收参数页面，当前页面无法返回"
+      onclick="routePageReplace"
+    />
+    <input
+      class="btn"
+      type="button"
+      value="返回上一页"
+      onclick="routePageBack"
+    />
+    <input
+      class="btn"
+      type="button"
+      value="清空页面记录，仅保留当前页面"
+      onclick="routePageClear"
+    />
+    <text onclick="{{click1}}">点击1</text>
+    <text @click="click2()">点击2</text>
+  </div>
+</template>
+
+<script>
+// 导入模块
+import router from '@system.router'
+export default {
+
+  // 快应用页面数据model
+  private: {
+    title: '欢迎体验快应用开发2',
+    list: [
+      { name: 'aa', uniqueId: 1 },
+      { name: 'bb', uniqueId: 2 },
+      { name: 'cc', uniqueId: 3 }
+    ],
+    display: false,
+    visible: true,
+    name: "demo sample"
+  },
+  click1() {
+    console.log(1)
+  },
+  click2() {
+    console.log(2)
+  },
+  click3() {
+    console.log(3)
+  },
+  routePagePush() {
+    // 跳转到应用内的某个页面
+    router.push({
+      uri: '/pages/Demo',
+      params: { key: 111 }
+    })
+  },
+  routePageReplace() {
+    // 跳转到应用内的某个页面，当前页面无法返回
+    router.replace({
+      uri: '/pages/Demo'
+    })
+  },
+  routePageBack() {
+    // 返回上一页面
+    router.back()
+  },
+  routePageClear() {
+    // 清空所有历史页面记录，仅保留当前页面
+    router.clear()
+  },
+  // 表示页面初始化ViewModel的数据已经准备好，可以开始使用页面中的数据
+  onInit() {
+    console.log("onInit:", this.title)
+  },
+  // 表示ViewModel的模板已经编译完成，可以开始获取 DOM 节点（如：this.$element(idxxx)）
+  onReady() {
+    console.info(`触发：onReady`)
+    console.info(`执行：获取模板节点：${this.$element("box")}`)
+    console.info(`执行：获取模板节点：${this.$rootElement()}`)
+    this.testAsync()
+  },
+  /**
+   * 测试Async
+   */
+  testAsync() {
+    // Promise 被传递给一个 await 操作符，await 将等待 Promise 正常处理完成并返回其处理结果。
+    function testAwait(x) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(x);
+        }, 1000);
+      });
+    }
+    async function helloAsync() {
+      var x = await testAwait("hello world");
+      console.log(x);
+    }
+    helloAsync();
+    // hello world
+  },
+  // 页面显示
+  onShow() {
+    console.info(`触发：onShow`)
+    console.info(`执行：获取页面显示状态属性：${this.$visible}`)  // true
+
+    // 页面被切换显示时，从数据中检查是否有页面B传递来的数据
+    const data = this.$app.getAppData('dataFromB')
+    if (data && data.destPageName === 'pageA') {
+      // 获取回传给本页面的数据
+      this.msg = data.params && data.params.msg
+      console.log(this.msg)
+    }
+  },
+  // 页面隐藏
+  onHide() {
+    // <a href="http://www.bai.com">百度</a>
+    console.info(`触发：onHide`)
+    console.info(`执行：获取页面显示状态属性：${this.$visible}`)  // false
+  },
+  // 页面销毁
+  onDestroy() {
+    console.info(`触发：onDestroy`)
+    console.info(`执行：页面要被销毁，销毁状态：${this.$valid}，应该做取消接口订阅监听的操作: geolocation.unsubscribe()`)    // true，即将销毁
+    setTimeout(function () {
+      console.info(`执行：页面已被销毁，不会执行`)                // 页面已销毁，不会执行
+    }.bind(this), 0)
+  },
+  // 当用户点击返回实体按键、左上角返回菜单时触发该事件
+  onBackPress() {
+    console.info(`触发：onBackPress`)
+  },
+  // 当用户点击右上角菜单触发该事件
+  onMenuPress() {
+    console.log("点击右上角菜单")
+  },
+  // 监听页面重新打开
+  // 如果快应用当前页面和打开的分享页面相同，在打开快应用时候，
+  // 跳转到分享页时，onRefresh触发
+  onRefresh() {
+    console.log('page refreshed!!!')
+  },
+  // 监听页面是否触顶
+  onReachTop() {
+    console.log("页面触顶")
+  },
+  // 监听页面是否触底
+  onReachBottom() {
+    console.log('页面到底底部')
+  },
+  // 监听页面滚动
+  onPageScroll(evt) {
+    console.log(`页面滚动距离：${evt.scrollTop}`)
+  }
+}
+</script>
+
+<style lang="less">
+.wrapper {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  text-align: center;
+  color: #212121;
+}
+text {
+  height: 100px;
+}
+#box {
+  width: 750px;
+  height: 200px;
+  background-color: red;
+}
+#box2 {
+  width: 360dp;
+  height: 360dp;
+  background-color: blue;
+}
+#box3 {
+  width: 50%;
+  height: 100px;
+  background-color: blue;
+}
+.wrapper {
+  flex-direction: column;
+  .tutorial-row {
+    width: 85%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #00ffff;
+  }
+}
+</style>

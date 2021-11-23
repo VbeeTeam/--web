@@ -1,0 +1,60 @@
+<script>
+/**
+ * 应用级别的配置，供所有页面公用
+ */
+
+const $utils = require('./helper/utils').default
+const $apis = require('./helper/apis').default
+
+/* @desc: 注入方法至全局 global,以便页面调用 */
+const hook2global = global.__proto__ || global
+hook2global.$utils = $utils
+hook2global.$apis = $apis
+
+export default {
+  // 监听应用创建,应用创建时调用
+  onCreate() {
+    console.info('APP创建Application onCreate')
+     // 初始化 app 缓存的数据
+      this.dataCache = {}
+  },
+  /**
+     * 获取 app 缓存的数据
+     * @param key
+     */
+    getAppData (key) {
+      return this.dataCache[key]
+    },
+    /**
+     * 设置 app 缓存的数据
+     * @param key
+     * @param val
+     */
+    setAppData (key, val) {
+      this.dataCache[key] = val
+    },
+  // 监听应用收到一个外部的打开新页面的请求，别的应用打开本应用
+  onRequest() {
+    console.info('Application onRequest')
+  },
+  // 监听应用返回前台,应用返回前台时调用
+  onShow() {
+    console.info('Application onShow')
+  },
+  // 监听应用退到后台,应用退到后台时调用
+  onHide() {
+    console.info('Application onHide')
+  },
+  // 监听应用销毁,应用销毁时调用
+  onDestroy() {
+    console.info('Application onDestroy')
+  },
+  // 监听应用报错,应用捕获异常时调用
+  onError() {
+    console.log('Application onError')
+  },
+  // 监听页面跳转的异常，当页面跳转异常时，将会收到错误回调
+  onPageNotFound(params) {
+  }
+}
+</script>

@@ -1,0 +1,30 @@
+<template>
+  <div class="wrapper">
+    <text class="title">{{ title }}</text>
+     <input type="text" value="{{sampleName}}" @change="$emit('update:sampleName', evt.value)"></input>
+  </div>
+</template>
+
+<script>
+export default {
+  data: {
+    title: "Hello World. Quickapp Component."
+  },
+  
+  props: ['sampleName'],
+  
+  onInit() {}
+}
+</script>
+
+<style>
+.wrapper {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  text-align: center;
+  color: #212121;
+}
+</style>
